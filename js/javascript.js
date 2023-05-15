@@ -1,16 +1,37 @@
 //
 //btn-left
+var countBTNL=0;
 $(".btn-left img").on("click", function() {
-    $( this ).css("filter","brightness(200%)");
+    countBTNL++;
+    if (countBTNL % 2 == 0){
+    $(this).css("filter","brightness(100%)");
+    }
+    else{
+        $(this).css("filter","brightness(200%)");
+    }
 });
 //btn-right
+var countBTNR=0;
 $(".btn-right img").on("click", function() {
-    $( this ).css("filter","brightness(200%)");
+    countBTNR++;
+    if (countBTNR % 2 == 0){
+    $(this).css("filter","brightness(100%)");
+    }
+    else{
+        $(this).css("filter","brightness(200%)");
+    }
 });
 
 //btn auto-focus
+var countAFOCUS=0;
 $("#autofocus-btn").on("click", function() {
-    $(this).css("filter","brightness(200%)");
+    countAFOCUS++;
+    if (countAFOCUS % 2 == 0){
+    $(this).css("filter","brightness(100%)");
+    }
+    else{
+        $(this).css("filter","brightness(200%)");
+    }
 });
 
 //Fire-mode
@@ -25,18 +46,59 @@ $("#CONT").on("click", function(){
 $("#BRST").on("click", function(){
     $("#fire-mode__btn").css("rotate","0deg");  
 });
-var count=0;
-$(".on-off__btn img").on("click", function(){
-    count++;
-    console.log(count);
-    if (count % 2 == 0){
-    $(this).css("rotate","180deg");
-    $("#span-LRF").css("background-color","#0DFF0B");
-    }
-    else{
+
+//LRF
+var countLRF=0;
+$(".on-off__LRF img").on("click", function(){
+    countLRF++;
+    if (countLRF % 2 == 0){
         $(this).css("rotate","0deg");
         $("#span-LRF").css("background-color","gray");
     }
-
+    else{
+        $(this).css("rotate","180deg");
+        $("#span-LRF").css("background-color","#0DFF0B");
+    }  
 });
 
+//OVER
+var countOVER=0;
+$(".on-off__OVER img").on("click", function(){
+    countOVER++;
+    if (countOVER % 2 == 0){
+        $(this).css("rotate","0deg");
+        $("#span-OVER").css("background-color","gray");
+    }
+    else{
+        $(this).css("rotate","180deg");
+        $("#span-OVER").css("background-color","#0DFF0B");
+    }  
+});
+
+//MOVE
+var countMOVE=0;
+$(".on-off__MOVE img").on("click", function(){
+    countMOVE++;
+    if (countMOVE % 2 == 0){
+        $(this).css("rotate","0deg");
+        $("#span-MOVE").css("background-color","gray");
+    }
+    else{
+        $(this).css("rotate","180deg");
+        $("#span-MOVE").css("background-color","#0DFF0B");
+    }  
+});
+
+//FIRE
+var countFIRE=0;
+$(".on-off__FIRE img").on("click", function(){
+    countFIRE++;
+    if (countFIRE % 2 == 0){
+        $(this).css("rotate","0deg");
+        $("#span-FIRE").css("background-color","gray");
+    }
+    else{
+        $(this).css("rotate","180deg");
+        $("#span-FIRE").css("background-color","#FF562F");
+    }  
+});

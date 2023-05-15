@@ -41,10 +41,10 @@
 
                 <div class="led led-left">
                   <div class="row">
-                    <div class="btn btn-l col-6">
+                    <div id="btn-LRF" class="btn btn-l col-6">
                       <div style="margin-bottom:40px;">
                         <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn">
+                        <div class="on-off__btn on-off__LRF">
                           <img src="img/on-off-btn.png">
                         </div>
                       </div>
@@ -52,14 +52,14 @@
                         style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
                       <h5>LRF</h5>
                     </div>
-                    <div class="btn btn-l col-6">
+                    <div id="btn-OVER" class="btn btn-l col-6">
                       <div style="margin-bottom:40px;">
                         <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn">
+                        <div class="on-off__btn on-off__OVER">
                           <img src="img/on-off-btn.png">
                         </div>
                       </div>
-                      <span
+                      <span id="span-OVER" class="span-btn"
                         style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
                       <h5>OVER</h5>
                     </div>
@@ -83,25 +83,25 @@
                 <!-- RIGHT BUTTON -->
                 <div class="led led-right">
                   <div class="row">
-                    <div class="btn btn-r col-6">
+                    <div id="btn-MOVE" class="btn btn-r col-6">
                       <div style="margin-bottom:40px;">
                         <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn">
+                        <div class="on-off__MOVE on-off__btn">
                           <img src="img/on-off-btn.png">
                         </div>
                       </div>
-                      <span
+                      <span id="span-MOVE" class="span-btn"
                         style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
                       <h5>MOVE</h5>
                     </div>
-                    <div class="btn btn-r col-6">
+                    <div id="btn-FIRE" class="btn btn-r col-6">
                       <div style="margin-bottom:40px;">
                         <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn">
+                        <div class="on-off__FIRE on-off__btn">
                           <img src="img/on-off-btn.png">
                         </div>
                       </div>
-                      <span
+                      <span id="span-FIRE" class="span-btn"
                         style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
                       <h5>FIRE</h5>
                     </div>
@@ -116,7 +116,8 @@
               </div>
 
               <!-- BOTTOM -->
-              <div class="bottom-btn col-12" style="display: flex;justify-content: space-around;margin-top: 60px;">
+              <div class="col-3" style="transform: translateY(100px);"></div>
+              <div class="bottom-btn col-6" >
                 <div class="row">
                   <div class="switch switch-left col-3">
                     <span class="plus-minus__btn">
@@ -155,6 +156,7 @@
                   </div>
                 </div>
               </div>
+              <div class="col-3" style="transform: translateY(100px);"></div>
             </div>
 
           </div>

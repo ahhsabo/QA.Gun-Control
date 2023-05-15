@@ -61,7 +61,7 @@ h5{
     display: block;
 }
 
-.on-off__btn{
+.on-off__btn img{
     width: 30px;
 }
 
@@ -73,7 +73,7 @@ h5{
 .bottom-btn{
     display: flex;
     justify-content: space-around;
-    margin-top: 80px;
+    margin-top: 60px;
 }
 .bottom-btn img{
     display: block;
