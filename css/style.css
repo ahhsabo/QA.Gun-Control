@@ -1,0 +1,91 @@
+.btn{
+    display: flex;
+    flex-direction: column;
+}
+
+h5{
+    color: #fff;
+    font-size: 13px;
+    margin-top: 2px;
+    text-align: center;
+}
+.screen{
+    display: flex;
+    justify-content: center;
+}
+.simulation{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.btn-left img{
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-right img{
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+.btn-left{
+    margin: 65px 0 0 20px;
+}
+
+.btn-right{
+    margin: 65px 0 0 34px;
+}
+
+.led-left{
+    margin: 60px 0 0 30px;
+}
+
+.led-right{
+    margin: 60px 0 0 18px;
+}
+
+.red-btn{
+    padding-bottom: 15px;
+    display: block;
+    margin:0 auto;
+}
+
+.led-mode{
+    display: block;
+    margin:0 auto;
+}
+
+.center-btn{
+    width: 240px;
+    padding-left: 30px;
+    display: block;
+}
+
+.on-off__btn{
+    width: 30px;
+}
+
+.on-off__btn{
+    display: block;
+    margin:0 auto;
+}
+
+.bottom-btn{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 80px;
+}
+.bottom-btn img{
+    display: block;
+    margin:0 auto;
+}
+
+.bottom-btn .col-3{
+    padding:0;
+}
+
+.plus-minus__btn h5{
+    font-size:18px;
+    margin:0;
+}
+

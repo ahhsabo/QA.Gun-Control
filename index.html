@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Console Simulation</title>
+  <!-- File Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- CSS tùy chỉnh của bạn ở dưới này -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div class="shark" style="width:100%; height:auto;">
+    <div class="container">
+      <div class="row">
+
+      <div class="screen col-12">
+        <img src="/img/Màn hình.png">
+      </div>  
+
+      <div class="simulation col-12">
+      <!-- LEFT JOYSTICK -->
+      <div class="left-joystick">
+        <img src="img/Ljoystick.png">
+      </div>
+
+      <!-- BẢNG ĐIỀU KHIỂN -->
+      <div class="console-simulation" id="console-simulation">
+        <div class="row"
+          style="display:flex;background-image:url('img/remote-no-btn.png');width:850px;height:620px;background-position: center;background-repeat: no-repeat;margin: 50px auto;">
+          <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
+            <!-- LEFT BUTTON -->
+            <div class="btn btn-left">
+              <img class="btn-led" id="1" src="img/stab-btn.png">
+              <img class="btn-led" src="img/desig-btn.png">
+              <img class="btn-led" src="img/serv-btn.png" style="margin-bottom: 0;">
+            </div>
+
+            <div class="led led-left">
+              <div class="row">
+                <div class="btn btn-l col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <img class="on-off__btn" src="img/on-off-btn.png">
+                  </div>
+                  <span class="span-btn"
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>LRF</h5>
+                </div>
+                <div class="btn btn-l col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <img class="on-off__btn" src="img/on-off-btn.png">
+                  </div>
+                  <span
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>OVER</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- CENTER BUTTON -->
+            <div class="btn center-btn">
+              <div style="margin-top:80px;">
+                <h5 id="BRST">BRST</h5>
+                <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
+                  <h5 id="SNLG">SNLG</h5>
+                  <img id="fire-mode__btn" src="img/fire-mode-btn.png">
+                  <h5 id="CONT">CONT</h5>
+                </div>
+              </div>
+              <h5>CHRG</h5>
+              <img class="on-off__btn" src="img/on-off-btn.png">
+            </div>
+
+            <!-- RIGHT BUTTON -->
+            <div class="led led-right">
+              <div class="row">
+                <div class="btn btn-r col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <img class="on-off__btn" src="img/on-off-btn.png">
+                  </div>
+                  <span
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>MOVE</h5>
+                </div>
+                <div class="btn btn-r col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <img class="on-off__btn" src="img/on-off-btn.png">
+                  </div>
+                  <span
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>FIRE</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="btn btn-right">
+              <img class="btn-led" src="img/sctr-btn.png">
+              <img class="btn-led" src="img/sinc-btn.png">
+              <img class="btn-led" src="img/aimtrgt-btn.png" style="margin-bottom: 0;">
+            </div>
+          </div>
+
+          <!-- BOTTOM -->
+          <div class="bottom-btn col-12" style="display: flex;justify-content: space-around;margin-top: 60px;">
+            <div class="row">
+              <div class="switch switch-left col-3">
+                <span class="plus-minus__btn">
+                  <h5>+</h5>
+                </span>
+                <img src="img/on-off-btn2.png">
+                <span class="plus-minus__btn">
+                  <h5>-</h5>
+                </span>
+                <h5>FOC</h5>
+              </div>
+              <div class="switch switch-center col-6">
+                <img id="autofocus-btn" src="img/autofocus-btn.png"
+                  style="padding: 0 30px;margin-top: 65px;margin-bottom: 25px;">
+                <img src="img/on-off-btn3.png" style="width: 100%;">
+                <div style="display: flex;justify-content: space-between;">
+                  <h5>CCD</h5>
+                  <h5>IR</h5>
+                </div>
+
+              </div>
+              <div class="switch switch-right col-3">
+                <span class="plus-minus__btn">
+                  <h5>+</h5>
+                </span>
+                <img src="img/on-off-btn2.png">
+                <span class="plus-minus__btn">
+                  <h5>-</h5>
+                </span>
+                <h5>ZOOM</h5>
+                <div>
+                  <div style="display: inline-flex; margin-left:25px;"><img src="img/on-off-btn-horizol.png"><span
+                      style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span></div>
+                  <h5>LED TEST</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT JOYSTICK -->
+      <div class="right-joystick">
+        <img src="img/Rjoystick.png">
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/javascript.js"></script>
+
+</html>
