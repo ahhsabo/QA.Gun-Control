@@ -102,3 +102,15 @@ $(".on-off__FIRE img").on("click", function(){
         $("#span-FIRE").css("background-color","#FF562F");
     }  
 });
+
+//CHRG
+var countCHRG=0;
+$(".on-off__CHRG img").on("click", function(){
+    countCHRG++;
+    if (countCHRG % 2 == 0){
+        $(this).css("rotate","0deg"); 
+    }
+    else{
+        $(this).css("rotate","180deg");
+    }  
+});
