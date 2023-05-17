@@ -72,8 +72,11 @@ h5{
 
 .bottom-btn{
     display: flex;
-    justify-content: space-around;
     margin-top: 60px;
+    align-content: space-around;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 .bottom-btn img{
     display: block;
