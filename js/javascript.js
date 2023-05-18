@@ -1,9 +1,31 @@
-//
 //btn-left
-var countBTNL = 0;
-$(".btn-left img").on("click", function () {
-    countBTNL++;
-    if (countBTNL % 2 == 0) {
+//Stab
+var countStab = 0;
+$("#stab").on("click", function () {
+    countStab++;
+    if (countStab % 2 == 0) {
+        $(this).css("filter", "brightness(100%)");
+    }
+    else {
+        $(this).css("filter", "brightness(200%)");
+    }
+});
+//Desig
+var countDesig = 0;
+$("#desig").on("click", function () {
+    countDesig++;
+    if (countDesig % 2 == 0) {
+        $(this).css("filter", "brightness(100%)");
+    }
+    else {
+        $(this).css("filter", "brightness(200%)");
+    }
+});
+//Serv
+var countServ = 0;
+$("#serv").on("click", function () {
+    countServ++;
+    if (countServ % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
     }
     else {
@@ -11,17 +33,39 @@ $(".btn-left img").on("click", function () {
     }
 });
 //btn-right
-var countBTNR = 0;
-$(".btn-right img").on("click", function () {
-    countBTNR++;
-    if (countBTNR % 2 == 0) {
+//SCTR
+var countSctr = 0;
+$("#sctr").on("click", function () {
+    countSctr++;
+    if (countSctr % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
     }
     else {
         $(this).css("filter", "brightness(200%)");
     }
 });
-
+//Sinc
+var countSinc = 0;
+$("#sinc").on("click", function () {
+    countSinc++;
+    if (countSinc % 2 == 0) {
+        $(this).css("filter", "brightness(100%)");
+    }
+    else {
+        $(this).css("filter", "brightness(200%)");
+    }
+});
+//Aimtrgt
+var countAimtrgt = 0;
+$("#aimtrgt").on("click", function () {
+    countAimtrgt++;
+    if (countAimtrgt % 2 == 0) {
+        $(this).css("filter", "brightness(100%)");
+    }
+    else {
+        $(this).css("filter", "brightness(200%)");
+    }
+});
 //btn auto-focus
 var countAFOCUS = 0;
 $("#autofocus-btn").on("click", function () {

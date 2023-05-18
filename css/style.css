@@ -2,16 +2,33 @@
     display: flex;
     flex-direction: column;
 }
+h4{
+    font-size: 16px;
+}
+.container{
 
+}
+.row{
+    width: 100%;
+}
 h5{
     color: #fff;
     font-size: 13px;
     margin-top: 2px;
     text-align: center;
 }
+ul li{
+    font-size: 13px;
+}
 .screen{
     display: flex;
     justify-content: center;
+}
+.manualBtn{
+    
+    height: 440px;
+    width:800px;
+    overflow: scroll;
 }
 .simulation{
     display: flex;
@@ -80,7 +97,7 @@ h5{
 }
 .bottom-btn{
     display: flex;
-    margin-top: 95px;
+    margin-top: 60px;
     flex-wrap: wrap;
     flex-direction: column;
 }
