@@ -64,19 +64,25 @@ h5{
 .on-off__btn img{
     width: 30px;
 }
-
+.span-btn{
+    cursor: pointer;
+}
 .on-off__btn{
     display: block;
     margin:0 auto;
 }
+.switch-left{
+    padding-left: 90px;
+}
 
+.switch-right{
+    padding-right: 90px;
+}
 .bottom-btn{
     display: flex;
-    margin-top: 60px;
-    align-content: space-around;
-    flex-direction: column;
-    justify-content: space-evenly;
+    margin-top: 95px;
     flex-wrap: wrap;
+    flex-direction: column;
 }
 .bottom-btn img{
     display: block;

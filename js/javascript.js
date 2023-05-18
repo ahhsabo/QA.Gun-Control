@@ -114,3 +114,53 @@ $(".on-off__CHRG img").on("click", function () {
         $(this).css("rotate", "180deg");
     }
 });
+
+//FOC   
+$("#plusFOC span").on("click", function () {
+    $("#plusFOC span").css("filter", "brightness(150%)");
+    setTimeout(function(){
+        $("#plusFOC span").css("filter", "brightness(100%)");
+        }, 200);
+});
+$("#minusFOC span").on("click", function () {
+    $("#minusFOC span").css("filter", "brightness(150%)");
+    setTimeout(function(){
+        $("#minusFOC span").css("filter", "brightness(100%)");
+        }, 200);
+});
+
+//CCD&ID 
+$("#plusCCD span").on("click", function () {
+    $("#plusCCD span").css("filter", "brightness(150%)");
+    $("#minusCCD span").css("filter", "brightness(100%)");
+});
+$("#minusCCD span").on("click", function () {
+    $("#minusCCD span").css("filter", "brightness(150%)");
+    $("#plusCCD span").css("filter", "brightness(100%)");
+});
+
+//ZOOM  
+$("#plusZOOM span").on("click", function () {
+    $("#plusZOOM span").css("filter", "brightness(150%)");
+    setTimeout(function(){
+        $("#plusZOOM span").css("filter", "brightness(100%)");
+        }, 200);
+});
+$("#minusZOOM span").on("click", function () {
+    $("#minusZOOM span").css("filter", "brightness(150%)");
+    setTimeout(function(){
+        $("#minusZOOM span").css("filter", "brightness(100%)");
+        }, 200);
+});
+
+//LEDTEST
+var countLEDTEST = 0;
+$(".on-off__LEDTEST img").on("click", function () {
+    countLEDTEST++;
+    if (countLEDTEST % 2 == 0) {
+        $(this).css("rotate", "0deg");
+    }
+    else {
+        $(this).css("rotate", "180deg");
+    }
+});

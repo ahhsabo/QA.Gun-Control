@@ -120,14 +120,14 @@
               <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
               <div class="bottom-btn col-8">
                 <div class="row">
-                  <div class="switch switch-left col-3">
+                  <div class="switch switch-left col-4">
                     <span class="plus-minus__btn">
                       <h5>+</h5>
                     </span>
 
-                    <div class="btn-zoom"
+                    <div class="switch-zoom" id="switchFOC"
                       style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" style="display: flex; flex-direction: column;">
+                      <div class="topOfBtn" id="plusFOC" style="display: flex; flex-direction: column;">
                         <span class="span-btn"
                           style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
 
@@ -135,7 +135,7 @@
                           style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
                       </div>
-                      <div class="botOfBtn" style="display: flex; flex-direction: column;">
+                      <div class="botOfBtn" id="minusFOC" style="display: flex; flex-direction: column;">
                         <span class="span-btn"
                           style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
@@ -150,12 +150,12 @@
                     </span>
                     <h5>FOC</h5>
                   </div>
-                  <div class="switch switch-center col-6">
+                  <div class="switch switch-center col-4">
                     <img id="autofocus-btn" src="img/autofocus-btn.png"
                       style="padding: 0 30px;margin-top: 65px;margin-bottom: 25px;">
 
-                    <div class="btn-zoom" style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:85px; width:163px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" style="display: flex;">
+                    <div class="switch-zoom" id="switchCCD" style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:85px; width:163px; background-repeat: no-repeat;">
+                      <div class="topOfBtn" id="plusCCD" style="display: flex;">
                         <span class="span-btn"
                           style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-left: 20px;margin-top: 17px;">.</span>
 
@@ -163,7 +163,7 @@
                           style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
 
                       </div>
-                      <div class="botOfBtn" style="display: flex;">
+                      <div class="botOfBtn" id="minusCCD" style="display: flex;">
                         <span class="span-btn"
                           style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
 
@@ -178,14 +178,14 @@
                     </div>
 
                   </div>
-                  <div class="switch switch-right col-3">
+                  <div class="switch switch-right col-4">
                     <span class="plus-minus__btn">
                       <h5>+</h5>
                     </span>
 
-                    <div class="btn-zoom"
+                    <div class="switch-zoom" id="switchZOOM"
                       style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" style="display: flex; flex-direction: column;">
+                      <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
                         <span class="span-btn"
                           style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
 
@@ -193,7 +193,7 @@
                           style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
                       </div>
-                      <div class="botOfBtn" style="display: flex; flex-direction: column;">
+                      <div class="botOfBtn" id="minusZOOM" style="display: flex; flex-direction: column;">
                         <span class="span-btn"
                           style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
@@ -207,14 +207,17 @@
                     </span>
                     <h5>ZOOM</h5>
                     <div>
-                      <div style="display: inline-flex; margin-left:25px;"><img src="img/on-off-btn-horizol.png"><span
-                          style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span></div>
+                      <div style="display: inline-flex; margin-left:25px;">
+                        <div class="on-off__LEDTEST on-off__btn">
+                          <img src="img/on-off-btn-horizol.png">
+                        </div>
+                      <span style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span></div>
                       <h5>LED TEST</h5>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-3" style="transform: translateY(100px);height:100px;  "></div>
+              <div class="col-3" style="transform: translateY(100px);height:100px;"></div>
             </div>
 
           </div>
