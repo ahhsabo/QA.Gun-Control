@@ -13,266 +13,270 @@
 
 <body>
   <div class="shark" style="width:100%; height:auto;">
-    <div class="container">
-      <div class="row">    
-        <div class="screen col-12">
-          <div class="modeBtn" style="display: flex;flex-wrap: nowrap;flex-direction: column;">
-            <button type="button">F1: Trợ giúp</button>
-            <button type="button">F2: Mode tự do</button>
-            <button type="button">F3: Mode thực hành</button>
-          </div>
-          <div><img src="/img/Màn hình.png"></div>
-          <div class="manualBtn">
-            <h4>- B1: Trên hệ thống súng bên ngoài:</h4>
-            <ul>
-              <li>Khóa hướng, khóa tầm và các chốt hành quân. </li>
-              <li>Chuyển chế độ bắn điện trên súng. </li>
-            </ul>
-            <h4>- B2: Trong buồng điều khiển mở công tắc cấp nguồn súng:</h4>
-            <ul>
-              <li>Cấp nguồn hệ thống</li>
-              <li>Cấp nguồn bàn điều khiển</li>
-            </ul>
-            <h4>- B3: Màn hình hiển thị. Chờ khoảng 30s cho hệ thống thực hiện chế độ sấy. Khi các biểu tượng biểu thị độ ẩm, điện áp, nhiệt độ chuyển sang màu xanh lá nghĩa là hệ thống đã sẵn sàng hoạt động.</h4>
-            <h4>- B4: Chọn chế độ điều khiển SERVO hoặc STAB</h4>
-            <h4>- B5: Cấp quyền điều khiển di chuyển (MOV) bằng cách mở công tắc MOV tại vị trí chỉ huy và trên bàn điều khiển</h4>
-            <h4>- B6: Chọn chế độ bắn:</h4>
-            <ul>
-              <li>SNLG: Bắn đơn (1 viên)</li>
-              <li>BRST: Bắn loạt ngắn (4-6 viên)</li>
-              <li>CONT: Bắn liên thanh</li>
-            </ul>
-            <h4>- B7: Mở công tắc đo cự ly LRF. Sử dụng nút màu trắng trên cần trái để đo cự lý đến mục tiêu</h4>
-            <h4>- B8: Sử dụng cần điều khiển tay phải di chuyển vị trí con trỏ đến mục tiêu. Sử dụng nút ZOOM để điều chỉnh tiêu cự quan sát. Sử dụng nút AUTO FOCS để tự động lấy nét. </h4>
-            <h4>- B9: Dùng cần điều khiển tay trái trái chỉnh tâm góc nhỏ để đạt độ chính xác cao nhất. Mục tiêu vào tầm ngắm bật chế độ bắt tiêu (ấn nút đỏ phía sau cần điều khiển trái)</h4>
-            <h4>- B10: Cấp nguồn khai hỏa bằng cách bật công tắc FIRE tại vị trí chỉ huy và trên bàn điều khiển.</h4>
-            <h4>- B11: Sử dụng công tắc CHRG để tiến hành nạp đạn. Chờ đến khi đèn đỏ tại vị trí FIRE trên bàn điều khiển hết nhấp nháy nghĩa là quá trình nạp đạn đã xong.</h4>
-            <h4>- B12: Khi nhận được mệnh lệnh bắn tiến hành ấn nút đỏ trên cần trái để khai hỏa tiêu diệt mục tiêu</h4>
-            <h4>- B13: Kiểm tra súng:</h4>
-            <ul>
-              <li>Xoay về góc hướng 30 độ, góc tầm 45 độ</li>
-              <li>Gạt nút CHRG để lên đạn lại</li>
-              <li>Ấn khai khỏa để kiểm tra đạn dư trong nòng súng</li>
-            </ul>
-            <h4>- B14: Kết thúc bắn: </h4>
-            <ul>
-              <li>Đưa súng về vị trí ban đầu và tiến hành tắt lần lượt các công tắc FIRE, MOVE, LRF trên bàn điều khiển.</li>
-            <li>Tắt công tắc MOVE, FIRE tại vị trí chỉ huy</li>
-            <li>Tắt công tắc nguồn trên bàn điều khiển  </li>
-            <li>Tắt công tắc hệ thống.</li>
-          </ul>
+    <div class="screen col-12">
+      <div class="modeBtn">
+        <button type="button">F1: Trợ giúp</button>
+        <button type="button">F2: Mode tự do</button>
+        <button type="button">F3: Mode thực hành</button>
+      </div>
+      <div class="screenUser"><img src="/img/Màn hình.png"></div>
+      <div class="manualBtn">
+        <h4>- B1: Trên hệ thống súng bên ngoài:</h4>
+        <ul>
+          <li>Khóa hướng, khóa tầm và các chốt hành quân. </li>
+          <li>Chuyển chế độ bắn điện trên súng. </li>
+        </ul>
+        <h4>- B2: Trong buồng điều khiển mở công tắc cấp nguồn súng:</h4>
+        <ul>
+          <li>Cấp nguồn hệ thống</li>
+          <li>Cấp nguồn bàn điều khiển</li>
+        </ul>
+        <h4>- B3: Màn hình hiển thị. Chờ khoảng 30s cho hệ thống thực hiện chế độ sấy. Khi các biểu tượng biểu thị độ
+          ẩm, điện áp, nhiệt độ chuyển sang màu xanh lá nghĩa là hệ thống đã sẵn sàng hoạt động.</h4>
+        <h4>- B4: Chọn chế độ điều khiển SERVO hoặc STAB</h4>
+        <h4>- B5: Cấp quyền điều khiển di chuyển (MOV) bằng cách mở công tắc MOV tại vị trí chỉ huy và trên bàn điều
+          khiển</h4>
+        <h4>- B6: Chọn chế độ bắn:</h4>
+        <ul>
+          <li>SNLG: Bắn đơn (1 viên)</li>
+          <li>BRST: Bắn loạt ngắn (4-6 viên)</li>
+          <li>CONT: Bắn liên thanh</li>
+        </ul>
+        <h4>- B7: Mở công tắc đo cự ly LRF. Sử dụng nút màu trắng trên cần trái để đo cự lý đến mục tiêu</h4>
+        <h4>- B8: Sử dụng cần điều khiển tay phải di chuyển vị trí con trỏ đến mục tiêu. Sử dụng nút ZOOM để điều chỉnh
+          tiêu cự quan sát. Sử dụng nút AUTO FOCS để tự động lấy nét. </h4>
+        <h4>- B9: Dùng cần điều khiển tay trái trái chỉnh tâm góc nhỏ để đạt độ chính xác cao nhất. Mục tiêu vào tầm
+          ngắm bật chế độ bắt tiêu (ấn nút đỏ phía sau cần điều khiển trái)</h4>
+        <h4>- B10: Cấp nguồn khai hỏa bằng cách bật công tắc FIRE tại vị trí chỉ huy và trên bàn điều khiển.</h4>
+        <h4>- B11: Sử dụng công tắc CHRG để tiến hành nạp đạn. Chờ đến khi đèn đỏ tại vị trí FIRE trên bàn điều khiển
+          hết nhấp nháy nghĩa là quá trình nạp đạn đã xong.</h4>
+        <h4>- B12: Khi nhận được mệnh lệnh bắn tiến hành ấn nút đỏ trên cần trái để khai hỏa tiêu diệt mục tiêu</h4>
+        <h4>- B13: Kiểm tra súng:</h4>
+        <ul>
+          <li>Xoay về góc hướng 30 độ, góc tầm 45 độ</li>
+          <li>Gạt nút CHRG để lên đạn lại</li>
+          <li>Ấn khai khỏa để kiểm tra đạn dư trong nòng súng</li>
+        </ul>
+        <h4>- B14: Kết thúc bắn: </h4>
+        <ul>
+          <li>Đưa súng về vị trí ban đầu và tiến hành tắt lần lượt các công tắc FIRE, MOVE, LRF trên bàn điều khiển.
+          </li>
+          <li>Tắt công tắc MOVE, FIRE tại vị trí chỉ huy</li>
+          <li>Tắt công tắc nguồn trên bàn điều khiển </li>
+          <li>Tắt công tắc hệ thống.</li>
+        </ul>
 
-          </div>
-        </div>
-        
-
-        <div class="simulation col-12">
-          <!-- LEFT JOYSTICK -->
-          <div class="left-joystick">
-            <img src="img/Ljoystick.png">
-          </div>
-
-          <!-- BẢNG ĐIỀU KHIỂN -->
-          <div class="console-simulation" id="console-simulation">
-            <div class="row"
-              style="display:flex;background-image:url('img/remote-no-btn.png');width:850px;height:620px;background-position: center;background-repeat: no-repeat;margin: 10px auto;">
-              <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
-                <!-- LEFT BUTTON -->
-                <div class="btn btn-left">
-                  <img class="btn-led" id="stab" src="img/stab-btn.png">
-                  <img class="btn-led" id="desig" src="img/desig-btn.png">
-                  <img class="btn-led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;">
-                </div>
-
-                <div class="led led-left">
-                  <div class="row">
-                    <div id="btn-LRF" class="btn btn-l col-6">
-                      <div style="margin-bottom:40px;">
-                        <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn on-off__LRF">
-                          <img src="img/on-off-btn.png">
-                        </div>
-                      </div>
-                      <span id="span-LRF" class="span-btn"
-                        style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
-                      <h5>LRF</h5>
-                    </div>
-                    <div id="btn-OVER" class="btn btn-l col-6">
-                      <div style="margin-bottom:40px;">
-                        <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__btn on-off__OVER">
-                          <img src="img/on-off-btn.png">
-                        </div>
-                      </div>
-                      <span id="span-OVER" class="span-btn"
-                        style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
-                      <h5>OVER</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- CENTER BUTTON -->
-                <div class="btn center-btn">
-                  <div style="margin-top:80px;">
-                    <h5 id="BRST">BRST</h5>
-                    <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
-                      <h5 id="SNLG">SNLG</h5>
-                      <img id="fire-mode__btn" src="img/fire-mode-btn.png">
-                      <h5 id="CONT">CONT</h5>
-                    </div>
-                  </div>
-                  <h5>CHRG</h5>
-                  <div class="on-off__btn on-off__CHRG">
-                    <img src="img/on-off-btn.png">
-                  </div>
-                </div>
-
-                <!-- RIGHT BUTTON -->
-                <div class="led led-right">
-                  <div class="row">
-                    <div id="btn-MOVE" class="btn btn-r col-6">
-                      <div style="margin-bottom:40px;">
-                        <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__MOVE on-off__btn">
-                          <img src="img/on-off-btn.png">
-                        </div>
-                      </div>
-                      <span id="span-MOVE" class="span-btn"
-                        style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
-                      <h5>MOVE</h5>
-                    </div>
-                    <div id="btn-FIRE" class="btn btn-r col-6">
-                      <div style="margin-bottom:40px;">
-                        <img class="red-btn" src="img/red-bar.png">
-                        <div class="on-off__FIRE on-off__btn">
-                          <img src="img/on-off-btn.png">
-                        </div>
-                      </div>
-                      <span id="span-FIRE" class="span-btn"
-                        style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
-                      <h5>FIRE</h5>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="btn btn-right">
-                  <img class="btn-led" id="sctr" src="img/sctr-btn.png">
-                  <img class="btn-led" id="sinc" src="img/sinc-btn.png">
-                  <img class="btn-led" id="aimtrgt" src="img/aimtrgt-btn.png" style="margin-bottom: 0;">
-                </div>
-              </div>
-
-              <!-- BOTTOM -->
-              <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
-              <div class="bottom-btn col-8">
-                <div class="row">
-                  <div class="switch switch-left col-4">
-                    <span class="plus-minus__btn">
-                      <h5>+</h5>
-                    </span>
-
-                    <div class="switch-zoom" id="switchFOC"
-                      style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" id="plusFOC" style="display: flex; flex-direction: column;">
-                        <span class="span-btn"
-                          style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
-
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-
-                      </div>
-                      <div class="botOfBtn" id="minusFOC" style="display: flex; flex-direction: column;">
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-                      </div>
-                    </div>
+      </div>
+    </div>
 
 
-                    <span class="plus-minus__btn">
-                      <h5>-</h5>
-                    </span>
-                    <h5>FOC</h5>
-                  </div>
-                  <div class="switch switch-center col-4">
-                    <img id="autofocus-btn" src="img/autofocus-btn.png"
-                      style="padding: 0 30px;margin-top: 65px;margin-bottom: 25px;">
+    <div class="simulation col-12">
+      <!-- LEFT JOYSTICK -->
+      <div class="left-joystick">
+        <img src="img/Ljoystick.png">
+      </div>
 
-                    <div class="switch-zoom" id="switchCCD" style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:85px; width:163px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" id="plusCCD" style="display: flex;">
-                        <span class="span-btn"
-                          style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-left: 20px;margin-top: 17px;">.</span>
-
-                        <span class="span-btn"
-                          style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
-
-                      </div>
-                      <div class="botOfBtn" id="minusCCD" style="display: flex;">
-                        <span class="span-btn"
-                          style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
-
-                        <span class="span-btn"
-                          style="border: 1px solid black;border-left: 0cm;border-radius:0 10px 10px 0 ;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
-                      </div>
-                    </div>
-
-                    <div style="display: flex;justify-content: space-between;">
-                      <h5>CCD</h5>
-                      <h5>IR</h5>
-                    </div>
-
-                  </div>
-                  <div class="switch switch-right col-4">
-                    <span class="plus-minus__btn">
-                      <h5>+</h5>
-                    </span>
-
-                    <div class="switch-zoom" id="switchZOOM"
-                      style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
-                      <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
-                        <span class="span-btn"
-                          style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
-
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-
-                      </div>
-                      <div class="botOfBtn" id="minusZOOM" style="display: flex; flex-direction: column;">
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-
-                        <span class="span-btn"
-                          style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
-                      </div>
-                    </div>
-
-                    <span class="plus-minus__btn">
-                      <h5>-</h5>
-                    </span>
-                    <h5>ZOOM</h5>
-                    <div>
-                      <div style="display: inline-flex; margin-left:25px;">
-                        <div class="on-off__LEDTEST on-off__btn">
-                          <img src="img/on-off-btn-horizol.png">
-                        </div>
-                      <span style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span></div>
-                      <h5>LED TEST</h5>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
+      <!-- BẢNG ĐIỀU KHIỂN -->
+      <div class="console-simulation" id="console-simulation">
+        <div class="row"
+          style="display:flex;background-image:url('img/remote-no-btn.png');width:850px;height:620px;background-position: center;background-repeat: no-repeat;margin: 10px auto;">
+          <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
+            <!-- LEFT BUTTON -->
+            <div class="btn btn-left">
+              <img class="btn-led" id="stab" src="img/stab-btn.png">
+              <img class="btn-led" id="desig" src="img/desig-btn.png">
+              <img class="btn-led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;">
             </div>
 
+            <div class="led led-left">
+              <div class="row">
+                <div id="btn-LRF" class="btn btn-l col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <div class="on-off__btn on-off__LRF">
+                      <img src="img/on-off-btn.png">
+                    </div>
+                  </div>
+                  <span id="span-LRF" class="span-btn"
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>LRF</h5>
+                </div>
+                <div id="btn-OVER" class="btn btn-l col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <div class="on-off__btn on-off__OVER">
+                      <img src="img/on-off-btn.png">
+                    </div>
+                  </div>
+                  <span id="span-OVER" class="span-btn"
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>OVER</h5>
+                </div>
+              </div>
+            </div>
+
+            <!-- CENTER BUTTON -->
+            <div class="btn center-btn">
+              <div style="margin-top:80px;">
+                <h5 id="BRST">BRST</h5>
+                <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
+                  <h5 id="SNLG">SNLG</h5>
+                  <img id="fire-mode__btn" src="img/fire-mode-btn.png">
+                  <h5 id="CONT">CONT</h5>
+                </div>
+              </div>
+              <h5>CHRG</h5>
+              <div class="on-off__btn on-off__CHRG">
+                <img src="img/on-off-btn.png">
+              </div>
+            </div>
+
+            <!-- RIGHT BUTTON -->
+            <div class="led led-right">
+              <div class="row">
+                <div id="btn-MOVE" class="btn btn-r col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <div class="on-off__MOVE on-off__btn">
+                      <img src="img/on-off-btn.png">
+                    </div>
+                  </div>
+                  <span id="span-MOVE" class="span-btn"
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>MOVE</h5>
+                </div>
+                <div id="btn-FIRE" class="btn btn-r col-6">
+                  <div style="margin-bottom:40px;">
+                    <img class="red-btn" src="img/red-bar.png">
+                    <div class="on-off__FIRE on-off__btn">
+                      <img src="img/on-off-btn.png">
+                    </div>
+                  </div>
+                  <span id="span-FIRE" class="span-btn"
+                    style="border:1px solid black;border-radius: 50%;width: 60px;height:60px;background-color: gray;font-size: 0%;">.</span>
+                  <h5>FIRE</h5>
+                </div>
+              </div>
+            </div>
+
+            <div class="btn btn-right">
+              <img class="btn-led" id="sctr" src="img/sctr-btn.png">
+              <img class="btn-led" id="sinc" src="img/sinc-btn.png">
+              <img class="btn-led" id="aimtrgt" src="img/aimtrgt-btn.png" style="margin-bottom: 0;">
+            </div>
           </div>
 
-          <!-- RIGHT JOYSTICK -->
-          <div class="right-joystick">
-            <img src="img/Rjoystick.png">
+          <!-- BOTTOM -->
+          <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
+          <div class="bottom-btn col-8">
+            <div class="row">
+              <div class="switch switch-left col-4">
+                <span class="plus-minus__btn">
+                  <h5>+</h5>
+                </span>
+
+                <div class="switch-zoom" id="switchFOC"
+                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px; background-repeat: no-repeat;">
+                  <div class="topOfBtn" id="plusFOC" style="display: flex; flex-direction: column;">
+                    <span class="span-btn"
+                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
+
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+
+                  </div>
+                  <div class="botOfBtn" id="minusFOC" style="display: flex; flex-direction: column;">
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                  </div>
+                </div>
+
+
+                <span class="plus-minus__btn">
+                  <h5>-</h5>
+                </span>
+                <h5>FOC</h5>
+              </div>
+              <div class="switch switch-center col-4">
+                <img id="autofocus-btn" src="img/autofocus-btn.png"
+                  style="padding: 0 30px;margin-top: 65px;margin-bottom: 25px;">
+
+                <div class="switch-zoom" id="switchCCD"
+                  style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:85px; width:163px; background-repeat: no-repeat;">
+                  <div class="topOfBtn" id="plusCCD" style="display: flex;">
+                    <span class="span-btn"
+                      style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-left: 20px;margin-top: 17px;">.</span>
+
+                    <span class="span-btn"
+                      style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+
+                  </div>
+                  <div class="botOfBtn" id="minusCCD" style="display: flex;">
+                    <span class="span-btn"
+                      style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+
+                    <span class="span-btn"
+                      style="border: 1px solid black;border-left: 0cm;border-radius:0 10px 10px 0 ;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+                  </div>
+                </div>
+
+                <div style="display: flex;justify-content: space-between;">
+                  <h5>CCD</h5>
+                  <h5>IR</h5>
+                </div>
+
+              </div>
+              <div class="switch switch-right col-4">
+                <span class="plus-minus__btn">
+                  <h5>+</h5>
+                </span>
+
+                <div class="switch-zoom" id="switchZOOM"
+                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
+                  <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
+                    <span class="span-btn"
+                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
+
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+
+                  </div>
+                  <div class="botOfBtn" id="minusZOOM" style="display: flex; flex-direction: column;">
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+
+                    <span class="span-btn"
+                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                  </div>
+                </div>
+
+                <span class="plus-minus__btn">
+                  <h5>-</h5>
+                </span>
+                <h5>ZOOM</h5>
+                <div>
+                  <div style="display: inline-flex; margin-left:25px;">
+                    <div class="on-off__LEDTEST on-off__btn">
+                      <img src="img/on-off-btn-horizol.png">
+                    </div>
+                    <span style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span>
+                  </div>
+                  <h5>LED TEST</h5>
+                </div>
+              </div>
+            </div>
           </div>
+          <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
         </div>
+
+      </div>
+
+      <!-- RIGHT JOYSTICK -->
+      <div class="right-joystick">
+        <img src="img/Rjoystick.png">
       </div>
     </div>
   </div>

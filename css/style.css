@@ -1,119 +1,150 @@
-.btn{
+.btn {
     display: flex;
     flex-direction: column;
 }
-h4{
+
+h4 {
     font-size: 16px;
 }
-.container{
 
+.container {
+    margin: 0;
+    padding: 0;
 }
-.row{
+
+.row {
     width: 100%;
 }
-h5{
+
+h5 {
     color: #fff;
     font-size: 13px;
     margin-top: 2px;
     text-align: center;
 }
-ul li{
+button{
+    margin-top:20px;
+    width:200px;
+    text-align: start;
+    padding-left:20px;
+}
+ul li {
     font-size: 13px;
 }
-.screen{
+
+.screen {
     display: flex;
     justify-content: center;
 }
-.manualBtn{
-    
-    height: 440px;
-    width:800px;
-    overflow: scroll;
+.modeBtn{
+    width: 700px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
-.simulation{
+.manualBtn {
+    border: 1px solid gray;
+    margin-top:20px;
+    padding-left:10px;   
+    height: 420px;
+    width: 700px;
+    overflow: scroll;
+    overflow-x: hidden;
+    background-color: lightgray;
+}
+.screenUser{
+    margin:0 100px;
+    width:700px;
+}
+.simulation {
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-.btn-left img{
+.btn-left img {
     margin-bottom: 30px;
     opacity: 0.9;
 }
 
-.btn-right img{
+.btn-right img {
     margin-bottom: 30px;
     opacity: 0.9;
 }
-.btn-left{
+
+.btn-left {
     margin: 65px 0 0 20px;
 }
 
-.btn-right{
+.btn-right {
     margin: 65px 0 0 34px;
 }
 
-.led-left{
+.led-left {
     margin: 60px 0 0 30px;
 }
 
-.led-right{
+.led-right {
     margin: 60px 0 0 18px;
 }
 
-.red-btn{
+.red-btn {
     padding-bottom: 15px;
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.led-mode{
+.led-mode {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.center-btn{
+.center-btn {
     width: 240px;
     padding-left: 30px;
     display: block;
 }
 
-.on-off__btn img{
+.on-off__btn img {
     width: 30px;
 }
-.span-btn{
+
+.span-btn {
     cursor: pointer;
 }
-.on-off__btn{
+
+.on-off__btn {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
 }
-.switch-left{
+
+.switch-left {
     padding-left: 90px;
 }
 
-.switch-right{
+.switch-right {
     padding-right: 90px;
 }
-.bottom-btn{
+
+.bottom-btn {
     display: flex;
     margin-top: 60px;
     flex-wrap: wrap;
     flex-direction: column;
 }
-.bottom-btn img{
+
+.bottom-btn img {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
-.bottom-btn .col-3{
-    padding:0;
+.bottom-btn .col-3 {
+    padding: 0;
 }
 
-.plus-minus__btn h5{
-    font-size:18px;
-    margin:0;
+.plus-minus__btn h5 {
+    font-size: 18px;
+    margin: 0;
 }
-
-
-
