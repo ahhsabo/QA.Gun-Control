@@ -1,3 +1,4 @@
+
 //btn-left
 //Stab
 var countStab = 0;
@@ -8,6 +9,10 @@ $("#stab").on("click", function () {
     }
     else {
         $(this).css("filter", "brightness(200%)");
+        $("#desig").css("filter", "brightness(100%)");
+        $("#serv").css("filter", "brightness(100%)");
+        countDesig = 0;
+        countServ = 0;
     }
 });
 //Desig
@@ -19,6 +24,10 @@ $("#desig").on("click", function () {
     }
     else {
         $(this).css("filter", "brightness(200%)");
+        $("#stab").css("filter", "brightness(100%)");
+        $("#serv").css("filter", "brightness(100%)");
+        countStab = 0;
+        countServ = 0;
     }
 });
 //Serv
@@ -30,6 +39,10 @@ $("#serv").on("click", function () {
     }
     else {
         $(this).css("filter", "brightness(200%)");
+        $("#desig").css("filter", "brightness(100%)");
+        $("#stab").css("filter", "brightness(100%)");
+        countDesig = 0;
+        countStab = 0;
     }
 });
 //btn-right
@@ -174,13 +187,33 @@ $("#minusFOC span").on("click", function () {
 });
 
 //CCD&ID 
+var countplusCCD = 0;
 $("#plusCCD span").on("click", function () {
-    $("#plusCCD span").css("filter", "brightness(150%)");
-    $("#minusCCD span").css("filter", "brightness(100%)");
+    countplusCCD++;
+    if(countplusCCD % 2 == 0){
+        $("#plusCCD span").css("filter", "brightness(100%)");
+        
+    }
+    else{
+        $("#plusCCD span").css("filter", "brightness(150%)");
+        $("#minusCCD span").css("filter", "brightness(100%)");
+        countminusCCD = 0;
+    }
+    
 });
+var countminusCCD = 0;
 $("#minusCCD span").on("click", function () {
-    $("#minusCCD span").css("filter", "brightness(150%)");
-    $("#plusCCD span").css("filter", "brightness(100%)");
+    countminusCCD++;
+    if(countminusCCD % 2 == 0){
+        $("#minusCCD span").css("filter", "brightness(100%)");
+        
+    }
+    else{
+        $("#minusCCD span").css("filter", "brightness(150%)");
+        $("#plusCCD span").css("filter", "brightness(100%)");
+        countplusCCD = 0;
+    }
+
 });
 
 //ZOOM  
