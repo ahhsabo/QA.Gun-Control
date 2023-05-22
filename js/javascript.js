@@ -1,4 +1,23 @@
+//TRỢ GIÚP
+var countF1 = 0;
+function myFunctionF1(){
+    countF1++;
+    console.log(countF1);
+    if(countF1 % 2 == 0){
+        $("#manualBtn").css("display","none");
+        $("#space").css("display","block");
+        $(this).css("border","2px solid black");
+    }
+    else{
+        $("#manualBtn").css("display","block");
+        $("#space").css("display","none");
+        $(this).css("border","2px solid limegreen");
+    }
+}
 
+
+//MODE TỰ DO
+function myFunctionF2(){
 //btn-left
 //Stab
 var countStab = 0;
@@ -241,3 +260,44 @@ $(".on-off__LEDTEST img").on("click", function () {
         $(this).css("rotate", "180deg");
     }
 });
+
+// RIGHT JOYSTICK
+//click pluss/minus
+
+//minus
+$("#btnRJ__l").on("click", function () {
+    $("#btnRJ__l").css("filter", "brightness(0.6)");
+        setTimeout(function () {
+            $("#btnRJ__l").css("filter", "brightness(0.15)");
+        }, 200);
+});
+
+var current_rotation = 0;
+document.getElementById("btnRJ__l").addEventListener('click', function(){
+    current_rotation -= 10;
+document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
+});
+
+//plus
+$("#btnRJ__r").on("click", function () {
+    $("#btnRJ__r").css("filter", "brightness(0.6)");
+        setTimeout(function () {
+            $("#btnRJ__r").css("filter", "brightness(0.15)");
+        }, 200);
+});
+
+document.getElementById("btnRJ__r").addEventListener('click', function(){
+    current_rotation += 10;
+document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
+});
+
+//Khai hoả
+$("#btnFire").on("click", function () {
+    $(this).css("margin-top","26px");
+    $(this).css("margin-left","175px");
+    setTimeout(function () {
+        $("#btnFire").css("margin-top","22px");
+        $("#btnFire").css("margin-left","177px");
+    }, 200);
+});
+}

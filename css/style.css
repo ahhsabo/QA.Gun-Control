@@ -14,22 +14,28 @@ h4 {
     padding: 0;
 }
 
-.row {
-    width: 100%;
-}
-
 h5 {
     color: #fff;
     font-size: 13px;
     margin-top: 2px;
     text-align: center;
 }
-button{
+input{
     margin-top:20px;
     width:200px;
     text-align: start;
     padding-left:20px;
+    border: 2px solid black;
+    height: 40px;
 }
+
+input::after{
+    content: "";
+    border: 2px solid red;
+    background-color: red;
+    
+}
+
 ul li {
     font-size: 13px;
 }
@@ -38,6 +44,7 @@ ul li {
     display: flex;
     justify-content: center;
 }
+
 .modeBtn{
     width: 700px;
     display: flex;
@@ -47,8 +54,10 @@ ul li {
     justify-content: center;
 }
 .manualBtn {
+    display: none;
     border: 1px solid gray;
-    margin-top:20px;
+    margin-top:10px;
+    padding-top:10px;
     padding-left:10px;   
     height: 420px;
     width: 700px;
@@ -98,6 +107,10 @@ ul li {
     margin: 0 auto;
 }
 
+#btnFire{
+    margin-top:22px;
+    margin-left:177px;
+}
 .led-mode {
     display: block;
     margin: 0 auto;
@@ -121,13 +134,29 @@ ul li {
     display: block;
     margin: 0 auto;
 }
-
+#BRST{
+    margin-bottom: 12px;
+}
 .switch-left {
     padding-left: 90px;
 }
 
 .switch-right {
     padding-right: 90px;
+}
+.spin-btn{
+    display: flex;
+    margin-top: 18px;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.spin-btn img{
+    display: block;
+    margin:0;   
+}
+
+.btn-RJ{
+    filter: brightness(0.15);
 }
 
 .bottom-btn {
