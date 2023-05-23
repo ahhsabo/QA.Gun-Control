@@ -15,9 +15,15 @@
   <div class="shark" style="width:100%; height:auto;">
     <div class="screen col-12">
       <div class="modeBtn">
-        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp">
-        <input type="button" onclick="myFunctionF2()" value="F2: Mode tự do">
-        <input type="button" onclick="myFunctionF3()" value="F3: Mode thực hành">
+        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp" style="    margin-bottom: 25px;">
+        <input type="checkbox" id="F2" onclick="myFunctionF2()" value="F2: Mode tự do">
+        <label for="F2" style=" position: absolute;
+        margin-bottom: 5px;
+        cursor: pointer;">F2: Mode tự do</label><br>
+        <input type="checkbox" id="F3" onclick="myFunctionF3()" value="F3: Mode thực hành">
+        <label for="F3" style=" position: absolute;
+        margin-top: 173px;
+        cursor: pointer;">F3: Mode thực hành </label><br>
       </div>
       <div class="screenUser"><img src="/img/Màn hình.png"></div>
       <div id="space" style="display: block; width:708px;"></div>
@@ -73,6 +79,9 @@
 
     <div class="simulation col-12">
       <!-- LEFT JOYSTICK -->
+      <div class="buttonWhite"style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
+        <img id="btnWhite" src="img/btnWhite-click.png" data-name="btnWhite">
+      </div>
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
         <img id="btnFire" src="img/btn-fire-red.png" data-name="fire">
       </div>  
@@ -162,7 +171,7 @@
 
             <div class="btn btn-right">
               <img class="btn-led" id="sctr" src="img/sctr-btn.png">
-              <img class="btn-led" id="sinc" src="img/sinc-btn.png" data-name="btnWhite">
+              <img class="btn-led" id="sinc" src="img/sinc-btn.png">
               <img class="btn-led" id="aimtrgt" src="img/aimtrgt-btn.png" style="margin-bottom: 0;">
             </div>
           </div>
