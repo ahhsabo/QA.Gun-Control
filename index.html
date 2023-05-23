@@ -74,7 +74,7 @@
     <div class="simulation col-12">
       <!-- LEFT JOYSTICK -->
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
-        <img id="btnFire" src="img/btn-fire-red.png">
+        <img id="btnFire" src="img/btn-fire-red.png" data-name="fire">
       </div>  
       
       <!-- BẢNG ĐIỀU KHIỂN -->
@@ -84,9 +84,9 @@
           <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
             <!-- LEFT BUTTON -->
             <div class="btn btn-left">
-              <img class="btn-led" id="stab" src="img/stab-btn.png">
-              <img class="btn-led" id="desig" src="img/desig-btn.png">
-              <img class="btn-led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;">
+              <img class="btn-led" id="stab" src="img/stab-btn.png" data-name="modeAct">
+              <img class="btn-led" id="desig" src="img/desig-btn.png" data-name="modeAct">
+              <img class="btn-led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;" data-name="modeAct">
             </div>
 
             <div class="led led-left">
@@ -95,7 +95,7 @@
                   <div style="margin-bottom:40px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__btn on-off__LRF">
-                      <img src="img/on-off-btn.png">
+                      <img src="img/on-off-btn.png" data-name="LRF">
                     </div>
                   </div>
                   <span id="span-LRF" class="span-btn"
@@ -117,18 +117,18 @@
             </div>
 
             <!-- CENTER BUTTON -->
-            <div class="btn center-btn">
-              <div style="margin-top:80px;">
-                <h5 id="BRST">BRST</h5>
+            <div class="btn center-btn" >
+              <div style="margin-top:80px;" id="center-btn">
+                <h5 id="BRST" data-name="modeFire">BRST</h5>
                 <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
-                  <h5 id="SNLG">SNLG</h5>
-                  <img id="fire-mode__btn" src="img/fire-mode-btn.png">
-                  <h5 id="CONT">CONT</h5>
+                  <h5 id="SNLG" data-name="modeFire">SNLG</h5>
+                  <img id="fire-mode__btn" src="img/fire-mode-btn.png" >
+                  <h5 id="CONT" data-name="modeFire">CONT</h5>
                 </div>
               </div>
               <h5>CHRG</h5>
               <div class="on-off__btn on-off__CHRG">
-                <img src="img/on-off-btn.png">
+                <img src="img/on-off-btn.png" data-name="CHRG">
               </div>
             </div>
 
@@ -139,7 +139,7 @@
                   <div style="margin-bottom:40px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__MOVE on-off__btn">
-                      <img src="img/on-off-btn.png">
+                      <img src="img/on-off-btn.png" data-name="MOV">
                     </div>
                   </div>
                   <span id="span-MOVE" class="span-btn"
@@ -150,7 +150,7 @@
                   <div style="margin-bottom:40px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__FIRE on-off__btn">
-                      <img src="img/on-off-btn.png">
+                      <img src="img/on-off-btn.png" data-name="btnFire">
                     </div>
                   </div>
                   <span id="span-FIRE" class="span-btn"
@@ -162,7 +162,7 @@
 
             <div class="btn btn-right">
               <img class="btn-led" id="sctr" src="img/sctr-btn.png">
-              <img class="btn-led" id="sinc" src="img/sinc-btn.png">
+              <img class="btn-led" id="sinc" src="img/sinc-btn.png" data-name="btnWhite">
               <img class="btn-led" id="aimtrgt" src="img/aimtrgt-btn.png" style="margin-bottom: 0;">
             </div>
           </div>
@@ -202,7 +202,7 @@
                 <h5>FOC</h5>
               </div>
               <div class="switch switch-center col-4">
-                <img id="autofocus-btn" src="img/autofocus-btn.png"
+                <img id="autofocus-btn" src="img/autofocus-btn.png" data-name="AutoFocus"
                   style="padding: 0 30px;margin-top: 65px;margin-bottom: 25px;">
 
                 <div class="switch-zoom" id="switchCCD"
@@ -235,21 +235,21 @@
                   <h5>+</h5>
                 </span>
 
-                <div class="switch-zoom" id="switchZOOM"
+                <div class="switch-zoom" id="switchZOOM" 
                   style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
-                    <span class="span-btn"
+                    <span class="span-btn" data-name="ZOOM"
                       style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
 
-                    <span class="span-btn"
+                    <span class="span-btn" data-name="ZOOM"
                       style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
                   </div>
                   <div class="botOfBtn" id="minusZOOM" style="display: flex; flex-direction: column;">
-                    <span class="span-btn"
+                    <span class="span-btn" data-name="ZOOM"
                       style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
 
-                    <span class="span-btn"
+                    <span class="span-btn" data-name="ZOOM"
                       style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
                   </div>
                 </div>
@@ -272,15 +272,14 @@
           </div>
           <div class="col-2" style="transform: translateY(100px);height:100px;"></div>
         </div>
-
       </div>
 
       <!-- RIGHT JOYSTICK -->
       <div class="right-joystick" style="background-image: url('/img/Rjoystick-bg.png'); height:425px;width: 227px;">
         <div class="spin-btn">
-          <img class="btn-RJ" id="btnRJ__l" src="img/btn-r-joystick.png">
+          <img class="btn-RJ" id="btnRJ__l" src="img/btn-r-joystick.png" data-name="btnSpin">
           <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -20px;">
-          <img class="btn-RJ" id="btnRJ__r" src="img/btn-r-joystick-2.png">
+          <img class="btn-RJ" id="btnRJ__r" src="img/btn-r-joystick-2.png" data-name="btnSpin">
         </div>
         
       </div>

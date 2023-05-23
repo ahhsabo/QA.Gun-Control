@@ -1,24 +1,62 @@
+//Quy trình bao gồm:
+//1. Chọn chế độ : STAB / SERV
+//2. Bật công tắc MOVE (di chuyển được RJ)
+//3. Chọn chế độ bắn: đơn / loạt / liên thanh
+//4. Bật công tắc LRF (laze)
+//5. Bấm nút trắng trên LJ (đo cự li đến mục tiêu)  
+//6. Xoay RJ (di chuyển được trạm vũ trí)
+//7. ZOOM (tới gần mục tiêu)
+//8. Bấm Auto Focus (tự động lấy nét)
+//9. Bật công tắc Fire (cho phép bắn)
+//10. Bật công tắc CHRG (nạp đạn)
+//11. Bấm khai hỏa 
+
+const _FireProcess = ["modeAct", "MOV","modeFire","LRF","btnWhite","btnSpin", "ZOOM", "AutoFocus", "btnFire", "CHRG", "fire"];
+var INDEX = -1;
+var MODE = "F2";
+
 //TRỢ GIÚP
 var countF1 = 0;
-function myFunctionF1(){
+function myFunctionF1() {
     countF1++;
     console.log(countF1);
-    if(countF1 % 2 == 0){
-        $("#manualBtn").css("display","none");
-        $("#space").css("display","block");
-        $(this).css("border","2px solid black");
+    if (countF1 % 2 == 0) {
+        $("#manualBtn").css("display", "none");
+        $("#space").css("display", "block");
+        $(this).css("border", "2px solid black");
     }
-    else{
-        $("#manualBtn").css("display","block");
-        $("#space").css("display","none");
-        $(this).css("border","2px solid limegreen");
+    else {
+        $("#manualBtn").css("display", "block");
+        $("#space").css("display", "none");
+        $(this).css("border", "2px solid limegreen");
     }
 }
 
+//BTN-LEFT
+var countBTNLEFT = 0;
+$(".btn-left img").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[0] && INDEX!=0) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+       
+    }
 
-//MODE TỰ DO
-function myFunctionF2(){
-//btn-left
+    countBTNLEFT++;
+    if (countBTNLEFT % 2 == 0) {
+        $(this).css("filter", "brightness(100%)");
+    }
+    else {
+        $(this).css("filter", "brightness(200%)");
+        $("#desig").css("filter", "brightness(100%)");
+        $("#serv").css("filter", "brightness(100%)");
+    }
+});
+
 //Stab
 var countStab = 0;
 $("#stab").on("click", function () {
@@ -79,6 +117,16 @@ $("#sctr").on("click", function () {
 //Sinc
 var countSinc = 0;
 $("#sinc").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[4] || INDEX != 4) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
     countSinc++;
     if (countSinc % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
@@ -99,10 +147,20 @@ $("#aimtrgt").on("click", function () {
     }
 });
 //btn auto-focus
-var countAFOCUS = 0;
+var count__AutoFocus = 0;
 $("#autofocus-btn").on("click", function () {
-    countAFOCUS++;
-    if (countAFOCUS % 2 == 0) {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
+    count__AutoFocus++;
+    if (count__AutoFocus % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
     }
     else {
@@ -110,24 +168,57 @@ $("#autofocus-btn").on("click", function () {
     }
 });
 
+
 //Fire-mode
+$("#center-btn h5").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+
+        
+        if ($(this).data("name") != _FireProcess[2] || INDEX != 2) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+
+    }
+
+
+    
+    
+    
+});
 $("#SNLG").on("click", function () {
-    $("#fire-mode__btn").css("rotate", "-45deg");
-});
+            $("#fire-mode__btn").css("rotate", "-45deg");
+        });
+        
+        $("#CONT").on("click", function () {
+            $("#fire-mode__btn").css("rotate", "45deg");
+        });
+        
+        $("#BRST").on("click", function () {
+            $("#fire-mode__btn").css("rotate", "0deg");
+        });
 
-$("#CONT").on("click", function () {
-    $("#fire-mode__btn").css("rotate", "45deg");
-});
 
-$("#BRST").on("click", function () {
-    $("#fire-mode__btn").css("rotate", "0deg");
-});
+
 
 //LRF
-var countLRF = 0;
+var count__LRF = 0;
 $(".on-off__LRF img").on("click", function () {
-    countLRF++;
-    if (countLRF % 2 == 0) {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[3]  || INDEX != 3) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
+    count__LRF++;
+    if (count__LRF % 2 == 0) {
         $(this).css("rotate", "0deg");
         $("#span-LRF").css("background-color", "gray");
     }
@@ -136,6 +227,9 @@ $(".on-off__LRF img").on("click", function () {
         $("#span-LRF").css("background-color", "#0DFF0B");
     }
 });
+
+
+
 
 //OVER
 var countOVER = 0;
@@ -154,6 +248,17 @@ $(".on-off__OVER img").on("click", function () {
 //MOVE
 var countMOVE = 0;
 $(".on-off__MOVE img").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[1] || INDEX !=1) {
+            INDEX--;
+            
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
     countMOVE++;
     if (countMOVE % 2 == 0) {
         $(this).css("rotate", "0deg");
@@ -165,7 +270,30 @@ $(".on-off__MOVE img").on("click", function () {
     }
 });
 
-//FIRE
+//FIRE btnFire
+var count__btnFire = 0;
+$(".on-off__FIRE img").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
+    count__btnFire++;
+    if (count__btnFire % 2 == 0) {
+        $(this).css("rotate", "0deg");
+        $("#span-FIRE").css("background-color", "gray");
+    }
+    else {
+        $(this).css("rotate", "180deg");
+        $("#span-FIRE").css("background-color", "#FF562F");
+    }
+});
+
 var countFIRE = 0;
 $(".on-off__FIRE img").on("click", function () {
     countFIRE++;
@@ -182,6 +310,16 @@ $(".on-off__FIRE img").on("click", function () {
 //CHRG
 var countCHRG = 0;
 $(".on-off__CHRG img").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[9] || INDEX != 9) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
     countCHRG++;
     if (countCHRG % 2 == 0) {
         $(this).css("rotate", "0deg");
@@ -191,43 +329,44 @@ $(".on-off__CHRG img").on("click", function () {
     }
 });
 
+
 //FOC   
 $("#plusFOC span").on("click", function () {
     $("#plusFOC span").css("filter", "brightness(150%)");
-    setTimeout(function(){
+    setTimeout(function () {
         $("#plusFOC span").css("filter", "brightness(100%)");
-        }, 200);
+    }, 200);
 });
 $("#minusFOC span").on("click", function () {
     $("#minusFOC span").css("filter", "brightness(150%)");
-    setTimeout(function(){
+    setTimeout(function () {
         $("#minusFOC span").css("filter", "brightness(100%)");
-        }, 200);
+    }, 200);
 });
 
 //CCD&ID 
 var countplusCCD = 0;
 $("#plusCCD span").on("click", function () {
     countplusCCD++;
-    if(countplusCCD % 2 == 0){
+    if (countplusCCD % 2 == 0) {
         $("#plusCCD span").css("filter", "brightness(100%)");
-        
+
     }
-    else{
+    else {
         $("#plusCCD span").css("filter", "brightness(150%)");
         $("#minusCCD span").css("filter", "brightness(100%)");
         countminusCCD = 0;
     }
-    
+
 });
 var countminusCCD = 0;
 $("#minusCCD span").on("click", function () {
     countminusCCD++;
-    if(countminusCCD % 2 == 0){
+    if (countminusCCD % 2 == 0) {
         $("#minusCCD span").css("filter", "brightness(100%)");
-        
+
     }
-    else{
+    else {
         $("#minusCCD span").css("filter", "brightness(150%)");
         $("#plusCCD span").css("filter", "brightness(100%)");
         countplusCCD = 0;
@@ -236,17 +375,31 @@ $("#minusCCD span").on("click", function () {
 });
 
 //ZOOM  
+$(".span-btn").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+
+});
+
+
 $("#plusZOOM span").on("click", function () {
     $("#plusZOOM span").css("filter", "brightness(150%)");
-    setTimeout(function(){
+    setTimeout(function () {
         $("#plusZOOM span").css("filter", "brightness(100%)");
-        }, 200);
+    }, 200);
 });
 $("#minusZOOM span").on("click", function () {
     $("#minusZOOM span").css("filter", "brightness(150%)");
-    setTimeout(function(){
+    setTimeout(function () {
         $("#minusZOOM span").css("filter", "brightness(100%)");
-        }, 200);
+    }, 200);
 });
 
 //LEDTEST
@@ -263,41 +416,65 @@ $(".on-off__LEDTEST img").on("click", function () {
 
 // RIGHT JOYSTICK
 //click pluss/minus
+$(".btn-RJ").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+});
 
 //minus
 $("#btnRJ__l").on("click", function () {
     $("#btnRJ__l").css("filter", "brightness(0.6)");
-        setTimeout(function () {
-            $("#btnRJ__l").css("filter", "brightness(0.15)");
-        }, 200);
+    setTimeout(function () {
+        $("#btnRJ__l").css("filter", "brightness(0.15)");
+    }, 200);
 });
 
 var current_rotation = 0;
-document.getElementById("btnRJ__l").addEventListener('click', function(){
+document.getElementById("btnRJ__l").addEventListener('click', function () {
     current_rotation -= 10;
-document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
+    document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
 });
 
 //plus
 $("#btnRJ__r").on("click", function () {
     $("#btnRJ__r").css("filter", "brightness(0.6)");
-        setTimeout(function () {
-            $("#btnRJ__r").css("filter", "brightness(0.15)");
-        }, 200);
+    setTimeout(function () {
+        $("#btnRJ__r").css("filter", "brightness(0.15)");
+    }, 200);
 });
 
-document.getElementById("btnRJ__r").addEventListener('click', function(){
+document.getElementById("btnRJ__r").addEventListener('click', function () {
     current_rotation += 10;
-document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
+    document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
 });
+
+
 
 //Khai hoả
 $("#btnFire").on("click", function () {
-    $(this).css("margin-top","26px");
-    $(this).css("margin-left","175px");
+    $(this).css("margin-top", "26px");
+    $(this).css("margin-left", "175px");
     setTimeout(function () {
-        $("#btnFire").css("margin-top","22px");
-        $("#btnFire").css("margin-left","177px");
+        $("#btnFire").css("margin-top", "22px");
+        $("#btnFire").css("margin-left", "177px");
     }, 200);
 });
+
+
+
+function myFunctionF3(){
+    MODE = "F3";
+    alert("MODE THỰC HÀNH");
+}
+
+function myFunctionF2(){
+    MODE = "F2";
+    alert("MODE TỰ DO");
 }
