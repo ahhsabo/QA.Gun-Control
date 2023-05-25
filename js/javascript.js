@@ -503,7 +503,7 @@ function myFunctionF3() {
    if($( ".on-off__btn" ).hasClass( "active" )){
     MODE ="F2";
     alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
-    console.log(MODE);
+    countF3 = 0;
 }
 }
 
