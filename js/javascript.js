@@ -201,10 +201,12 @@ $(".on-off__LRF img").on("click", function () {
     if (count__LRF % 2 == 0) {
         $(this).css("rotate", "0deg");
         $("#span-LRF").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
     }
     else {
         $(this).css("rotate", "180deg");
         $("#span-LRF").css("background-color", "#0DFF0B");
+        $(".on-off__btn").addClass("active");
     }
 });
 
@@ -218,10 +220,12 @@ $(".on-off__OVER img").on("click", function () {
     if (countOVER % 2 == 0) {
         $(this).css("rotate", "0deg");
         $("#span-OVER").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
     }
     else {
         $(this).css("rotate", "180deg");
         $("#span-OVER").css("background-color", "#0DFF0B");
+        $(".on-off__btn").addClass("active");
     }
 });
 
@@ -244,10 +248,12 @@ $(".on-off__MOVE img").on("click", function () {
     if (countMOVE % 2 == 0) {
         $(this).css("rotate", "0deg");
         $("#span-MOVE").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
     }
     else {
         $(this).css("rotate", "180deg");
         $("#span-MOVE").css("background-color", "#0DFF0B");
+        $(".on-off__btn").addClass("active");
     }
 });
 
@@ -268,10 +274,12 @@ $(".on-off__FIRE img").on("click", function () {
     if (count__btnFire % 2 == 0) {
         $(this).css("rotate", "0deg");
         $("#span-FIRE").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
     }
     else {
         $(this).css("rotate", "180deg");
         $("#span-FIRE").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
     }
 });
 
@@ -482,12 +490,26 @@ $(".modeBtn").on('click', 'input[type="checkbox"]', function () {
     $('input[type="checkbox"]').not(this).prop('checked', false);
 });
 
+var countF3 = 0; 
 function myFunctionF3() {
-    MODE = "F3";
-    alert("MODE THỰC HÀNH");
+    countF3++;
+    if(countF3 % 2 == 0){
+        MODE = "F2";
+    }
+    else{
+        MODE = "F3";
+    } 
+    console.log(MODE);
+   if($( ".on-off__btn" ).hasClass( "active" )){
+    MODE ="F2";
+    alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
+    console.log(MODE);
 }
+}
+
 
 function myFunctionF2() {
     MODE = "F2";
-    alert("MODE TỰ DO");
+    console.log(MODE);
+    countF3 = 0;
 }
