@@ -1,10 +1,10 @@
 //Quy trình bao gồm:
-//1. Chọn chế độ : STAB / SERV
+//1. Chọn chế độ : STAB / SERV / DESIGN
 //2. Bật công tắc MOVE (di chuyển được RJ)
 //3. Chọn chế độ bắn: đơn / loạt / liên thanh
 //4. Bật công tắc LRF (laze)
-//5. Bấm nút trắng trên LJ (đo cự li đến mục tiêu)  
-//6. Xoay RJ (di chuyển được trạm vũ trí)
+//5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu)  
+//6. Xoay núm xoay trên cần phải (di chuyển được trạm vũ trí)
 //7. ZOOM (tới gần mục tiêu)
 //8. Bấm Auto Focus (tự động lấy nét)
 //9. Bật công tắc Fire (cho phép bắn)
@@ -513,6 +513,10 @@ function myFunctionF3() {
     if ($(".on-off__btn").hasClass("active")) {
         MODE = "F2";
         alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
+        $('#F3').css("background-color","white");
+        $('#F3').css("border","2px solid black");
+        $('#F2').css("background-color","#14da1e");
+        $('#F2').css("border","3px solid #478bfb");
         countF3 = 0;
     }
 }
