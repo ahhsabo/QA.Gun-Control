@@ -36,13 +36,14 @@ input {
     background-color: #fff;
 }
 
-input:hover,
-input:focus {
+input:hover,input[type="button"]:focus
+{
+    border: 3px solid #478bfb;
     background: #14da1e;
     transition: none;
 }
 
-input:active {
+input:active{
     color: #E2C2FD;
     background: #12e458;
     transition: background 0.5s linear 0s;
@@ -50,13 +51,10 @@ input:active {
 
 /* cc */
 input[type="checkbox"]{
-
     width: 200px;
     border: 2px solid black;
     height: 40px;
     transition: background 0.5s linear 0s;
-
-
     position: relative;
     -webkit-appearance: none;
     background-color: #ffffff;
@@ -72,6 +70,8 @@ input[type="checkbox"]:hover{
 }
 input[type="checkbox"]:checked{
     border: 3px solid #478bfb;
+    background: #14da1e;
+    transition: none;
 }
 input[type="checkbox"]:checked:after{
     font-weight: 900;
@@ -79,10 +79,7 @@ input[type="checkbox"]:checked:after{
     color: #478bfb;
     
 }
-input[type="checkbox"]:focus{
-    background: #14da1e;
-    transition: none;
-}
+
 
 
 

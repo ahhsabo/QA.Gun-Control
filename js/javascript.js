@@ -461,16 +461,13 @@ $("#btnWhite").on("click", function () {
 $("#btnFire").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
-        console.log(INDEX);
         if ($(this).data("name") == _FireProcess[10] && INDEX == 11) {
             INDEX--;
             return;
         }
         if ($(this).data("name") != _FireProcess[10] || INDEX != 10) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
+           INDEX--;
+        }  
     }
 
     $(this).css("margin-top", "26px");
@@ -487,8 +484,10 @@ $(".modeBtn").on('click', 'input[type="checkbox"]', function () {
 
 function myFunctionF3() {
     MODE = "F3";
+    alert("MODE THỰC HÀNH");
 }
 
 function myFunctionF2() {
     MODE = "F2";
+    alert("MODE TỰ DO");
 }
