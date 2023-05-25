@@ -157,10 +157,10 @@ $("#center-btn h5").on("click", function () {
         INDEX++;
         console.log(INDEX);
 
-        if ($(this).data("name") == _FireProcess[2] && INDEX ==3) {
+        if ($(this).data("name") == _FireProcess[2] && INDEX == 3) {
             INDEX--;
             return;
-        }    
+        }
         if ($(this).data("name") != _FireProcess[2] || INDEX != 2) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
@@ -195,7 +195,7 @@ $(".on-off__LRF img").on("click", function () {
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
         }
-    }           
+    }
 
     count__LRF++;
     if (count__LRF % 2 == 0) {
@@ -233,7 +233,7 @@ $(".on-off__OVER img").on("click", function () {
 var countMOVE = 0;
 $(".on-off__MOVE img").on("click", function () {
     if (MODE == "F3") {
-       
+
         INDEX++;
         console.log(INDEX);
         if ($(this).data("name") != _FireProcess[1] || INDEX != 1) {
@@ -446,6 +446,7 @@ $("#btnWhite").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
+
         if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
             INDEX--;
             return;
@@ -466,7 +467,7 @@ $("#btnWhite").on("click", function () {
 });
 
 //Khai hoả
-$("#btnFire").on("click", function () {
+$("#btnFirered").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         if ($(this).data("name") == _FireProcess[10] && INDEX == 11) {
@@ -474,37 +475,46 @@ $("#btnFire").on("click", function () {
             return;
         }
         if ($(this).data("name") != _FireProcess[10] || INDEX != 10) {
-           INDEX--;
-        }  
-    }
+            INDEX--;
+        }
 
+    }
     $(this).css("margin-top", "26px");
     $(this).css("margin-left", "175px");
     setTimeout(function () {
-        $("#btnFire").css("margin-top", "22px");
-        $("#btnFire").css("margin-left", "177px");
+        $("#btnFirered").css("margin-top", "22px");
+        $("#btnFirered").css("margin-left", "177px");
     }, 200);
+
 });
 
-$(".modeBtn").on('click', 'input[type="checkbox"]', function () {
-    $('input[type="checkbox"]').not(this).prop('checked', false);
+$(".modeBtn").on('click', 'input[type="radio"]', function () {
+    $('input[type="radio"]').not(this).prop('checked', false);
 });
 
-var countF3 = 0; 
+var countF3 = 0;
 function myFunctionF3() {
     countF3++;
-    if(countF3 % 2 == 0){
+    if (countF3 % 2 == 0) {
         MODE = "F2";
+        $('#F3').css("background-color","white");
+        $('#F3').css("border","2px solid black");
+        $('#F2').css("background-color","#14da1e");
+        $('#F2').css("border","3px solid #478bfb");
     }
-    else{
+    else {
         MODE = "F3";
-    } 
+        $('#F2').css("background-color","white");
+        $('#F2').css("border","2px solid black");
+        $('#F3').css("background-color","#14da1e");
+        $('#F3').css("border","3px solid #478bfb");
+    }
     console.log(MODE);
-   if($( ".on-off__btn" ).hasClass( "active" )){
-    MODE ="F2";
-    alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
-    countF3 = 0;
-}
+    if ($(".on-off__btn").hasClass("active")) {
+        MODE = "F2";
+        alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
+        countF3 = 0;
+    }
 }
 
 
@@ -512,4 +522,8 @@ function myFunctionF2() {
     MODE = "F2";
     console.log(MODE);
     countF3 = 0;
+    $('#F3').css("background-color","white");
+    $('#F3').css("border","2px solid black");
+    $('#F2').css("background-color","#14da1e");
+    $('#F2').css("border","3px solid #478bfb");
 }

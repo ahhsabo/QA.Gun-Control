@@ -15,12 +15,15 @@
   <div class="shark" style="width:100%; height:auto;">
     <div class="screen col-12">
       <div class="modeBtn">
-        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp" style="text-align: center;margin-bottom: 25px;">
-        <input type="checkbox" id="F2" onclick="myFunctionF2()" value="F2: Mode tự do">
+        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp"
+          style="text-align: center;margin-bottom: 25px;">
+
+        <input type="radio" id="F2" onclick="myFunctionF2()" value="F2: Mode tự do" checked>
         <label for="F2" style=" position: absolute;
-        margin-bottom: 5px;
+        margin-bottom: 5px;  
         cursor: pointer;">F2: Mode tự do</label><br>
-        <input type="checkbox" id="F3" onclick="myFunctionF3()" value="F3: Mode thực hành">
+        
+        <input type="radio" id="F3" onclick="myFunctionF3()" value="F3: Mode thực hành">
         <label for="F3" style=" position: absolute;
         margin-top: 173px;
         cursor: pointer;">F3: Mode thực hành </label><br>
@@ -79,13 +82,14 @@
 
     <div class="simulation col-12">
       <!-- LEFT JOYSTICK -->
-      <div class="buttonWhite"style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
+      <div class="buttonWhite"
+        style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
         <img id="btnWhite" src="img/btnWhite-click.png" data-name="btnWhite">
       </div>
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
-        <img id="btnFire" src="img/btn-fire-red.png" data-name="fire">
-      </div>  
-      
+        <img id="btnFirered" src="img/btn-fire-red.png" data-name="fire1">
+      </div>
+
       <!-- BẢNG ĐIỀU KHIỂN -->
       <div class="console-simulation" id="console-simulation">
         <div class="row"
@@ -126,12 +130,12 @@
             </div>
 
             <!-- CENTER BUTTON -->
-            <div class="btn center-btn" >
+            <div class="btn center-btn">
               <div style="margin-top:80px;" id="center-btn">
                 <h5 id="BRST" data-name="modeFire">BRST</h5>
                 <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
                   <h5 id="SNLG" data-name="modeFire">SNLG</h5>
-                  <img id="fire-mode__btn" src="img/fire-mode-btn.png" >
+                  <img id="fire-mode__btn" src="img/fire-mode-btn.png">
                   <h5 id="CONT" data-name="modeFire">CONT</h5>
                 </div>
               </div>
@@ -244,7 +248,7 @@
                   <h5>+</h5>
                 </span>
 
-                <div class="switch-zoom" id="switchZOOM" 
+                <div class="switch-zoom" id="switchZOOM"
                   style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
                     <span class="span-btn" data-name="ZOOM"
@@ -290,7 +294,7 @@
           <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -20px;">
           <img class="btn-RJ" id="btnRJ__r" src="img/btn-r-joystick-2.png" data-name="btnSpin">
         </div>
-        
+
       </div>
     </div>
   </div>
