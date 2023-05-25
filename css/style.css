@@ -12,7 +12,11 @@ h3{
 h4 {
     font-size: 16px;
 }
-
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
 .container {
     margin: 0;
     padding: 0;
@@ -100,8 +104,11 @@ ul li {
 }
 
 .screenUser {
+    background-image: url("/img/screen-bg.png");
+    background-repeat: no-repeat; 
     margin: 0 100px;
-    width: 700px;
+    width: 1000px;
+    height: 440px;
 }
 
 .simulation {
@@ -147,7 +154,7 @@ ul li {
 }
 #btnFirered {
     margin-top: 22px;
-    margin-left: 177px;
+    margin-left: 0;
 }
 
 .led-mode {
@@ -188,9 +195,8 @@ ul li {
 
 .spin-btn {
     display: flex;
-    margin-top: 18px;
+    margin-top: 0;
     align-items: flex-start;
-    justify-content: space-between;
 }
 
 .spin-btn img {

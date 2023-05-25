@@ -424,11 +424,11 @@ $("#btnWhite").on("click", function () {
 
 //Khai hoả
 $("#btnFirered").on("click", function () {
-    $(this).css("margin-top", "26px");
-    $(this).css("margin-left", "175px");
+    $(this).css("margin-top", "30px");
+    $(this).css("margin-left", "27px");
     setTimeout(function () {
-        $("#btnFirered").css("margin-top", "22px");
-        $("#btnFirered").css("margin-left", "177px");
+        $("#btnFirered").css("margin-top", "26px");
+        $("#btnFirered").css("margin-left", "30px");
     }, 200);
 
 });
@@ -464,6 +464,7 @@ function myFunctionF3() {
         $('#F2').css("border", "3px solid #478bfb");
         countF3 = 0;
     }
+
 }
 
 
@@ -504,11 +505,11 @@ document.addEventListener('keydown', function (event) {
     }
 
     if (event.code == 'KeyF') {
-        $("#btnFirered").css("margin-top", "26px");
-        $("#btnFirered").css("margin-left", "175px");
+        $("#btnFirered").css("margin-top", "30px");
+        $("#btnFirered").css("margin-left", "27px");
         setTimeout(function () {
-            $("#btnFirered").css("margin-top", "22px");
-            $("#btnFirered").css("margin-left", "177px");
+            $("#btnFirered").css("margin-top", "26px");
+            $("#btnFirered").css("margin-left", "30px");
         }, 200);
     }
 
@@ -529,7 +530,7 @@ document.addEventListener('keydown', function (event) {
     
         }
     
-        $(this).css("margin-top", "-19px");
+        $("#btnWhite").css("margin-top", "-19px");
         setTimeout(function () {
             $("#btnWhite").css("margin-top", "-23px");
         }, 200);
@@ -571,12 +572,16 @@ $(document).keydown(function (e) {
 
 
     if (e.which == 13) {
-        $("#btnFirered").css("margin-top", "26px");
-        $("#btnFirered").css("margin-left", "175px");
+        $("#btnFirered").css("margin-top", "30px");
+        $("#btnFirered").css("margin-left", "27px");
         setTimeout(function () {
-            $("#btnFirered").css("margin-top", "22px");
-            $("#btnFirered").css("margin-left", "177px");
+            $("#btnFirered").css("margin-top", "26px");
+            $("#btnFirered").css("margin-left", "30px");
         }, 200);
         return false;
     }
 });
+
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
