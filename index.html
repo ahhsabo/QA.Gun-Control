@@ -31,7 +31,7 @@
       <div class="screenUser"><img src="/img/Màn hình.png"></div>
       <div id="space" style="display: block; width:708px;"></div>
       <div class="manualBtn" id="manualBtn">
-        <h4>- B1: Trên hệ thống súng bên ngoài:</h4>
+        <!-- <h4>- B1: Trên hệ thống súng bên ngoài:</h4>
         <ul>
           <li>Khóa hướng, khóa tầm và các chốt hành quân. </li>
           <li>Chuyển chế độ bắn điện trên súng. </li>
@@ -74,21 +74,20 @@
           <li>Tắt công tắc MOVE, FIRE tại vị trí chỉ huy</li>
           <li>Tắt công tắc nguồn trên bàn điều khiển </li>
           <li>Tắt công tắc hệ thống.</li>
-        </ul>
+        </ul> -->
 
 
-        
-        <!-- <h4>1. Chọn chế độ : STAB / SERV / DESIGN</h4>
-        <h4>2. Bật công tắc MOVE (di chuyển được RJ)</h4>
+        <h3>Các bước thực hiện chế độ thực hành</h3>
+        <h4>1. Chọn chế độ : STAB / SERV / DESIGN</h4>
+        <h4>2. Bật công tắc MOVE (di chuyển được cần phải)</h4>
         <h4>3. Chọn chế độ bắn: đơn / loạt / liên thanh</h4>
         <h4>4. Bật công tắc LRF (laze)</h4>
         <h4>5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu) </h4>
-        <h4>6. Xoay núm xoay trên cần phải (di chuyển được trạm vũ trí)</h4>
         <h4>7. ZOOM (tới gần mục tiêu)</h4>
         <h4>8. Bấm Auto Focus (tự động lấy nét)</h4>
         <h4>9. Bật công tắc Fire (cho phép bắn)</h4>
         <h4>10. Bật công tắc CHRG (nạp đạn)</h4>
-        <h4>11. Bấm khai hỏa </h4> -->
+        <h4>11. Bấm khai hỏa </h4>
       </div>
     </div>
 
@@ -99,7 +98,16 @@
         style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
         <img id="btnWhite" src="img/btnWhite-click.png" data-name="btnWhite">
       </div>
+
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
+        <div class="direction" id="leftDirect">
+          <img id="up-LJ" src="img/arrow-up.png">
+          <div style="display: flex;">
+            <img id="left-LJ" src="img/arrow-left.png">
+            <img id="right-LJ" src="img/arrow-right.png">
+          </div>
+          <img id="down-LJ" src="img/arrow-down.png">
+        </div>
         <img id="btnFirered" src="img/btn-fire-red.png" data-name="fire1">
       </div>
 
@@ -302,10 +310,16 @@
 
       <!-- RIGHT JOYSTICK -->
       <div class="right-joystick" style="background-image: url('/img/Rjoystick-bg.png'); height:425px;width: 227px;">
+        <div class="direction" id="rightDirect">
+          <img id="up-RJ" src="img/arrow-up.png">
+          <div style="display: flex;">
+            <img id="left-RJ" src="img/arrow-left.png">
+            <img id="right-RJ" src="img/arrow-right.png">
+          </div>
+          <img id="down-RJ" src="img/arrow-down.png">
+        </div>
         <div class="spin-btn">
-          <img class="btn-RJ" id="btnRJ__l" src="img/btn-r-joystick.png" data-name="btnSpin">
-          <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -20px;">
-          <img class="btn-RJ" id="btnRJ__r" src="img/btn-r-joystick-2.png" data-name="btnSpin">
+          <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -2000px;display: block;margin: 0 auto;">
         </div>
 
       </div>

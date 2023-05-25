@@ -6,10 +6,9 @@ body{
     flex-direction: column;
 }
 
-h1 {
-    color: red;
+h3{
+    font-size:20px;
 }
-
 h4 {
     font-size: 16px;
 }
@@ -224,3 +223,11 @@ ul li {
     margin: 0;
 }
 
+.direction {
+    margin-top: -130px;
+}
+
+.direction img{
+    display: block;
+    margin:0 auto ;
+}

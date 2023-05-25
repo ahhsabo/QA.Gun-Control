@@ -11,7 +11,7 @@
 //10. Bật công tắc CHRG (nạp đạn)
 //11. Bấm khai hỏa 
 
-const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "btnSpin", "ZOOM", "AutoFocus", "btnFire", "CHRG", "fire"];
+const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
 var INDEX = -1;
 var MODE = "F2";
 
@@ -134,7 +134,7 @@ $("#autofocus-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -263,7 +263,7 @@ $(".on-off__FIRE img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
+        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -289,7 +289,7 @@ $(".on-off__CHRG img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[9] || INDEX != 9) {
+        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -355,12 +355,12 @@ $(".span-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[6] && INDEX == 7) {
+        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
             INDEX--;
             return;
         }
 
-        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
+        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -396,57 +396,13 @@ $(".on-off__LEDTEST img").on("click", function () {
 });
 
 // RIGHT JOYSTICK
-//click pluss/minus
-$(".btn-RJ").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
-            INDEX--;
-            return;
-        }
 
-        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
-    }
-});
-
-//minus
-$("#btnRJ__l").on("click", function () {
-    $("#btnRJ__l").css("filter", "brightness(0.6)");
-    setTimeout(function () {
-        $("#btnRJ__l").css("filter", "brightness(0.15)");
-    }, 200);
-});
-
-var current_rotation = 0;
-document.getElementById("btnRJ__l").addEventListener('click', function () {
-    current_rotation -= 10;
-    document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
-});
-
-//plus
-$("#btnRJ__r").on("click", function () {
-    $("#btnRJ__r").css("filter", "brightness(0.6)");
-    setTimeout(function () {
-        $("#btnRJ__r").css("filter", "brightness(0.15)");
-    }, 200);
-});
-
-document.getElementById("btnRJ__r").addEventListener('click', function () {
-    current_rotation += 10;
-    document.querySelector(".rotate").style.transform = 'rotate(' + current_rotation + 'deg)';
-});
 
 //ButtonWhite
 $("#btnWhite").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-
         if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
             INDEX--;
             return;
@@ -468,17 +424,6 @@ $("#btnWhite").on("click", function () {
 
 //Khai hoả
 $("#btnFirered").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        if ($(this).data("name") == _FireProcess[10] && INDEX == 11) {
-            INDEX--;
-            return;
-        }
-        if ($(this).data("name") != _FireProcess[10] || INDEX != 10) {
-            INDEX--;
-        }
-
-    }
     $(this).css("margin-top", "26px");
     $(this).css("margin-left", "175px");
     setTimeout(function () {
@@ -497,26 +442,26 @@ function myFunctionF3() {
     countF3++;
     if (countF3 % 2 == 0) {
         MODE = "F2";
-        $('#F3').css("background-color","white");
-        $('#F3').css("border","2px solid black");
-        $('#F2').css("background-color","#14da1e");
-        $('#F2').css("border","3px solid #478bfb");
+        $('#F3').css("background-color", "white");
+        $('#F3').css("border", "2px solid black");
+        $('#F2').css("background-color", "#14da1e");
+        $('#F2').css("border", "3px solid #478bfb");
     }
     else {
         MODE = "F3";
-        $('#F2').css("background-color","white");
-        $('#F2').css("border","2px solid black");
-        $('#F3').css("background-color","#14da1e");
-        $('#F3').css("border","3px solid #478bfb");
+        $('#F2').css("background-color", "white");
+        $('#F2').css("border", "2px solid black");
+        $('#F3').css("background-color", "#14da1e");
+        $('#F3').css("border", "3px solid #478bfb");
     }
     console.log(MODE);
     if ($(".on-off__btn").hasClass("active")) {
         MODE = "F2";
         alert("Vui lòng tắt hết nút bấm trước khi bắt đầu");
-        $('#F3').css("background-color","white");
-        $('#F3').css("border","2px solid black");
-        $('#F2').css("background-color","#14da1e");
-        $('#F2').css("border","3px solid #478bfb");
+        $('#F3').css("background-color", "white");
+        $('#F3').css("border", "2px solid black");
+        $('#F2').css("background-color", "#14da1e");
+        $('#F2').css("border", "3px solid #478bfb");
         countF3 = 0;
     }
 }
@@ -526,8 +471,112 @@ function myFunctionF2() {
     MODE = "F2";
     console.log(MODE);
     countF3 = 0;
-    $('#F3').css("background-color","white");
-    $('#F3').css("border","2px solid black");
-    $('#F2').css("background-color","#14da1e");
-    $('#F2').css("border","3px solid #478bfb");
+    $('#F3').css("background-color", "white");
+    $('#F3').css("border", "2px solid black");
+    $('#F2').css("background-color", "#14da1e");
+    $('#F2').css("border", "3px solid #478bfb");
 }
+
+document.addEventListener('keydown', function (event) {
+    if (event.code == 'KeyA') {
+        $("#left-LJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#left-LJ").css("background", "white");
+        }, 200);
+    }
+    if (event.code == 'KeyS') {
+        $("#down-LJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#down-LJ").css("background", "white");
+        }, 200);
+    }
+    if (event.code == 'KeyD') {
+        $("#right-LJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#right-LJ").css("background", "white");
+        }, 200);
+    }
+    if (event.code == 'KeyW') {
+        $("#up-LJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#up-LJ").css("background", "white");
+        }, 200);
+    }
+
+    if (event.code == 'KeyF') {
+        $("#btnFirered").css("margin-top", "26px");
+        $("#btnFirered").css("margin-left", "175px");
+        setTimeout(function () {
+            $("#btnFirered").css("margin-top", "22px");
+            $("#btnFirered").css("margin-left", "177px");
+        }, 200);
+    }
+
+    if (event.code == 'KeyL') {
+        if (MODE == "F3") {
+            INDEX++;
+            console.log(INDEX);
+            if ($("#btnWhite").data("name") == _FireProcess[4] && INDEX == 5) {
+                INDEX--;
+                return;
+            }
+    
+            if ($("#btnWhite").data("name") != _FireProcess[4] || INDEX != 4) {
+                INDEX--;
+                alert("Thao tác sai. Vui lòng thử lại!");
+                return;
+            }
+    
+        }
+    
+        $(this).css("margin-top", "-19px");
+        setTimeout(function () {
+            $("#btnWhite").css("margin-top", "-23px");
+        }, 200);
+    }
+    
+
+});
+
+
+$(document).keydown(function (e) {
+    if (e.which == 37) {
+        $("#left-RJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#left-RJ").css("background", "white");
+        }, 200);
+        return false;
+    }
+    if (e.which == 38) {
+        $("#up-RJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#up-RJ").css("background", "white");
+        }, 200);
+        return false;
+    }
+    if (e.which == 39) {
+        $("#right-RJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#right-RJ").css("background", "white");
+        }, 200);
+        return false;
+    }
+    if (e.which == 40) {
+        $("#down-RJ").css("background", "radial-gradient(black, transparent)");
+        setTimeout(function () {
+            $("#down-RJ").css("background", "white");
+        }, 200);
+        return false;
+    }
+
+
+    if (e.which == 13) {
+        $("#btnFirered").css("margin-top", "26px");
+        $("#btnFirered").css("margin-left", "175px");
+        setTimeout(function () {
+            $("#btnFirered").css("margin-top", "22px");
+            $("#btnFirered").css("margin-left", "177px");
+        }, 200);
+        return false;
+    }
+});
