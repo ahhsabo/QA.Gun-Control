@@ -371,9 +371,7 @@ $(".span-btn").on("click", function () {
 
 
 $("#plusZOOM span").on("click", function () {
-
     $("#plusZOOM span").css("filter", "brightness(150%)");
-
     setTimeout(function () {
         $("#plusZOOM span").css("filter", "brightness(100%)");
     }, 200);
