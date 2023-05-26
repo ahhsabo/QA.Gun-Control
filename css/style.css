@@ -97,18 +97,39 @@ ul li {
     padding-top: 10px;
     padding-left: 10px;
     height: 420px;
-    width: 700px;
+    width: 703px;
     overflow: scroll;
     overflow-x: hidden;
     background-color: lightgray;
 }
 
 .screenUser {
-    background-image: url("/img/screen-bg.png");
-    background-repeat: no-repeat; 
-    margin: 0 100px;
-    width: 1000px;
+
+}
+.imgScreen{
+    width: 700px;
     height: 440px;
+}
+
+.imgScreen img{
+    width: 100%;
+}
+
+.imgEnemy img{
+    position: absolute;
+    z-index: 99;
+    width: 334px;
+    height: 247px;
+    margin: -340px 183px;
+}
+
+.focusEnemy{
+    width: 100px;
+    height:50px;
+    border: 1px solid red;
+    border-radius: 10px;
+    margin-top:-250px; 
+    margin-left: 300px;
 }
 
 .simulation {
