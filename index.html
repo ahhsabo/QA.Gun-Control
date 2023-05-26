@@ -15,18 +15,17 @@
   <div class="shark" style="width:100%; height:auto;">
     <div class="screen col-12">
       <div class="modeBtn">
-        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp"
-          style="text-align: center;margin-bottom: 25px;">
+        <input type="button" onclick="myFunctionF1()" value="Trợ giúp" style="text-align: center;margin-bottom: 25px;">
 
-        <input type="radio" id="F2" onclick="myFunctionF2()" value="F2: Mode tự do" checked>
+        <input type="radio" id="F2" onclick="myFunctionF2()" value="Mode tự do" checked>
         <label for="F2" style=" position: absolute;
         margin-bottom: 5px;  
-        cursor: pointer;">F2: Mode tự do</label><br>
+        cursor: pointer;">Mode tự do</label><br>
 
-        <input type="radio" id="F3" onclick="myFunctionF3()" value="F3: Mode thực hành">
+        <input type="radio" id="F3" onclick="myFunctionF3()" value="Mode thực hành">
         <label for="F3" style=" position: absolute;
         margin-top: 173px;
-        cursor: pointer;">F3: Mode thực hành </label><br>
+        cursor: pointer;">Mode thực hành </label><br>
       </div>
       <div class="screenUser" style="background-image:url('img/image-enemy.png');background-repeat: no-repeat ;margin: 0 100px;height: 440px;position: relative;">
         <div class="imgScreen">
@@ -108,12 +107,13 @@
 
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
         <div class="direction" id="leftDirect">
-          <img id="up-LJ" src="img/arrow-up.png">
+          <img id="up-LJ" src="img/arrow-up.png" data-toggle="tooltip" data-placement="top" title="Bấm phím W"><span style="margin-left: 107px;">W</span>
           <div style="display: flex;">
-            <img id="left-LJ" src="img/arrow-left.png">
-            <img id="right-LJ" src="img/arrow-right.png">
+            <img id="left-LJ" src="img/arrow-left.png" data-toggle="tooltip" data-placement="top" title="Bấm phím A"><div style="margin-top: 7px;"><span>A</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span><span>D</span></div>
+            <img id="right-LJ" src="img/arrow-right.png" data-toggle="tooltip" data-placement="top" title="Bấm phím D">
           </div>
-          <img id="down-LJ" src="img/arrow-down.png">
+          <span style="margin-left: 110px;">S</span>
+          <img id="down-LJ" src="img/arrow-down.png" data-toggle="tooltip" data-placement="top" title="Bấm phím S">
         </div>
         <div class="spin-btn">
           <img class="rotate" id="spin-LJ" src="img/btn-spin-right.png" style="display: flex;margin-left: 83px;">
@@ -322,12 +322,12 @@
       <!-- RIGHT JOYSTICK -->
       <div class="right-joystick" style="background-image: url('/img/Rjoystick-bg.png'); height:425px;width: 227px;">
         <div class="direction" id="rightDirect">
-          <img id="up-RJ" src="img/arrow-up.png">
+          <img id="up-RJ" src="img/arrow-up.png" data-placement="top" title="Bấm nút lên trên">
           <div style="display: flex;">
-            <img id="left-RJ" src="img/arrow-left.png">
-            <img id="right-RJ" src="img/arrow-right.png">
+            <img id="left-RJ" src="img/arrow-left.png" data-placement="top" title="Bấm nút sang trái">
+            <img id="right-RJ" src="img/arrow-right.png" data-placement="top" title="Bấm nút sang phải">
           </div>
-          <img id="down-RJ" src="img/arrow-down.png">
+          <img id="down-RJ" src="img/arrow-down.png" data-placement="top" title="Bấm nút xuống dưới">
         </div>
         <div class="spin-btn">
           <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -2000px;display: block;margin: 0 auto;">

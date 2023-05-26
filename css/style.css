@@ -216,7 +216,7 @@ ul li {
 
 .spin-btn {
     display: flex;
-    margin-top: 0;
+    margin-top: 14px;
     align-items: flex-start;
 }
 
@@ -253,7 +253,9 @@ ul li {
 .direction {
     margin-top: -130px;
 }
-
+#leftDirect{
+    margin-top: -190px;
+}
 .direction img{
     display: block;
     margin:0 auto ;
