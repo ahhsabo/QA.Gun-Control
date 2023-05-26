@@ -371,6 +371,7 @@ $(".span-btn").on("click", function () {
 
 
 $("#plusZOOM span").on("click", function () {
+
     $("#plusZOOM span").css("filter", "brightness(150%)");
 
     setTimeout(function () {
@@ -618,7 +619,3 @@ $(document).keydown(function (e) {
         return false;
     }
 });
-
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-  })
