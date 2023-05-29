@@ -1,15 +1,15 @@
-//Quy trình bao gồm:
-//1. Chọn chế độ : STAB / SERV / DESIGN
-//2. Bật công tắc MOVE (di chuyển được RJ)
-//3. Chọn chế độ bắn: đơn / loạt / liên thanh
-//4. Bật công tắc LRF (laze)
-//5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu)  
-//6. Xoay núm xoay trên cần phải (di chuyển được trạm vũ trí)
-//7. ZOOM (tới gần mục tiêu)
-//8. Bấm Auto Focus (tự động lấy nét)
-//9. Bật công tắc Fire (cho phép bắn)
-//10. Bật công tắc CHRG (nạp đạn)
-//11. Bấm khai hỏa 
+// Quy trình bao gồm:
+// 1. Chọn chế độ : STAB / SERV / DESIGN
+// 2. Bật công tắc MOVE (di chuyển được RJ)
+// 3. Chọn chế độ bắn: đơn / loạt / liên thanh
+// 4. Bật công tắc LRF (laze)
+// 5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu)  
+// 6. Xoay núm xoay trên cần phải (di chuyển được trạm vũ trí)
+// 7. ZOOM (tới gần mục tiêu)
+// 8. Bấm Auto Focus (tự động lấy nét)
+// 9. Bật công tắc Fire (cho phép bắn)
+// 10. Bật công tắc CHRG (nạp đạn)
+// 11. Bấm khai hỏa 
 
 const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
 var INDEX = -1;
