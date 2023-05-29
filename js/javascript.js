@@ -350,6 +350,9 @@ $("#minusCCD span").on("click", function () {
 
 });
 
+
+
+var zoomFocus = 1;
 //ZOOM  
 $(".span-btn").on("click", function () {
     if (MODE == "F3") {
@@ -369,15 +372,27 @@ $(".span-btn").on("click", function () {
 
 });
 
-
 $("#plusZOOM span").on("click", function () {
+    zoomFocus = zoomFocus + 0.05;   
+    let zoomBox = 1/zoomFocus;
     $("#plusZOOM span").css("filter", "brightness(150%)");
+    if(zoomFocus>=0.7 && zoomFocus <=3){
+        $(".screenUser").css("scale",zoomFocus +"");
+        $(".imgScreen").css("scale",zoomBox +"");
+    }
     setTimeout(function () {
         $("#plusZOOM span").css("filter", "brightness(100%)");
     }, 200);
 });
 $("#minusZOOM span").on("click", function () {
+    zoomFocus = zoomFocus - 0.05;   
+    let zoomBox = 1/zoomFocus;
     $("#minusZOOM span").css("filter", "brightness(150%)");
+    if(zoomFocus>=0.7 && zoomFocus <=3){
+        $(".screenUser").css("scale",zoomFocus +"");
+        $(".imgScreen").css("scale",zoomBox +"");
+    }
+
     setTimeout(function () {
         $("#minusZOOM span").css("filter", "brightness(100%)");
     }, 200);

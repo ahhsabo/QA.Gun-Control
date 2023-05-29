@@ -1,22 +1,27 @@
-body{
+body {
     position: relative;
 }
+
 .btn {
     display: flex;
     flex-direction: column;
 }
 
-h3{
-    font-size:20px;
+h3 {
+    font-size: 20px;
 }
+
 h4 {
     font-size: 16px;
 }
+
 .tooltip {
     position: relative;
     display: inline-block;
-    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
-  }
+    border-bottom: 1px dotted black;
+    /* If you want dots under the hoverable text */
+}
+
 .container {
     margin: 0;
     padding: 0;
@@ -24,8 +29,8 @@ h4 {
 
 h5 {
     color: #fff;
-    font-size: 13px;
-    margin-top: 2px;
+    font-size: 11px;
+    margin-top: 0;
     text-align: center;
 }
 
@@ -39,14 +44,14 @@ input {
     background-color: #fff;
 }
 
-input:active{
+input:active {
     color: #ffffff;
     background: #12e458;
     transition: background 0.5s linear 0s;
 }
 
 /* CHECKBOX */
-input[type="radio"]{
+input[type="radio"] {
     width: 200px;
     border: 2px solid black;
     height: 40px;
@@ -57,19 +62,22 @@ input[type="radio"]{
     cursor: pointer;
 
 }
-input[type="radio"]:after{
- display: none;
+
+input[type="radio"]:after {
+    display: none;
 }
-input[type="radio"]:checked{
+
+input[type="radio"]:checked {
     border: 3px solid #478bfb;
     background: #14da1e;
     transition: none;
 }
-input[type="radio"]:checked:after{
+
+input[type="radio"]:checked:after {
     font-weight: 900;
     content: "\f058";
     color: #fb4765;
-    
+
 }
 
 ul li {
@@ -96,6 +104,7 @@ ul li {
     margin-top: 10px;
     padding-top: 10px;
     padding-left: 10px;
+    margin-left: 100px;
     height: 420px;
     width: 703px;
     overflow: scroll;
@@ -103,19 +112,17 @@ ul li {
     background-color: lightgray;
 }
 
-.screenUser {
 
-}
-.imgScreen{
+.imgScreen {
     width: 700px;
     height: 440px;
 }
 
-.imgScreen img{
+.imgScreen img {
     width: 100%;
 }
 
-.imgEnemy img{
+.imgEnemy img {
     position: absolute;
     z-index: 99;
     width: 334px;
@@ -123,12 +130,12 @@ ul li {
     margin: -340px 183px;
 }
 
-.focusEnemy{
+.focusEnemy {
     width: 100px;
-    height:50px;
+    height: 50px;
     border: 1px solid red;
     border-radius: 10px;
-    margin-top:-250px; 
+    margin-top: -250px;
     margin-left: 300px;
 }
 
@@ -137,7 +144,12 @@ ul li {
     justify-content: center;
     align-items: flex-end;
 }
-
+.btn-l{
+    padding:0 4px;
+}
+.btn-r{
+    padding:0 4px;
+}
 .btn-left img {
     margin-bottom: 30px;
     opacity: 0.9;
@@ -149,30 +161,32 @@ ul li {
 }
 
 .btn-left {
-    margin: 65px 0 0 20px;
+    margin: 98px 0 0 13px;
 }
 
 .btn-right {
-    margin: 65px 0 0 34px;
+    margin: 96px 0 0 33px;
 }
 
 .led-left {
-    margin: 60px 0 0 30px;
+    margin: 142px 0 0 28px;
 }
 
 .led-right {
-    margin: 60px 0 0 18px;
+    margin: 146px 0 0 17px;
 }
 
 .red-btn {
-    padding-bottom: 15px;
+    padding-bottom: 10px;
     display: block;
     margin: 0 auto;
 }
-#btnWhite{
-    margin-top:-23px;
-    margin-left:7px;
+
+#btnWhite {
+    margin-top: -23px;
+    margin-left: 7px;
 }
+
 #btnFirered {
     margin-top: 22px;
     margin-left: 0;
@@ -184,7 +198,7 @@ ul li {
 }
 
 .center-btn {
-    width: 240px;
+    width: 181px;
     padding-left: 30px;
     display: block;
 }
@@ -203,15 +217,15 @@ ul li {
 }
 
 #BRST {
-    margin-bottom: 12px;
+    margin-bottom: 8px;
 }
 
 .switch-left {
-    padding-left: 90px;
+    padding-left: 74px;
 }
 
 .switch-right {
-    padding-right: 90px;
+    padding-right: 74px;
 }
 
 .spin-btn {
@@ -231,7 +245,7 @@ ul li {
 
 .bottom-btn {
     display: flex;
-    margin-top: 60px;
+    margin-top: 20px;
     flex-wrap: wrap;
     flex-direction: column;
 }
@@ -246,17 +260,19 @@ ul li {
 }
 
 .plus-minus__btn h5 {
-    font-size: 18px;
+    font-size: 14px;
     margin: 0;
 }
 
 .direction {
     margin-top: -130px;
 }
-#leftDirect{
+
+#leftDirect {
     margin-top: -190px;
 }
-.direction img{
+
+.direction img {
     display: block;
-    margin:0 auto ;
+    margin: 0 auto;
 }
