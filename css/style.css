@@ -151,21 +151,21 @@ ul li {
     padding:0 4px;
 }
 .btn-left img {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     opacity: 0.9;
 }
 
 .btn-right img {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     opacity: 0.9;
 }
 
 .btn-left {
-    margin: 98px 0 0 13px;
+    margin: 109px 0 0 14px;
 }
 
 .btn-right {
-    margin: 96px 0 0 33px;
+    margin: 109px 0 0 30px;
 }
 
 .led-left {
