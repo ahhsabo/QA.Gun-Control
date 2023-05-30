@@ -463,7 +463,7 @@ $("#btnWhite").on("click", function () {
         }
 
     }
-
+    if((countStab % 2 != 0)){
     $(this).css("margin-top", "103px");
     $(this).css("margin-left", "18px");
     $("#coneLeft").css("margin-top", "14px");
@@ -474,6 +474,7 @@ $("#btnWhite").on("click", function () {
         $("#coneLeft").css("margin-top", "12px");
         $("#coneLeft").css("margin-left", "43px");
     }, 200);
+}
 });
 
 //Khai hoả
@@ -714,12 +715,12 @@ document.addEventListener('keydown', function (event) {
         if (MODE == "F3") {
             INDEX++;
             console.log(INDEX);
-            if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
+            if ($("#coneLeft").data("name") == _FireProcess[5] && INDEX == 6) {
                 INDEX--;
                 return;
             }
 
-            if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+            if ($("#coneLeft").data("name") != _FireProcess[5] || INDEX != 5) {
                 INDEX--;
                 alert("Thao tác sai. Vui lòng thử lại!");
                 return;
@@ -761,6 +762,7 @@ document.addEventListener('keydown', function (event) {
             }
 
         }
+        if((countStab % 2 != 0)){
         $("#btnWhite").css("margin-top", "103px");
         $("#btnWhite").css("margin-left", "18px");
         $("#coneLeft").css("margin-top", "14px");
@@ -771,6 +773,7 @@ document.addEventListener('keydown', function (event) {
             $("#coneLeft").css("margin-top", "12px");
             $("#coneLeft").css("margin-left", "43px");
         }, 200);
+    } 
     }
 
 
