@@ -27,13 +27,23 @@
         margin-top: 173px;
         cursor: pointer;">Mode thực hành </label><br>
       </div>
-      <div style="width:720px; margin-top: 15px;">
+      <div style="width:720px;">
         <div style="width: 697px; overflow: hidden;">
           <div class="screenUser" id="screenUser"
-            style="background-image:url('img/image-enemy.png');background-repeat: no-repeat;width: 705px; height: 440px;position: relative;">
+            style="background-image:url('img/image-enemy.png');filter: blur(0px);background-repeat: no-repeat;width: 705px; height: 440px;position: relative;">
             <div class="imgScreen">
-              <img src="img/screen-bg3.png">
-              <div class="focusEnemy d-none"></div>
+              <img src="img/screen-bg3.png"  style="filter: blur(0); position: relative;">
+              
+              <div class="focusEnemy">
+                <div class="CrossHair">
+                 <img src="img/CrossHair.png" style="width: 50px;height: 50px;">
+                </div>
+                <div class="noCrossHair  d-none">
+                  <img src="img/noCrossHair.png" style="width: 60px;height: 50px;">
+                </div>
+
+              </div>
+
             </div>
 
           </div>
@@ -74,14 +84,16 @@
 
     <div class="simulation col-12">
       <!-- LEFT JOYSTICK -->
-      <div class="right-joystick__behind">
-        <img src="img/LJ-behind.png">
+      <div class="left-joystick__behind">
+        <div style="background-image: url('img/LJ-behind.png');height: 414px;width:304px;">
+          <div >
+            <img src="img/btn-white-hori.png" style="margin: 105px 0 0 16px;" id="btnWhite" data-name="btnWhite" data-toggle="tooltip" data-placement="top" title="Đo cự li đến mục tiêu">
+          </div>
+          <div>
+            <img src="img/btn-hold.png" id="coneLeft" style="margin: 12px 0 0 43px;height: 54px;width: 63px;" data-name="coneLeft">
+          </div>
+        </div>
       </div>
-      <!-- <div class="buttonWhite"
-        style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
-        <img id="btnWhite" src="img/btnWhite-click.png" data-name="btnWhite" data-toggle="tooltip" data-placement="top"
-          title="Đo cự li đến mục tiêu">
-      </div> -->
 
       <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
         <div class="direction" id="leftDirect">
@@ -328,7 +340,11 @@
         </div>
       </div>
       <div class="right-joystick__behind">
-        <img src="img/RJ-behind.png">
+        <div style="background-image: url('img/RJ-behind.png');height: 414px;width:304px;">
+          <div>
+            <img src="img/btn-hold.png" id="coneRight" style="margin: 134px 0 0 43px;height: 54px;width: 63px;" data-name="coneRight" data-toggle="tooltip" data-placement="top" title="Côn cần điều khiển phải">
+          </div>
+        </div>
       </div>
     </div>
   </div>

@@ -1,20 +1,20 @@
 // Quy trình bao gồm:
 // 1. Chọn chế độ : STAB / SERV / DESIGN
-// 2. Bật công tắc MOVE (di chuyển được RJ)
+// 2. Bật công tắc MOVE (di chuyển được cần phải)
 // 3. Chọn chế độ bắn: đơn / loạt / liên thanh
-// 4. Bật công tắc LRF (laze)
+// 4. Bật công tắc LRF (laze) để cho phép đo k/cach
 // 5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu)  
-// 6. Xoay núm xoay trên cần phải (di chuyển được trạm vũ trí)
+// 6. Giữ côn và chi chuyển nút trên cần phải (di chuyển được trạm vũ trí)
 // 7. ZOOM (tới gần mục tiêu)
 // 8. Bấm Auto Focus (tự động lấy nét)
 // 9. Bật công tắc Fire (cho phép bắn)
 // 10. Bật công tắc CHRG (nạp đạn)
-// 11. Bấm khai hỏa 
-
-const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
+// 11. Bấm khai hỏa
+//                        0        1        2         3        4            5         6         7           8          9
+const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "coneLeft", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
 var INDEX = -1;
 var MODE = "F2";
-
+var sound = new Audio('img/gun12.7mm.mp3'); 
 //TRỢ GIÚP
 var countF1 = 0;
 function myFunctionF1() {
@@ -134,7 +134,7 @@ $("#autofocus-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
+        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -263,7 +263,7 @@ $(".on-off__FIRE img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
+        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -289,7 +289,7 @@ $(".on-off__CHRG img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
+        if ($(this).data("name") != _FireProcess[9] || INDEX != 9) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -358,12 +358,12 @@ $(".span-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
+        if ($(this).data("name") == _FireProcess[6] && INDEX == 7) {
             INDEX--;
             return;
         }
 
-        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -373,24 +373,24 @@ $(".span-btn").on("click", function () {
 });
 
 $("#plusZOOM span").on("click", function () {
-    zoomFocus = zoomFocus + 0.05;   
-    let zoomBox = 1/zoomFocus;
+    zoomFocus = zoomFocus + 0.05;
+    let zoomBox = 1 / zoomFocus;
     $("#plusZOOM span").css("filter", "brightness(150%)");
-    if(zoomFocus>=0.7 && zoomFocus <=3){
-        $(".screenUser").css("scale",zoomFocus +"");
-        $(".imgScreen").css("scale",zoomBox +"");
+    if (zoomFocus >= 0.7 && zoomFocus <= 3) {
+        $(".screenUser").css("scale", zoomFocus + "");
+        $(".imgScreen").css("scale", zoomBox + "");
     }
     setTimeout(function () {
         $("#plusZOOM span").css("filter", "brightness(100%)");
     }, 200);
 });
 $("#minusZOOM span").on("click", function () {
-    zoomFocus = zoomFocus - 0.05;   
-    let zoomBox = 1/zoomFocus;
+    zoomFocus = zoomFocus - 0.05;
+    let zoomBox = 1 / zoomFocus;
     $("#minusZOOM span").css("filter", "brightness(150%)");
-    if(zoomFocus>=0.7 && zoomFocus <=3){
-        $(".screenUser").css("scale",zoomFocus +"");
-        $(".imgScreen").css("scale",zoomBox +"");
+    if (zoomFocus >= 0.7 && zoomFocus <= 3) {
+        $(".screenUser").css("scale", zoomFocus + "");
+        $(".imgScreen").css("scale", zoomBox + "");
     }
 
     setTimeout(function () {
@@ -410,8 +410,41 @@ $(".on-off__LEDTEST img").on("click", function () {
     }
 });
 
-// RIGHT JOYSTICK
+// LEFT JOYSTICK
+var countConeLeft = 0;
+$("#coneLeft").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
+            INDEX--;
+            return;
+        }
 
+        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+    countConeLeft++;
+    if (countConeLeft % 2 != 0) {
+        $(this).css("margin", "16px 0 0 63px");
+        $(this).css("height", "54px");
+        $(this).css("width", "44px");
+        $(this).css("rotate", "4deg");
+        $(".CrossHair").addClass("d-none");
+        $(".noCrossHair").removeClass("d-none");
+    }
+    else {
+        $("#coneLeft").css("margin", "12px 0 0 43px");
+        $("#coneLeft").css("height", "53px");
+        $("#coneLeft").css("width", "63px");
+        $("#coneLeft").css("rotate", "0deg");
+        $(".noCrossHair").addClass("d-none");
+        $(".CrossHair").removeClass("d-none");
+    }
+});
 
 //ButtonWhite
 $("#btnWhite").on("click", function () {
@@ -431,9 +464,15 @@ $("#btnWhite").on("click", function () {
 
     }
 
-    $(this).css("margin-top", "-19px");
+    $(this).css("margin-top", "103px");
+    $(this).css("margin-left", "18px");
+    $("#coneLeft").css("margin-top", "14px");
+    $("#coneLeft").css("margin-left", "43px");
     setTimeout(function () {
-        $("#btnWhite").css("margin-top", "-23px");
+        $("#btnWhite").css("margin-top", "105px");
+        $("#btnWhite").css("margin-left", "16px");
+        $("#coneLeft").css("margin-top", "12px");
+        $("#coneLeft").css("margin-left", "43px");
     }, 200);
 });
 
@@ -441,6 +480,7 @@ $("#btnWhite").on("click", function () {
 $("#btnFirered").on("click", function () {
     $(this).css("margin-top", "30px");
     $(this).css("margin-left", "27px");
+    sound.play();
     setTimeout(function () {
         $("#btnFirered").css("margin-top", "26px");
         $("#btnFirered").css("margin-left", "30px");
@@ -448,10 +488,129 @@ $("#btnFirered").on("click", function () {
 
 });
 
+//A S W D
+$("#left-LJ").on("click", function () {
+    xFocus--;
+    $("#left-LJ").css("background", "radial-gradient(black, transparent)");
+    if (xFocus > 185 && xFocus < 415) {
+        $(".focusEnemy").css("margin-left", xFocus + "px");
+    }
+    setTimeout(function () {
+        $("#left-LJ").css("background", "white");
+    }, 200);
+});
+
+$("#down-LJ").on("click", function () {
+    yFocus++;
+    $("#down-LJ").css("background", "radial-gradient(black, transparent)");
+    if (yFocus > -340 && yFocus < -148) {
+        $(".focusEnemy").css("margin-top", yFocus + "px");
+    }
+    setTimeout(function () {
+        $("#down-LJ").css("background", "white");
+    }, 200);
+})
+$("#right-LJ").on("click", function () {
+    xFocus++;
+    $("#right-LJ").css("background", "radial-gradient(black, transparent)");
+    if (xFocus > 185 && xFocus < 415) {
+        $(".focusEnemy").css("margin-left", xFocus + "px");
+    }
+    setTimeout(function () {
+        $("#right-LJ").css("background", "white");
+    }, 200);
+})
+$("#up-LJ").on("click", function () {
+    yFocus--;
+    $("#up-LJ").css("background", "radial-gradient(black, transparent)");
+    if (yFocus > -340 && yFocus < -148) {
+        $(".focusEnemy").css("margin-top", yFocus + "px");
+    }
+    setTimeout(function () {
+        $("#up-LJ").css("background", "white");
+    }, 200);
+})
+
+
+
+// RIGHT JOYSTICK
+var countConeRight = 0;
+$("#coneRight").on("click", function () {
+    countConeRight++;
+    if (countConeRight % 2 != 0) {
+        $(this).css("margin", "138px 0 0 63px");
+        $(this).css("height", "54px");
+        $(this).css("width", "44px");
+        $(this).css("rotate", "4deg");
+    }
+    else {
+        $("#coneRight").css("margin", "134px 0 0 44px");
+        $("#coneRight").css("height", "53px");
+        $("#coneRight").css("width", "63px");
+        $("#coneRight").css("rotate", "0deg");
+    }
+});
+
+$("#left-RJ").on("click", function () {
+    if (countConeRight % 2 != 0) {
+    xScreen--;
+    $("#left-RJ").css("background", "radial-gradient(black, transparent)");
+    if (xScreen > 0 && xScreen < 100) {
+        $(".screenUser").css("background-position-x", xScreen + "%");
+    }
+    setTimeout(function () {
+        $("#left-RJ").css("background", "white");
+    }, 200);
+    return false;
+}
+})
+$("#up-RJ").on("click", function () {
+    if (countConeRight % 2 != 0) {
+    yScreen--;
+    $("#up-RJ").css("background", "radial-gradient(black, transparent)");
+    if (yScreen >= 0 && yScreen <= 100) {
+        $(".screenUser").css("background-position-y", yScreen + "%");
+    }
+    setTimeout(function () {
+        $("#up-RJ").css("background", "white");
+    }, 200);
+    return false;
+}
+})
+$("#right-RJ").on("click", function () {
+    if (countConeRight % 2 != 0) {
+    xScreen++;
+    $("#right-RJ").css("background", "radial-gradient(black, transparent)");
+    if (xScreen >= 0 && xScreen <= 100) {
+        $(".screenUser").css("background-position-x", xScreen + "%");
+    }
+    setTimeout(function () {
+        $("#right-RJ").css("background", "white");
+    }, 200);
+    return false;
+}
+})
+$("#down-RJ").on("click", function () {
+    if (countConeRight % 2 != 0) {
+    yScreen++;
+    $("#down-RJ").css("background", "radial-gradient(black, transparent)");
+    if (yScreen >= 0 && yScreen <= 100) {
+        $(".screenUser").css("background-position-y", yScreen + "%");
+    }
+    setTimeout(function () {
+        $("#down-RJ").css("background", "white");
+    }, 200);
+    return false;
+}
+})
+
+//just click 1 btn
 $(".modeBtn").on('click', 'input[type="radio"]', function () {
     $('input[type="radio"]').not(this).prop('checked', false);
 });
 
+
+//MODE
 var countF3 = 0;
 function myFunctionF3() {
     countF3++;
@@ -479,13 +638,7 @@ function myFunctionF3() {
         $('#F2').css("border", "3px solid #478bfb");
         countF3 = 0;
     }
-
-}
-
-var xScreen = 0;
-var yScreen = 0;
-var xFocus = 300;
-var yFocus = -250;
+};
 function myFunctionF2() {
     MODE = "F2";
     console.log(MODE);
@@ -494,15 +647,23 @@ function myFunctionF2() {
     $('#F3').css("border", "2px solid black");
     $('#F2').css("background-color", "#14da1e");
     $('#F2').css("border", "3px solid #478bfb");
-}
+};
 
+
+
+//KEYBOARD BTN
+var xScreen = 0;
+var yScreen = 0;
+var xFocus = 330;
+var yFocus = -250;
+var kdConeLeft = 0;
 document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyA') {
         xFocus--;
         $("#left-LJ").css("background", "radial-gradient(black, transparent)");
-        if(xFocus>185 && xFocus<415){
-            $(".focusEnemy").css("margin-left", xFocus +"px");
-            }
+        if (xFocus > 185 && xFocus < 415) {
+            $(".focusEnemy").css("margin-left", xFocus + "px");
+        }
         setTimeout(function () {
             $("#left-LJ").css("background", "white");
         }, 200);
@@ -510,8 +671,8 @@ document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyS') {
         yFocus++;
         $("#down-LJ").css("background", "radial-gradient(black, transparent)");
-        if(yFocus>-340 && yFocus<-148){
-            $(".focusEnemy").css("margin-top", yFocus +"px");
+        if (yFocus > -340 && yFocus < -148) {
+            $(".focusEnemy").css("margin-top", yFocus + "px");
         }
         setTimeout(function () {
             $("#down-LJ").css("background", "white");
@@ -520,8 +681,8 @@ document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyD') {
         xFocus++;
         $("#right-LJ").css("background", "radial-gradient(black, transparent)");
-        if(xFocus>185 && xFocus<415){
-            $(".focusEnemy").css("margin-left", xFocus +"px");
+        if (xFocus > 185 && xFocus < 415) {
+            $(".focusEnemy").css("margin-left", xFocus + "px");
         }
         setTimeout(function () {
             $("#right-LJ").css("background", "white");
@@ -530,8 +691,8 @@ document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyW') {
         yFocus--;
         $("#up-LJ").css("background", "radial-gradient(black, transparent)");
-        if(yFocus>-340 && yFocus<-148){
-            $(".focusEnemy").css("margin-top", yFocus +"px");
+        if (yFocus > -340 && yFocus < -148) {
+            $(".focusEnemy").css("margin-top", yFocus + "px");
         }
         setTimeout(function () {
             $("#up-LJ").css("background", "white");
@@ -541,13 +702,50 @@ document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyF') {
         $("#btnFirered").css("margin-top", "30px");
         $("#btnFirered").css("margin-left", "27px");
+        
+        sound.play();
         setTimeout(function () {
             $("#btnFirered").css("margin-top", "26px");
             $("#btnFirered").css("margin-left", "30px");
         }, 200);
     }
 
-    if (event.code == 'KeyL') {
+    if (event.code == 'Space') {
+        if (MODE == "F3") {
+            INDEX++;
+            console.log(INDEX);
+            if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
+                INDEX--;
+                return;
+            }
+
+            if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+                INDEX--;
+                alert("Thao tác sai. Vui lòng thử lại!");
+                return;
+            }
+        }
+        kdConeLeft++;
+        if (kdConeLeft % 2 != 0) {
+            $("#coneLeft").css("margin", "16px 0 0 63px");
+            $("#coneLeft").css("height", "54px");
+            $("#coneLeft").css("width", "44px");
+            $("#coneLeft").css("rotate", "4deg");
+            $(".CrossHair").addClass("d-none");
+            $(".noCrossHair").removeClass("d-none");
+        }
+        else {
+            $("#coneLeft").css("margin", "12px 0 0 43px");
+            $("#coneLeft").css("height", "53px");
+            $("#coneLeft").css("width", "63px");
+            $("#coneLeft").css("rotate", "0deg");
+            $(".noCrossHair").addClass("d-none");
+            $(".CrossHair").removeClass("d-none");
+        }
+        return false;
+    }
+
+    if (event.code == 'KeyR') {
         if (MODE == "F3") {
             INDEX++;
             console.log(INDEX);
@@ -555,81 +753,78 @@ document.addEventListener('keydown', function (event) {
                 INDEX--;
                 return;
             }
-    
+
             if ($("#btnWhite").data("name") != _FireProcess[4] || INDEX != 4) {
                 INDEX--;
                 alert("Thao tác sai. Vui lòng thử lại!");
                 return;
             }
-    
+
         }
-    
-        $("#btnWhite").css("margin-top", "-19px");
+        $("#btnWhite").css("margin-top", "103px");
+        $("#btnWhite").css("margin-left", "18px");
+        $("#coneLeft").css("margin-top", "14px");
+        $("#coneLeft").css("margin-left", "43px");
         setTimeout(function () {
-            $("#btnWhite").css("margin-top", "-23px");
+            $("#btnWhite").css("margin-top", "105px");
+            $("#btnWhite").css("margin-left", "16px");
+            $("#coneLeft").css("margin-top", "12px");
+            $("#coneLeft").css("margin-left", "43px");
         }, 200);
     }
-    
+
 
 });
 
 
 $(document).keydown(function (e) {
-    if (e.which == 37) {
-        xScreen--;
-        $("#left-RJ").css("background", "radial-gradient(black, transparent)");
-        if(xScreen>0 && xScreen<100){
-        $(".screenUser").css("background-position-x", xScreen +"%");
+    if (countConeRight % 2 != 0) {
+        if (e.which == 37) {
+            xScreen--;
+            $("#left-RJ").css("background", "radial-gradient(black, transparent)");
+            if (xScreen > 0 && xScreen < 100) {
+                $(".screenUser").css("background-position-x", xScreen + "%");
+            }
+            setTimeout(function () {
+                $("#left-RJ").css("background", "white");
+
+            }, 200);
+            return false;
         }
-        setTimeout(function () {
-            $("#left-RJ").css("background", "white");
-            
-        }, 200);
-        return false;
-    }
-    if (e.which == 38) {
-        yScreen--;
-        $("#up-RJ").css("background", "radial-gradient(black, transparent)");
-        if(yScreen>=0 && yScreen<=100){
-            $(".screenUser").css("background-position-y", yScreen +"%");
+        if (e.which == 38) {
+            yScreen--;
+            $("#up-RJ").css("background", "radial-gradient(black, transparent)");
+            if (yScreen >= 0 && yScreen <= 100) {
+                $(".screenUser").css("background-position-y", yScreen + "%");
             }
-        setTimeout(function () {
-            $("#up-RJ").css("background", "white");
-        }, 200);
-        return false;
-    }
-    if (e.which == 39) {
-        xScreen++;
-        $("#right-RJ").css("background", "radial-gradient(black, transparent)");
-        if(xScreen>=0 && xScreen<=100){
-            $(".screenUser").css("background-position-x", xScreen +"%");
+            setTimeout(function () {
+                $("#up-RJ").css("background", "white");
+            }, 200);
+            return false;
+        }
+        if (e.which == 39) {
+            xScreen++;
+            $("#right-RJ").css("background", "radial-gradient(black, transparent)");
+            if (xScreen >= 0 && xScreen <= 100) {
+                $(".screenUser").css("background-position-x", xScreen + "%");
             }
-        setTimeout(function () {
-            $("#right-RJ").css("background", "white");
-        }, 200);
-        return false;
-    }
-    if (e.which == 40) {
-        yScreen++;
-        $("#down-RJ").css("background", "radial-gradient(black, transparent)");
-        if(yScreen>=0 && yScreen<=100){
-            $(".screenUser").css("background-position-y", yScreen +"%");
+            setTimeout(function () {
+                $("#right-RJ").css("background", "white");
+            }, 200);
+            return false;
+        }
+        if (e.which == 40) {
+            yScreen++;
+            $("#down-RJ").css("background", "radial-gradient(black, transparent)");
+            if (yScreen >= 0 && yScreen <= 100) {
+                $(".screenUser").css("background-position-y", yScreen + "%");
             }
-        setTimeout(function () {
-            $("#down-RJ").css("background", "white");
-        }, 200);
-        return false;
+            setTimeout(function () {
+                $("#down-RJ").css("background", "white");
+            }, 200);
+            return false;
+        }
     }
 
-
-    if (e.which == 13) {
-        $("#btnFirered").css("margin-top", "30px");
-        $("#btnFirered").css("margin-left", "27px");
-        setTimeout(function () {
-            $("#btnFirered").css("margin-top", "26px");
-            $("#btnFirered").css("margin-left", "30px");
-        }, 200);
-        return false;
-    }
 });
 
