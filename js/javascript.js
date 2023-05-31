@@ -10,8 +10,8 @@
 // 9. Bật công tắc Fire (cho phép bắn)
 // 10. Bật công tắc CHRG (nạp đạn)
 // 11. Bấm khai hỏa
-//                        0        1        2         3        4            5         6         7           8          9
-const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "btnWhite", "coneLeft", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
+//                        0        1        2         3        4            5        6          7        8     
+const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "coneLeft", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
 var INDEX = -1;
 var MODE = "F2";
 var sound = new Audio('img/gun12.7mm.mp3');
@@ -134,7 +134,7 @@ $("#autofocus-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -144,7 +144,7 @@ $("#autofocus-btn").on("click", function () {
     count__AutoFocus++;
     if (count__AutoFocus % 2 != 0) {
         $(this).css("filter", "brightness(200%)");
-        $("#screenUser").css("filter", "blur(3px)");
+        $("#screenUser").css("filter", "blur(2px)");
         setTimeout(function () {
             $("#screenUser").css("filter", "blur(0)");
         }, 150);
@@ -267,7 +267,7 @@ $(".on-off__FIRE img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
+        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -293,7 +293,7 @@ $(".on-off__CHRG img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[9] || INDEX != 9) {
+        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -363,12 +363,12 @@ $(".span-btn").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[6] && INDEX == 7) {
+        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
             INDEX--;
             return;
         }
 
-        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
+        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -421,12 +421,12 @@ $("#coneLeft").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
+        if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
             INDEX--;
             return;
         }
 
-        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
+        if ($(this).data("name") != _FireProcess[4] || INDEX != 4) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -453,21 +453,6 @@ $("#coneLeft").on("click", function () {
 
 //ButtonWhite
 $("#btnWhite").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
-            INDEX--;
-            return;
-        }
-
-        if ($(this).data("name") != _FireProcess[4] || INDEX != 4) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
-
-    }
     if ((countStab % 2 != 0)) {
         $(this).css("margin-top", "103px");
         $(this).css("margin-left", "18px");
@@ -543,9 +528,6 @@ $("#up-LJ").on("click", function () {
 var countConeRight = 0;
 $("#coneRight").on("click", function () {
     countConeRight++;
-    
-    console.log("count-"+countConeRight);
-    console.log("kd-"+kdConeRight);
     if (countConeRight % 2 != 0) {
         kdConeRight = 1;
         $(this).css("margin", "138px 0 0 63px");
@@ -663,8 +645,8 @@ function myFunctionF2() {
 
 
 //KEYBOARD BTN
-var xScreen = 0;
-var yScreen = 0;
+var xScreen = 50;
+var yScreen = 50;
 var xFocus = 330;
 var yFocus = -255;
 var kdConeLeft = 0;
@@ -726,12 +708,12 @@ document.addEventListener('keydown', function (event) {
         if (MODE == "F3") {
             INDEX++;
             console.log(INDEX);
-            if ($("#coneLeft").data("name") == _FireProcess[5] && INDEX == 6) {
+            if ($("#coneLeft").data("name") == _FireProcess[4] && INDEX == 5) {
                 INDEX--;
                 return;
             }
 
-            if ($("#coneLeft").data("name") != _FireProcess[5] || INDEX != 5) {
+            if ($("#coneLeft").data("name") != _FireProcess[4] || INDEX != 4) {
                 INDEX--;
                 alert("Thao tác sai. Vui lòng thử lại!");
                 return;
@@ -758,21 +740,6 @@ document.addEventListener('keydown', function (event) {
     }
 
     if (event.code == 'KeyR') {
-        if (MODE == "F3") {
-            INDEX++;
-            console.log(INDEX);
-            if ($("#btnWhite").data("name") == _FireProcess[4] && INDEX == 5) {
-                INDEX--;
-                return;
-            }
-
-            if ($("#btnWhite").data("name") != _FireProcess[4] || INDEX != 4) {
-                INDEX--;
-                alert("Thao tác sai. Vui lòng thử lại!");
-                return;
-            }
-
-        }
         if ((countStab % 2 != 0)) {
             $("#btnWhite").css("margin-top", "103px");
             $("#btnWhite").css("margin-left", "18px");
@@ -790,9 +757,6 @@ document.addEventListener('keydown', function (event) {
 
     if (event.code == 'KeyL') {
         kdConeRight++;
-        
-        console.log("kd-"+kdConeRight);
-        console.log("count"+countConeRight);
         if (kdConeRight % 2 != 0) {
             countConeRight = 1;
             $("#coneRight").css("margin", "138px 0 0 63px");
@@ -816,10 +780,13 @@ $(document).keydown(function (e) {
     if (countConeRight % 2 != 0 || kdConeRight % 2 != 0) {
         if (e.which == 37) {
             xScreen--;
-            $("#left-RJ").css("background", "radial-gradient(black, transparent)");
-            if (xScreen >= 0 && xScreen <= 100) {
-                $(".screenUser").css("background-position-x", xScreen + "%");
+            console.log(xScreen)
+            if(xScreen <= -4) {
+                xScreen++
+                return false;
             }
+            $("#left-RJ").css("background", "radial-gradient(black, transparent)");
+            $(".screenUser").css("background-position-x", xScreen + "%");
             setTimeout(function () {
                 $("#left-RJ").css("background", "white");
 
@@ -839,10 +806,13 @@ $(document).keydown(function (e) {
         }
         if (e.which == 39) {
             xScreen++;
-            $("#right-RJ").css("background", "radial-gradient(black, transparent)");
-            if (xScreen >= 0 && xScreen <= 100) {
-                $(".screenUser").css("background-position-x", xScreen + "%");
+            console.log(xScreen)
+            if(xScreen > 100) {
+                xScreen--
+                return false;
             }
+            $("#right-RJ").css("background", "radial-gradient(black, transparent)");
+            $(".screenUser").css("background-position-x", xScreen + "%");
             setTimeout(function () {
                 $("#right-RJ").css("background", "white");
             }, 200);
