@@ -149,7 +149,7 @@ $("#autofocus-btn").on("click", function () {
     }
     else {
         $(this).css("filter", "brightness(100%)");
-        $("#screenUser").css("filter", "blur(0.7px)");
+        $("#screenUser").css("filter", "blur(1px)");
     }
 });
 
