@@ -27,26 +27,23 @@
         margin-top: 173px;
         cursor: pointer;">Mode thực hành </label><br>
       </div>
-      <div style="width:720px;">
-        <div style="width: 697px; overflow: hidden;">
-          <div class="screenUser" id="screenUser"
-            style="background-image:url('img/image-enemy.png');filter: blur(0px);background-repeat: no-repeat;width: 705px; height: 440px;position: relative;background-position: 50% 50%;">
-            <div class="imgScreen">
-              <img src="img/screen-bg3.png"  style="position: relative;">
-              
-              <div class="focusEnemy">
-                <div class="CrossHair">
-                 <img src="img/CrossHair.png" style="width: 70px;height: 70px;">
-                </div>
-                <div class="noCrossHair  d-none">
-                  <img src="img/noCrossHair.png" style="width: 70px;height: 70px;">
-                </div>
-
+      <div style="width:720px;height:625px;">
+        <div style="width: 697px;height:440px;position: relative; overflow: hidden;" >
+          <div class="screenUser" id="screenUser" style="background-image:url('img/image-enemy.png');background-repeat: no-repeat;filter:blur(0.7px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          </div>
+            <div class="imgScreen" style="position: relative; z-index: 9;">
+              <img src="img/screen-bg3.png"  style="position: absolute;margin-top: -440px;width: 705px;">
+            </div>
+            <div class="focusEnemy" style="position: absolute; z-index: 10;margin-top: -695px;">
+              <div class="CrossHair">
+               <img src="img/CrossHair.png" style="width: 70px;height: 70px;">
               </div>
-
+              <div class="noCrossHair  d-none">
+                <img src="img/noCrossHair.png" style="width: 70px;height: 70px;">
+              </div>
             </div>
 
-          </div>
+          
         </div>
       </div>
 
@@ -98,7 +95,7 @@
         </div>
       </div>
 
-      <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
+      <div class="left-joystick" style="background-image: url('img/Ljoystick-bg.png');height:425px;width: 231px;">
         <div class="direction" id="leftDirect">
           <img id="up-LJ" src="img/arrow-up.png" data-toggle="tooltip" data-placement="top" title="Bấm phím W"><span
             style="margin-left: 108px;">W</span>
@@ -121,7 +118,7 @@
       </div>
 
       <!-- BẢNG ĐIỀU KHIỂN -->
-      <div class="console-simulation" id="console-simulation">
+      <div class="console-simulation" id="console-simulation" style="z-index: 99;">
         <div class="row"
           style="display:flex;background-image:url('img/remote-no-btn-2.png');width:650px;height:620px;background-position: center;background-repeat: no-repeat;margin: 10px 20px;">
           <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
@@ -229,7 +226,7 @@
                 </span>
 
                 <div class="switch-zoom" id="switchFOC"
-                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:110px; background-repeat: no-repeat;">
+                  style="background-image: url('img/bg-btn-on.png');display: flex; flex-direction: column;height:110px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusFOC" style="display: flex; flex-direction: column;">
                     <span class="span-btn"
                       style="border:1px solid black;border-radius: 10px 10px 0 0;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 10px;margin-top: 14px;">.</span>
@@ -259,7 +256,7 @@
                   style="padding: 0 30px;margin-top: 43px;margin-bottom: 25px;">
 
                 <div class="switch-zoom" id="switchCCD"
-                  style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:60px; width:111px; background-repeat: no-repeat;">
+                  style="background-image: url('img/bg-bt-vertical.png');display: flex;height:60px; width:111px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusCCD" style="display: flex;">
                     <span class="span-btn"
                       style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 6px;height: 35px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 10px;">.</span>
@@ -289,7 +286,7 @@
                 </span>
 
                 <div class="switch-zoom" id="switchZOOM"
-                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:110px;width: 82px; background-repeat: no-repeat;">
+                  style="background-image: url('img/bg-btn-on.png');display: flex; flex-direction: column;height:110px;width: 82px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
                     <span class="span-btn" data-name="ZOOM"
                       style="border:1px solid black;border-radius: 10px 10px 0 0;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 11px;margin-top: 14px;">.</span>
@@ -328,7 +325,7 @@
       </div>
 
       <!-- RIGHT JOYSTICK -->
-      <div class="right-joystick" style="background-image: url('/img/Rjoystick-bg.png'); height:425px;width: 227px;">
+      <div class="right-joystick" style="background-image: url('img/Rjoystick-bg.png'); height:425px;width: 227px;">
         <div class="direction" id="rightDirect">
           <img id="up-RJ" src="img/arrow-up.png" data-placement="top" title="Bấm nút lên trên">
           <div style="display: flex;">
@@ -357,6 +354,6 @@
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/js/javascript.js"></script>
+<script src="js/javascript.js"></script>
 
 </html>

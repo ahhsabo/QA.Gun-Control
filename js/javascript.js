@@ -144,13 +144,12 @@ $("#autofocus-btn").on("click", function () {
     count__AutoFocus++;
     if (count__AutoFocus % 2 != 0) {
         $(this).css("filter", "brightness(200%)");
-        $("#screenUser").css("filter", "blur(2px)");
-        setTimeout(function () {
-            $("#screenUser").css("filter", "blur(0)");
-        }, 150);
+        $("#screenUser").css("filter", "blur(0px)");
+
     }
     else {
         $(this).css("filter", "brightness(100%)");
+        $("#screenUser").css("filter", "blur(0.7px)");
     }
 });
 
@@ -379,11 +378,9 @@ $(".span-btn").on("click", function () {
 
 $("#plusZOOM span").on("click", function () {
     zoomFocus = zoomFocus + 0.05;
-    let zoomBox = 1 / zoomFocus;
     $("#plusZOOM span").css("filter", "brightness(150%)");
     if (zoomFocus >= 0.7 && zoomFocus <= 3) {
         $(".screenUser").css("scale", zoomFocus + "");
-        $(".imgScreen").css("scale", zoomBox + "");
     }
     setTimeout(function () {
         $("#plusZOOM span").css("filter", "brightness(100%)");
@@ -391,13 +388,10 @@ $("#plusZOOM span").on("click", function () {
 });
 $("#minusZOOM span").on("click", function () {
     zoomFocus = zoomFocus - 0.05;
-    let zoomBox = 1 / zoomFocus;
     $("#minusZOOM span").css("filter", "brightness(150%)");
     if (zoomFocus >= 0.7 && zoomFocus <= 3) {
         $(".screenUser").css("scale", zoomFocus + "");
-        $(".imgScreen").css("scale", zoomBox + "");
     }
-
     setTimeout(function () {
         $("#minusZOOM span").css("filter", "brightness(100%)");
     }, 200);
@@ -482,10 +476,12 @@ $("#btnFirered").on("click", function () {
 //A S W D
 $("#left-LJ").on("click", function () {
     xFocus--;
-    $("#left-LJ").css("background", "radial-gradient(black, transparent)");
-    if (xFocus > 185 && xFocus < 415) {
-        $(".focusEnemy").css("margin-left", xFocus + "px");
+    if(xFocus < 200) {
+        xFocus++;
+        return false;
     }
+    $("#left-LJ").css("background", "radial-gradient(black, transparent)");
+    $(".focusEnemy").css("margin-left", xFocus + "px");
     setTimeout(function () {
         $("#left-LJ").css("background", "white");
     }, 200);
@@ -493,30 +489,36 @@ $("#left-LJ").on("click", function () {
 
 $("#down-LJ").on("click", function () {
     yFocus++;
-    $("#down-LJ").css("background", "radial-gradient(black, transparent)");
-    if (yFocus > -340 && yFocus < -148) {
-        $(".focusEnemy").css("margin-top", yFocus + "px");
+    if(yFocus > -595) {
+        yFocus--;
+        return false;
     }
+    $("#down-LJ").css("background", "radial-gradient(black, transparent)");
+    $(".focusEnemy").css("margin-top", yFocus + "px");
     setTimeout(function () {
         $("#down-LJ").css("background", "white");
     }, 200);
 })
 $("#right-LJ").on("click", function () {
     xFocus++;
-    $("#right-LJ").css("background", "radial-gradient(black, transparent)");
-    if (xFocus > 185 && xFocus < 415) {
-        $(".focusEnemy").css("margin-left", xFocus + "px");
+    if(xFocus > 460) {
+        xFocus--;
+        return false;
     }
+    $("#right-LJ").css("background", "radial-gradient(black, transparent)");
+    $(".focusEnemy").css("margin-left", xFocus + "px");
     setTimeout(function () {
         $("#right-LJ").css("background", "white");
     }, 200);
 })
 $("#up-LJ").on("click", function () {
     yFocus--;
-    $("#up-LJ").css("background", "radial-gradient(black, transparent)");
-    if (yFocus > -340 && yFocus < -148) {
-        $(".focusEnemy").css("margin-top", yFocus + "px");
+    if(yFocus < -795) {
+        yFocus++;
+        return false;
     }
+    $("#up-LJ").css("background", "radial-gradient(black, transparent)");
+        $(".focusEnemy").css("margin-top", yFocus + "px");
     setTimeout(function () {
         $("#up-LJ").css("background", "white");
     }, 200);
@@ -543,14 +545,15 @@ $("#coneRight").on("click", function () {
         $("#coneRight").css("rotate", "0deg");
     }
 });
-
 $("#left-RJ").on("click", function () {
     if (countConeRight % 2 != 0) {
         xScreen--;
+            if(xScreen < 0) {
+                xScreen++;
+                return false;
+            }
         $("#left-RJ").css("background", "radial-gradient(black, transparent)");
-        if (xScreen >= 0 && xScreen <= 100) {
-            $(".screenUser").css("background-position-x", xScreen + "%");
-        }
+        $(".screenUser").css("background-position-x", xScreen + "%");
         setTimeout(function () {
             $("#left-RJ").css("background", "white");
         }, 200);
@@ -560,10 +563,12 @@ $("#left-RJ").on("click", function () {
 $("#up-RJ").on("click", function () {
     if (countConeRight % 2 != 0) {
         yScreen--;
-        $("#up-RJ").css("background", "radial-gradient(black, transparent)");
-        if (yScreen >= 0 && yScreen <= 100) {
-            $(".screenUser").css("background-position-y", yScreen + "%");
+        if(yScreen < 0) {
+            yScreen++;
+            return false;
         }
+        $("#up-RJ").css("background", "radial-gradient(black, transparent)");
+        $(".screenUser").css("background-position-y", yScreen + "%");
         setTimeout(function () {
             $("#up-RJ").css("background", "white");
         }, 200);
@@ -573,10 +578,12 @@ $("#up-RJ").on("click", function () {
 $("#right-RJ").on("click", function () {
     if (countConeRight % 2 != 0) {
         xScreen++;
-        $("#right-RJ").css("background", "radial-gradient(black, transparent)");
-        if (xScreen >= 0 && xScreen <= 100) {
-            $(".screenUser").css("background-position-x", xScreen + "%");
+        if(xScreen > 100) {
+            xScreen--;
+            return false;
         }
+        $("#right-RJ").css("background", "radial-gradient(black, transparent)");
+            $(".screenUser").css("background-position-x", xScreen + "%");
         setTimeout(function () {
             $("#right-RJ").css("background", "white");
         }, 200);
@@ -586,10 +593,12 @@ $("#right-RJ").on("click", function () {
 $("#down-RJ").on("click", function () {
     if (countConeRight % 2 != 0) {
         yScreen++;
-        $("#down-RJ").css("background", "radial-gradient(black, transparent)");
-        if (yScreen >= 0 && yScreen <= 100) {
-            $(".screenUser").css("background-position-y", yScreen + "%");
+        if(yScreen > 100) {
+            yScreen--;
+            return false;
         }
+        $("#down-RJ").css("background", "radial-gradient(black, transparent)");
+        $(".screenUser").css("background-position-y", yScreen + "%");
         setTimeout(function () {
             $("#down-RJ").css("background", "white");
         }, 200);
@@ -648,46 +657,54 @@ function myFunctionF2() {
 var xScreen = 50;
 var yScreen = 50;
 var xFocus = 330;
-var yFocus = -255;
+var yFocus = -695;
 var kdConeLeft = 0;
 var kdConeRight = 0;
 document.addEventListener('keydown', function (event) {
     if (event.code == 'KeyA') {
         xFocus--;
-        $("#left-LJ").css("background", "radial-gradient(black, transparent)");
-        if (xFocus > 185 && xFocus < 415) {
-            $(".focusEnemy").css("margin-left", xFocus + "px");
+        if(xFocus < 200) {
+            xFocus++;
+            return false;
         }
+        $("#left-LJ").css("background", "radial-gradient(black, transparent)");
+        $(".focusEnemy").css("margin-left", xFocus + "px");
         setTimeout(function () {
             $("#left-LJ").css("background", "white");
         }, 200);
     }
     if (event.code == 'KeyS') {
         yFocus++;
-        $("#down-LJ").css("background", "radial-gradient(black, transparent)");
-        if (yFocus > -340 && yFocus < -148) {
-            $(".focusEnemy").css("margin-top", yFocus + "px");
+        if(yFocus > -595) {
+            yFocus--;
+            return false;
         }
+        $("#down-LJ").css("background", "radial-gradient(black, transparent)");
+        $(".focusEnemy").css("margin-top", yFocus + "px");
         setTimeout(function () {
             $("#down-LJ").css("background", "white");
         }, 200);
     }
     if (event.code == 'KeyD') {
         xFocus++;
-        $("#right-LJ").css("background", "radial-gradient(black, transparent)");
-        if (xFocus > 185 && xFocus < 415) {
-            $(".focusEnemy").css("margin-left", xFocus + "px");
+        if(xFocus > 460) {
+            xFocus--;
+            return false;
         }
+        $("#right-LJ").css("background", "radial-gradient(black, transparent)");
+        $(".focusEnemy").css("margin-left", xFocus + "px");
         setTimeout(function () {
             $("#right-LJ").css("background", "white");
         }, 200);
     }
     if (event.code == 'KeyW') {
         yFocus--;
-        $("#up-LJ").css("background", "radial-gradient(black, transparent)");
-        if (yFocus > -340 && yFocus < -148) {
-            $(".focusEnemy").css("margin-top", yFocus + "px");
+        if(yFocus < -795) {
+            yFocus++;
+            return false;
         }
+        $("#up-LJ").css("background", "radial-gradient(black, transparent)");
+        $(".focusEnemy").css("margin-top", yFocus + "px");
         setTimeout(function () {
             $("#up-LJ").css("background", "white");
         }, 200);
@@ -780,9 +797,8 @@ $(document).keydown(function (e) {
     if (countConeRight % 2 != 0 || kdConeRight % 2 != 0) {
         if (e.which == 37) {
             xScreen--;
-            console.log(xScreen)
-            if(xScreen <= -4) {
-                xScreen++
+            if(xScreen < 0) {
+                xScreen++;
                 return false;
             }
             $("#left-RJ").css("background", "radial-gradient(black, transparent)");
@@ -795,10 +811,12 @@ $(document).keydown(function (e) {
         }
         if (e.which == 38) {
             yScreen--;
-            $("#up-RJ").css("background", "radial-gradient(black, transparent)");
-            if (yScreen >= 0 && yScreen <= 100) {
-                $(".screenUser").css("background-position-y", yScreen + "%");
+            if(yScreen < 0) {
+                yScreen++;
+                return false;
             }
+            $("#up-RJ").css("background", "radial-gradient(black, transparent)");
+            $(".screenUser").css("background-position-y", yScreen + "%");
             setTimeout(function () {
                 $("#up-RJ").css("background", "white");
             }, 200);
@@ -808,7 +826,7 @@ $(document).keydown(function (e) {
             xScreen++;
             console.log(xScreen)
             if(xScreen > 100) {
-                xScreen--
+                xScreen--;
                 return false;
             }
             $("#right-RJ").css("background", "radial-gradient(black, transparent)");
@@ -820,10 +838,12 @@ $(document).keydown(function (e) {
         }
         if (e.which == 40) {
             yScreen++;
-            $("#down-RJ").css("background", "radial-gradient(black, transparent)");
-            if (yScreen >= 0 && yScreen <= 100) {
-                $(".screenUser").css("background-position-y", yScreen + "%");
+            if(yScreen > 100) {
+                yScreen--;
+                return false;
             }
+            $("#down-RJ").css("background", "radial-gradient(black, transparent)");
+                $(".screenUser").css("background-position-y", yScreen + "%");
             setTimeout(function () {
                 $("#down-RJ").css("background", "white");
             }, 200);
