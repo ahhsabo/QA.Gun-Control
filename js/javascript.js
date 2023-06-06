@@ -518,6 +518,7 @@ $("#coneLeft").on("click", function () {
         }
     }
     countConeLeft++;
+    console.log(countConeLeft);
     if (countConeLeft % 2 != 0) {
         $(this).css("margin", "16px 0 0 63px");
         $(this).css("height", "54px");
@@ -553,12 +554,11 @@ $("#btnWhite").on("click", function () {
 });
 
 //Khai hoả
-var screenX = $("#screenUser").css("background-position-x");
-var screenY = $("#screenUser").css("background-position-y");
-console.log(screenX);
+
 var countBullet = 0;
 $("#btnFirered").on("click", function () {
     countBullet++;
+    console.log(countBullet);
     $(this).css("margin-top", "30px");
     $(this).css("margin-left", "27px");
     $(".vetdan").removeClass('d-none');
@@ -570,6 +570,30 @@ $("#btnFirered").on("click", function () {
     setTimeout(function () {
         $(".vetdan").addClass('d-none');
     }, 150);
+
+    // vị trí X có %
+    var screenX_percent = $("#screenUser").css("background-position-x");
+    // vị trí Y có %
+    var screenY_percent = $("#screenUser").css("background-position-y");
+    // vị trí X k có %
+    var screenX = +screenX_percent.split('%')[0];
+    // vị trí Y k có %
+    var screenY = +screenY_percent.split('%')[0];
+    
+    if(screenX <=52 && screenX >=49 && screenY>=67 && screenY <=71){
+        if(countBullet == 1){
+            alert("trúng nè 1");
+        }
+        else if(countBullet == 2){
+            alert("trúng nè 2");
+        }
+        else if(countBullet == 3){
+            alert("trúng nè 3");
+        }
+        else if(countBullet == 4){
+            alert("trúng nè 4 + cháy phi phai");
+        }
+    }
 
 });
 
@@ -654,6 +678,7 @@ $("#coneRight").on("click", function () {
     }
 });
 $("#left-RJ").on("click", function () {
+    countBullet = 0;
     if (countConeRight % 2 != 0) {
         xScreen--;
         if (xScreen < 0) {
@@ -669,6 +694,7 @@ $("#left-RJ").on("click", function () {
     }
 })
 $("#up-RJ").on("click", function () {
+    countBullet = 0;
     if (countConeRight % 2 != 0) {
         yScreen--;
         if (yScreen < 0) {
@@ -684,6 +710,7 @@ $("#up-RJ").on("click", function () {
     }
 })
 $("#right-RJ").on("click", function () {
+    countBullet = 0;
     if (countConeRight % 2 != 0) {
         xScreen++;
         if (xScreen > 100) {
@@ -699,6 +726,7 @@ $("#right-RJ").on("click", function () {
     }
 })
 $("#down-RJ").on("click", function () {
+    countBullet = 0;
     if (countConeRight % 2 != 0) {
         yScreen++;
         if (yScreen > 100) {
@@ -853,8 +881,9 @@ document.addEventListener('keydown', function (event) {
                 return;
             }
         }
-        kdConeLeft++;
-        if (kdConeLeft % 2 != 0) {
+        countConeLeft++;
+        console.log(countConeLeft);
+        if (countConeLeft % 2 != 0) {
             $("#coneLeft").css("margin", "16px 0 0 63px");
             $("#coneLeft").css("height", "54px");
             $("#coneLeft").css("width", "44px");
@@ -874,7 +903,19 @@ document.addEventListener('keydown', function (event) {
     }
 
     if (event.code == 'KeyR') {
-        if ((countStab % 2 != 0)) {
+        if ((countStab % 2 != 0 && countConeLeft % 2 !=0)) {
+            $("#btnWhite").css("margin-top", "103px");
+            $("#btnWhite").css("margin-left", "18px");
+            $("#coneLeft").css("margin-top", "18px");
+            $("#coneLeft").css("margin-left", "63px");
+            setTimeout(function () {
+                $("#btnWhite").css("margin-top", "105px");
+                $("#btnWhite").css("margin-left", "16px");
+                $("#coneLeft").css("margin-top", "16px");
+                $("#coneLeft").css("margin-left", "63px");
+            }, 200);
+        }
+        else if ((countStab % 2 != 0 && countConeLeft % 2 ==0)) {
             $("#btnWhite").css("margin-top", "103px");
             $("#btnWhite").css("margin-left", "18px");
             $("#coneLeft").css("margin-top", "14px");

@@ -18,19 +18,18 @@
         <input type="button" onclick="myFunctionF1()" value="Trợ giúp" style="text-align: center;margin-bottom: 25px;">
 
         <input type="radio" id="F2" onclick="myFunctionF2()" value="Mode tự do" checked>
-        <label for="F2" style=" position: absolute;
-        margin-bottom: 5px;  
-        cursor: pointer;">Mode tự do</label><br>
+        <label for="F2" style=" position: absolute;margin-bottom: 5px;cursor: pointer;">Mode tự do</label><br>
 
         <input type="radio" id="F3" onclick="myFunctionF3()" value="Mode thực hành">
-        <label for="F3" style=" position: absolute;
-        margin-top: 173px;
-        cursor: pointer;">Mode thực hành </label><br>
+        <label for="F3" style=" position: absolute;margin-top: 173px;cursor: pointer;">Mode thực hành </label><br>
       </div>
       <div style="width:720px;height:625px;">
-        <div style="width: 697px;height:440px;position: relative; overflow: hidden;" >
-          <div class="screenUser" id="screenUser" style="background-image:url('img/image-enemy.png');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+        <div style="width: 697px;height:440px;position: relative; overflow: hidden;">
+          <div class="screenUser d-none" id="screenUser" style="background-image:url('img/image-enemy.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
           </div>
+          <div class="screenUser" id="screenUser1" style="background-image:url('img/phiphai.jpg');background-repeat: no-repeat;filter:blur(0px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 2; overflow: hidden;">
+          </div>
+          
             <div class="imgScreen" style="position: relative; z-index: 9;">
               <img src="img/screen-bg3.png"  style="position: absolute;margin-top: -440px;width: 705px;">
             </div>
@@ -44,9 +43,9 @@
               <div class="vetdan d-none">
                 <img src="img/tialua.png" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
               </div>
-              <div class="chayqua d-none">
+              <!-- <div class="chayqua">
                 <img src="img/chayqua.jpg" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
-              </div>
+              </div> -->
             </div>
         </div>
       </div>
