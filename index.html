@@ -15,15 +15,17 @@
   <div class="shark" style="width:100%; height:auto;">
     <div class="screen col-12">
       <div class="modeBtn">
-        <input type="button" onclick="myFunctionF1()" value="F1: Trợ giúp" style="text-align: center;margin-bottom: 25px;">
-        <input type="checkbox" id="F2" onclick="myFunctionF2()" value="F2: Mode tự do">
+        <input type="button" onclick="myFunctionF1()" value="Trợ giúp" style="text-align: center;margin-bottom: 25px;">
+
+        <input type="radio" id="F2" onclick="myFunctionF2()" value="Mode tự do" checked>
         <label for="F2" style=" position: absolute;
-        margin-bottom: 5px;
-        cursor: pointer;">F2: Mode tự do</label><br>
-        <input type="checkbox" id="F3" onclick="myFunctionF3()" value="F3: Mode thực hành">
+        margin-bottom: 5px;  
+        cursor: pointer;">Mode tự do</label><br>
+
+        <input type="radio" id="F3" onclick="myFunctionF3()" value="Mode thực hành">
         <label for="F3" style=" position: absolute;
         margin-top: 173px;
-        cursor: pointer;">F3: Mode thực hành </label><br>
+        cursor: pointer;">Mode thực hành </label><br>
       </div>
       <div style="width:720px;height:625px;">
         <div style="width: 697px;height:440px;position: relative; overflow: hidden;" >
@@ -36,111 +38,126 @@
               <div class="CrossHair">
                <img src="img/CrossHair.png" style="width: 70px;height: 70px;">
               </div>
-              <div class="noCrossHair  d-none">
+              <div class="noCrossHair d-none">
                 <img src="img/noCrossHair.png" style="width: 70px;height: 70px;">
               </div>
+              <div class="vetdan d-none">
+                <img src="img/tialua.png" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
+              </div>
+              <div class="chayqua d-none">
+                <img src="img/chayqua.jpg" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
+              </div>
             </div>
-
-          
         </div>
       </div>
 
       <div id="space" style="display: block; width:700px;margin-left:100px;"></div>
       <div class="manualBtn" id="manualBtn">
-        <h4>- B1: Trên hệ thống súng bên ngoài:</h4>
-        <ul>
-          <li>Khóa hướng, khóa tầm và các chốt hành quân. </li>
-          <li>Chuyển chế độ bắn điện trên súng. </li>
-        </ul>
-        <h4>- B2: Trong buồng điều khiển mở công tắc cấp nguồn súng:</h4>
-        <ul>
-          <li>Cấp nguồn hệ thống</li>
-          <li>Cấp nguồn bàn điều khiển</li>
-        </ul>
-        <h4>- B3: Màn hình hiển thị. Chờ khoảng 30s cho hệ thống thực hiện chế độ sấy. Khi các biểu tượng biểu thị độ
-          ẩm, điện áp, nhiệt độ chuyển sang màu xanh lá nghĩa là hệ thống đã sẵn sàng hoạt động.</h4>
-        <h4>- B4: Chọn chế độ điều khiển SERVO hoặc STAB</h4>
-        <h4>- B5: Cấp quyền điều khiển di chuyển (MOV) bằng cách mở công tắc MOV tại vị trí chỉ huy và trên bàn điều
-          khiển</h4>
-        <h4>- B6: Chọn chế độ bắn:</h4>
-        <ul>
-          <li>SNLG: Bắn đơn (1 viên)</li>
-          <li>BRST: Bắn loạt ngắn (4-6 viên)</li>
-          <li>CONT: Bắn liên thanh</li>
-        </ul>
-        <h4>- B7: Mở công tắc đo cự ly LRF. Sử dụng nút màu trắng trên cần trái để đo cự lý đến mục tiêu</h4>
-        <h4>- B8: Sử dụng cần điều khiển tay phải di chuyển vị trí con trỏ đến mục tiêu. Sử dụng nút ZOOM để điều chỉnh
-          tiêu cự quan sát. Sử dụng nút AUTO FOCS để tự động lấy nét. </h4>
-        <h4>- B9: Dùng cần điều khiển tay trái trái chỉnh tâm góc nhỏ để đạt độ chính xác cao nhất. Mục tiêu vào tầm
-          ngắm bật chế độ bắt tiêu (ấn nút đỏ phía sau cần điều khiển trái)</h4>
-        <h4>- B10: Cấp nguồn khai hỏa bằng cách bật công tắc FIRE tại vị trí chỉ huy và trên bàn điều khiển.</h4>
-        <h4>- B11: Sử dụng công tắc CHRG để tiến hành nạp đạn. Chờ đến khi đèn đỏ tại vị trí FIRE trên bàn điều khiển
-          hết nhấp nháy nghĩa là quá trình nạp đạn đã xong.</h4>
-        <h4>- B12: Khi nhận được mệnh lệnh bắn tiến hành ấn nút đỏ trên cần trái để khai hỏa tiêu diệt mục tiêu</h4>
-        <h4>- B13: Kiểm tra súng:</h4>
-        <ul>
-          <li>Xoay về góc hướng 30 độ, góc tầm 45 độ</li>
-          <li>Gạt nút CHRG để lên đạn lại</li>
-          <li>Ấn khai khỏa để kiểm tra đạn dư trong nòng súng</li>
-        </ul>
-        <h4>- B14: Kết thúc bắn: </h4>
-        <ul>
-          <li>Đưa súng về vị trí ban đầu và tiến hành tắt lần lượt các công tắc FIRE, MOVE, LRF trên bàn điều khiển.
-          </li>
-          <li>Tắt công tắc MOVE, FIRE tại vị trí chỉ huy</li>
-          <li>Tắt công tắc nguồn trên bàn điều khiển </li>
-          <li>Tắt công tắc hệ thống.</li>
-        </ul>
-            
+        <h3>Các bước thực hiện chế độ thực hành</h3>
+        <h4>1. Chọn chế độ : STAB / SERV / DESIGN</h4>
+        <h4>2. Bật công tắc MOVE (di chuyển được cần phải)</h4>
+        <h4>3. Chọn chế độ bắn: đơn / loạt / liên thanh</h4>
+        <h4>4. Bật công tắc LRF (laze)</h4>
+        <h4>5. Bấm nút trắng trên cần trái (phím R - đo cự li đến mục tiêu, chỉ dùng cho chế độ STAB) </h4>
+        <h4>6. Giữ tay côn trên cần trái để khóa mục tiêu (phím Space)</h4>
+        <h4>7. ZOOM (tới gần mục tiêu)</h4>
+        <h4>8. Bấm Auto Focus (tự động lấy nét)</h4>
+        <h4>9. Bật công tắc Fire (cho phép bắn)</h4>
+        <h4>10. Bật công tắc CHRG (nạp đạn)</h4>
+        <h4>11. Bấm khai hỏa </h4>
+
+        <h3>Hướng dẫn sử dụng</h3>
+        <h4><i>Cần điều khiển trái (điều khiển tâm ngắm)</i></h4>
+        <h4>Phím W: Dịch lên trên</h4>
+        <h4>Phím A: Dịch sang trái</h4>
+        <h4>Phím D: Dịch sang phải</h4>
+        <h4>Phím S: Dịch xuống dưới</h4>
+        <h4>Phím R (nút trắng): Khóa cự li đến mục tiêu</h4>
+        <h4>Phím F: Khai hỏa</h4>
+        <h4>Phím Space: Khóa/mở tay côn cần điều khiển trái </h4>
+
+        <h4><i>Cần điều khiển phải (điều khiển màn hình mục tiêu)</i></h4>
+        <h4>Phím mũi tên lên: Dịch lên trên</h4>
+        <h4>Phím mũi tên trái: Dịch sang trái</h4>
+        <h4>Phím mũi tên phải: Dịch sang phải</h4>
+        <h4>Phím mũi tên xuống: Dịch xuống dưới</h4>
+        <h4>Phím L: Khóa/mở tay côn cần điều khiển phải</h4>
       </div>
     </div>
 
 
     <div class="simulation col-12">
       <!-- LEFT JOYSTICK -->
-      <div class="buttonWhite"style="background-image: url('img/btnWhite-bg.png');height:31px;width: 44px; margin-bottom:250px;">
-        <img id="btnWhite" src="img/btnWhite-click.png" data-name="btnWhite">
+      <div class="left-joystick__behind">
+        <div style="background-image: url('img/LJ-behind.png');height: 414px;width:304px;">
+          <div >
+            <img src="img/btn-white-hori.png" style="margin: 105px 0 0 16px;" id="btnWhite" data-name="btnWhite" data-toggle="tooltip" data-placement="top" title="Đo cự li đến mục tiêu">
+          </div>
+          <div>
+            <img src="img/btn-hold.png" id="coneLeft" style="margin: 12px 0 0 43px;height: 54px;width: 63px;" data-name="coneLeft">
+          </div>
+        </div>
       </div>
-      <div class="left-joystick" style="background-image: url('/img/Ljoystick-bg.png');height:425px;width: 231px;">
-        <img id="btnFire" src="img/btn-fire-red.png" data-name="fire">
-      </div>  
-      
+
+      <div class="left-joystick" style="background-image: url('img/Ljoystick-bg.png');height:425px;width: 231px;">
+        <div class="direction" id="leftDirect">
+          <img id="up-LJ" src="img/arrow-up.png" data-toggle="tooltip" data-placement="top" title="Bấm phím W"><span
+            style="margin-left: 108px;">W</span>
+          <div style="display: flex;">
+            <img id="left-LJ" src="img/arrow-left.png" data-toggle="tooltip" data-placement="top" title="Bấm phím A">
+            <div style="margin-top: 7px;">
+              <span>A</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span></span><span>D</span>
+            </div>
+            <img id="right-LJ" src="img/arrow-right.png" data-toggle="tooltip" data-placement="top" title="Bấm phím D">
+          </div>
+          <span style="margin-left: 112px;">S</span>
+          <img id="down-LJ" src="img/arrow-down.png" data-toggle="tooltip" data-placement="top" title="Bấm phím S">
+        </div>
+        <div class="spin-btn">
+          <img class="rotate" id="spin-LJ" src="img/btn-spin-right.png" style="display: flex;margin-left: 83px;">
+          <img id="btnFirered" src="img/btn-fire-red.png" data-toggle="tooltip" data-placement="top" title="Khai hỏa"
+            style="margin-left: 30px;">
+        </div>
+
+      </div>
+
       <!-- BẢNG ĐIỀU KHIỂN -->
-      <div class="console-simulation" id="console-simulation">
+      <div class="console-simulation" id="console-simulation" style="z-index: 99;">
         <div class="row"
-          style="display:flex;background-image:url('img/remote-no-btn.png');width:850px;height:620px;background-position: center;background-repeat: no-repeat;margin: 10px 20px;">
+          style="display:flex;background-image:url('img/remote-no-btn-2.png');width:650px;height:620px;background-position: center;background-repeat: no-repeat;margin: 10px 20px;">
           <div class="top-btn" style="display: flex;justify-content: space-around;height: 190px;margin-left: 17px;">
             <!-- LEFT BUTTON -->
             <div class="btn btn-left">
-              <img class="btn-led" id="stab" src="img/stab-btn.png" data-name="modeAct" data-toggle="tooltip"
+              <img class="btn-led led" id="stab" src="img/stab-btn.png" data-name="modeAct" data-toggle="tooltip"
                 data-placement="top" title="STAB">
-              <img class="btn-led" id="desig" src="img/desig-btn.png" data-name="modeAct" data-toggle="tooltip"
+              <img class="btn-led led" id="desig" src="img/desig-btn.png" data-name="modeAct" data-toggle="tooltip"
                 data-placement="top" title="DESIGN">
-              <img class="btn-led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;" data-name="modeAct"
+              <img class="btn-led led" id="serv" src="img/serv-btn.png" style="margin-bottom: 0;" data-name="modeAct"
                 data-toggle="tooltip" data-placement="top" title="SERVO">
             </div>
 
             <div class="led-left">
               <div class="row">
                 <div id="btn-LRF" class="btn btn-l col-6">
-                  <div style="margin-bottom:40px;">
+                  <div style="margin-bottom:30px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__btn on-off__LRF">
-                      <img src="img/on-off-btn.png" data-name="LRF">
+                      <img src="img/on-off-btn.png" data-name="LRF" data-toggle="tooltip" data-placement="top"
+                        title="LRF">
                     </div>
                   </div>
-                  <span id="span-LRF" class="span-btn"
+                  <span id="span-LRF" class="span-btn led1"
                     style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
                   <h5>LRF</h5>
                 </div>
                 <div id="btn-OVER" class="btn btn-l col-6">
-                  <div style="margin-bottom:40px;">
+                  <div style="margin-bottom:30px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__btn on-off__OVER">
-                      <img src="img/on-off-btn.png">
+                      <img src="img/on-off-btn.png" data-toggle="tooltip" data-placement="top" title="OVER">
                     </div>
                   </div>
-                  <span id="span-OVER" class="span-btn"
+                  <span id="span-OVER" class="span-btn led1"
                     style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
                   <h5>OVER</h5>
                 </div>
@@ -148,18 +165,21 @@
             </div>
 
             <!-- CENTER BUTTON -->
-            <div class="btn center-btn" >
-              <div style="margin-top:80px;" id="center-btn">
-                <h5 id="BRST" data-name="modeFire">BRST</h5>
-                <div style="display: flex;margin-left: 23px;margin-bottom: 40px;">
-                  <h5 id="SNLG" data-name="modeFire">SNLG</h5>
-                  <img id="fire-mode__btn" src="img/fire-mode-btn.png" >
-                  <h5 id="CONT" data-name="modeFire">CONT</h5>
+            <div class="btn center-btn">
+              <div style="margin-top:152px;" id="center-btn">
+                <h5 id="BRST" data-name="modeFire" data-toggle="tooltip" title="Chế độ bắn loạt">BRST</h5>
+                <div style="display: flex;margin-left: 10px;margin-bottom: 14px;">
+                  <h5 id="SNLG" data-name="modeFire" data-toggle="tooltip" data-placement="top" title="Chế độ bắn đơn">
+                    SNLG</h5>
+                  <img id="fire-mode__btn" src="img/fire-mode-btn.png">
+                  <h5 id="CONT" data-name="modeFire" data-toggle="tooltip" data-placement="top"
+                    title="Chế độ bắn liên thanh">CONT</h5>
                 </div>
               </div>
               <h5>CHRG</h5>
               <div class="on-off__btn on-off__CHRG">
-                <img src="img/on-off-btn.png" data-name="CHRG">
+                <img src="img/on-off-btn.png" data-name="CHRG" data-toggle="tooltip" data-placement="top"
+                  title="Nạp đạn">
               </div>
             </div>
 
@@ -167,24 +187,26 @@
             <div class="led-right">
               <div class="row">
                 <div id="btn-MOVE" class="btn btn-r col-6">
-                  <div style="margin-bottom:40px;">
+                  <div style="margin-bottom:30px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__btn on-off__MOVE">
-                      <img src="img/on-off-btn.png" data-name="MOV">
+                      <img src="img/on-off-btn.png" data-name="MOV" data-toggle="tooltip" data-placement="top"
+                        title="MOVE">
                     </div>
                   </div>
-                  <span id="span-MOVE" class="span-btn"
+                  <span id="span-MOVE" class="span-btn led1"
                     style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
                   <h5>MOVE</h5>
                 </div>
                 <div id="btn-FIRE" class="btn btn-r col-6">
-                  <div style="margin-bottom:40px;">
+                  <div style="margin-bottom:30px;">
                     <img class="red-btn" src="img/red-bar.png">
                     <div class="on-off__btn on-off__FIRE">
-                      <img src="img/on-off-btn.png" data-name="btnFire">
+                      <img src="img/on-off-btn.png" data-name="btnFire" data-toggle="tooltip" data-placement="top"
+                        title="FIRE">
                     </div>
                   </div>
-                  <span id="span-FIRE" class="span-btn"
+                  <span id="span-FIRE" class="span-btn led2"
                     style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
                   <h5>FIRE</h5>
                 </div>
@@ -208,21 +230,21 @@
                 </span>
 
                 <div class="switch-zoom" id="switchFOC"
-                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px; background-repeat: no-repeat;">
+                  style="background-image: url('img/bg-btn-on.png');display: flex; flex-direction: column;height:110px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusFOC" style="display: flex; flex-direction: column;">
                     <span class="span-btn"
-                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
+                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 10px;margin-top: 14px;">.</span>
 
                     <span class="span-btn"
-                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-left: 10px;">.</span>
 
                   </div>
                   <div class="botOfBtn" id="minusFOC" style="display: flex; flex-direction: column;">
                     <span class="span-btn"
-                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-left: 10px;">.</span>
 
                     <span class="span-btn"
-                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 10px;">.</span>
                   </div>
                 </div>
 
@@ -233,32 +255,32 @@
                 <h5>FOC</h5>
               </div>
               <div class="switch switch-center col-4">
-                <img id="autofocus-btn" src="img/autofocus-btn.png" data-name="AutoFocus" data-toggle="tooltip"
+                <img id="autofocus-btn" class="led" src="img/autofocus-btn.png" data-name="AutoFocus" data-toggle="tooltip"
                   data-placement="top" title="Tự động khóa mục tiêu"
                   style="padding: 0 30px;margin-top: 43px;margin-bottom: 25px;">
 
                 <div class="switch-zoom" id="switchCCD"
-                  style="background-image: url('/img/bg-bt-vertical.png');display: flex;height:85px; width:163px; background-repeat: no-repeat;">
+                  style="background-image: url('img/bg-bt-vertical.png');display: flex;height:60px; width:111px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusCCD" style="display: flex;">
                     <span class="span-btn"
-                      style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-left: 20px;margin-top: 17px;">.</span>
+                      style="border: 1px solid black;border-radius: 10px  0 0 10px;width: 6px;height: 35px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 10px;">.</span>
 
                     <span class="span-btn"
-                      style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+                      style="border: 1px solid black;border-left: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-top: 10px;">.</span>
 
                   </div>
                   <div class="botOfBtn" id="minusCCD" style="display: flex;">
                     <span class="span-btn"
-                      style="border: 1px solid black;border-left: 0cm;width: 50px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+                      style="border: 1px solid black;border-left: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-top: 10px;">.</span>
 
                     <span class="span-btn"
-                      style="border: 1px solid black;border-left: 0cm;border-radius:0 10px 10px 0 ;width: 12px;height: 50px;background-color: gray;font-size: 0%;margin-top: 17px;">.</span>
+                      style="border: 1px solid black;border-left: 0cm;border-radius:0 10px 10px 0 ;width: 6px;height: 35px;background-color: gray;font-size: 0%;margin-top: 10px;">.</span>
                   </div>
                 </div>
 
                 <div style="display: flex;justify-content: space-between;">
-                  <h5>CCD</h5>
-                  <h5>IR</h5>
+                  <h5 data-toggle="tooltip" data-placement="top" title="Camera ban ngày">CCD</h5>
+                  <h5 data-toggle="tooltip" data-placement="top" title="Camera hồng ngoại">IR</h5>
                 </div>
 
               </div>
@@ -267,22 +289,22 @@
                   <h5>+</h5>
                 </span>
 
-                <div class="switch-zoom" id="switchZOOM" 
-                  style="background-image: url('/img/bg-btn-on.png');display: flex; flex-direction: column;height:163px;width: 82px; background-repeat: no-repeat;">
+                <div class="switch-zoom" id="switchZOOM"
+                  style="background-image: url('img/bg-btn-on.png');display: flex; flex-direction: column;height:110px;width: 82px; background-repeat: no-repeat;">
                   <div class="topOfBtn" id="plusZOOM" style="display: flex; flex-direction: column;">
                     <span class="span-btn" data-name="ZOOM"
-                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;margin-top: 20px;">.</span>
+                      style="border:1px solid black;border-radius: 10px 10px 0 0;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 11px;margin-top: 14px;">.</span>
 
                     <span class="span-btn" data-name="ZOOM"
-                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-left: 11px;">.</span>
 
                   </div>
                   <div class="botOfBtn" id="minusZOOM" style="display: flex; flex-direction: column;">
                     <span class="span-btn" data-name="ZOOM"
-                      style="border:1px solid black;border-top: 0cm;width: 53px;height: 50px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;width: 35px;height: 35px;background-color: gray;font-size: 0%;margin-left: 11px;">.</span>
 
                     <span class="span-btn" data-name="ZOOM"
-                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 53px;height: 12px;background-color: gray;font-size: 0%;margin-left: 15px;">.</span>
+                      style="border:1px solid black;border-top: 0cm;border-radius: 0 0 10px 10px;width: 35px;height: 6px;background-color: gray;font-size: 0%;margin-left: 11px;">.</span>
                   </div>
                 </div>
 
@@ -292,8 +314,7 @@
                 <h5>ZOOM</h5>
                 <div>
                   <div style="display: inline-flex; margin-left:10px;">
-                    <div class="on-off__btn on-off__LEDTEST ">
->>>>>>> 0b4de237850452b0e4bcf11300b8b12328aaacf1
+                    <div class="on-off__btn on-off__LEDTEST">
                       <img src="img/on-off-btn-horizol.png">
                     </div>
                     <span style="font-size: 20px;font-weight:900;color:gray;margin-left:3px;">+</span>
@@ -308,22 +329,33 @@
       </div>
 
       <!-- RIGHT JOYSTICK -->
-      <div class="right-joystick" style="background-image: url('/img/Rjoystick-bg.png'); height:425px;width: 227px;">
-        <div class="spin-btn">
-          <img class="btn-RJ" id="btnRJ__l" src="img/btn-r-joystick.png" data-name="btnSpin">
-          <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png" style="margin-top: -20px;">
-          <img class="btn-RJ" id="btnRJ__r" src="img/btn-r-joystick-2.png" data-name="btnSpin">
+      <div class="right-joystick" style="background-image: url('img/Rjoystick-bg.png'); height:425px;width: 227px;">
+        <div class="direction" id="rightDirect">
+          <img id="up-RJ" src="img/arrow-up.png" data-placement="top" title="Bấm nút lên trên">
+          <div style="display: flex;">
+            <img id="left-RJ" src="img/arrow-left.png" data-placement="top" title="Bấm nút sang trái">
+            <img id="right-RJ" src="img/arrow-right.png" data-placement="top" title="Bấm nút sang phải">
+          </div>
+          <img id="down-RJ" src="img/arrow-down.png" data-placement="top" title="Bấm nút xuống dưới">
         </div>
-        
+        <div class="spin-btn">
+          <img class="rotate" id="spin-RJ" src="img/btn-spin-right.png"
+            style="margin-top: -2000px;display: block;margin: 0 auto;">
+        </div>
+      </div>
+      <div class="right-joystick__behind">
+        <div style="background-image: url('img/RJ-behind.png');height: 414px;width:304px;">
+          <div>
+            <img src="img/btn-hold.png" id="coneRight" style="margin: 134px 0 0 43px;height: 54px;width: 63px;" data-name="coneRight" data-toggle="tooltip" data-placement="top" title="Côn cần điều khiển phải">
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
 
-
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="/js/javascript.js"></script>
+<script src="js/javascript.js"></script>
 
 </html>

@@ -570,9 +570,7 @@ $("#btnFirered").on("click", function () {
     setTimeout(function () {
         $(".vetdan").addClass('d-none');
     }, 150);
-    if(screenX == "49%"){
-        $(".chayqua").removeClass("d-none");
-    }
+
 });
 
 //A S W D
