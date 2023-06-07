@@ -1,17 +1,15 @@
 // Quy trình bao gồm:
 // 1. Chọn chế độ : STAB / SERV / DESIGN
-// 2. Bật công tắc MOVE (di chuyển được cần phải)
-// 3. Chọn chế độ bắn: đơn / loạt / liên thanh
-// 4. Bật công tắc LRF (laze) để cho phép đo k/cach
-// 5. Bấm nút trắng trên cần trái (đo cự li đến mục tiêu)  
-// 6. Giữ côn và chi chuyển nút trên cần phải (di chuyển được trạm vũ trí)
-// 7. ZOOM (tới gần mục tiêu)
-// 8. Bấm Auto Focus (tự động lấy nét)
-// 9. Bật công tắc Fire (cho phép bắn)
-// 10. Bật công tắc CHRG (nạp đạn)
-// 11. Bấm khai hỏa
-//                        0        1        2         3        4            5        6          7        8     
-const _FireProcess = ["modeAct", "MOV", "modeFire", "LRF", "coneLeft", "ZOOM", "AutoFocus", "btnFire", "CHRG",];
+// 2. Bật công tắc LRF (laze) để cho phép đo k/cach
+// 3. Bật công tắc MOVE (di chuyển được cần phải)
+// 4. Chọn chế độ bắn: đơn / loạt / liên thanh
+// 5. Giữ côn phải và chi chuyển nút trên cần phải (di chuyển được trạm vũ trí)
+// 6. Giữ tay côn trái để khoá mục tiêu
+// 7. Bật công tắc Fire (cho phép bắn)
+// 8. Bật công tắc CHRG (nạp đạn)
+// 9. Bấm khai hỏa
+//                        0        1      2         3          4            5        6          7         
+const _FireProcess = ["modeAct", "LRF", "MOV", "modeFire","coneRight", "coneLeft", "btnFire", "CHRG",];
 var INDEX = -1;
 var MODE = "F2";
 var sound = new Audio('img/gun12.7mm.mp3');
@@ -115,7 +113,7 @@ $(".on-off__LEDTEST img").on("click", function () {
         }
         //AUTOFOCUS
         if (count__AutoFocus % 2 != 0) {
-            $("#autofocus-btn").css("filter", "brightness(200%)"); 
+            $("#autofocus-btn").css("filter", "brightness(200%)");
         }
         else {
             $("#autofocus-btn").css("filter", "brightness(100%)");
@@ -232,25 +230,21 @@ $("#aimtrgt").on("click", function () {
 //btn auto-focus
 var count__AutoFocus = 0;
 $("#autofocus-btn").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
-    }
-
     count__AutoFocus++;
     if (count__AutoFocus % 2 != 0) {
         $(this).css("filter", "brightness(200%)");
         $("#screenUser").css("filter", "blur(0px)");
+        $("#screenUser1").css("filter", "blur(0px)");
+        $("#screenUser2").css("filter", "blur(0px)");
+        $("#screenUser12").css("filter", "blur(0px)");
 
     }
     else {
         $(this).css("filter", "brightness(100%)");
         $("#screenUser").css("filter", "blur(1px)");
+        $("#screenUser1").css("filter", "blur(1px)");
+        $("#screenUser2").css("filter", "blur(1px)");
+        $("#screenUser12").css("filter", "blur(1px)");
     }
 });
 
@@ -261,11 +255,11 @@ $("#center-btn h5").on("click", function () {
         INDEX++;
         console.log(INDEX);
 
-        if ($(this).data("name") == _FireProcess[2] && INDEX == 3) {
+        if ($(this).data("name") == _FireProcess[3] && INDEX == 4) {
             INDEX--;
             return;
         }
-        if ($(this).data("name") != _FireProcess[2] || INDEX != 2) {
+        if ($(this).data("name") != _FireProcess[3] || INDEX != 3) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -294,7 +288,7 @@ $(".on-off__LRF img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[3] || INDEX != 3) {
+        if ($(this).data("name") != _FireProcess[1] || INDEX != 1) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -337,12 +331,10 @@ $(".on-off__OVER img").on("click", function () {
 var countMOVE = 0;
 $(".on-off__MOVE img").on("click", function () {
     if (MODE == "F3") {
-
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[1] || INDEX != 1) {
+        if ($(this).data("name") != _FireProcess[2] || INDEX != 2) {
             INDEX--;
-
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
         }
@@ -367,7 +359,7 @@ $(".on-off__FIRE img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -393,7 +385,7 @@ $(".on-off__CHRG img").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[8] || INDEX != 8) {
+        if ($(this).data("name") != _FireProcess[7] || INDEX != 7) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
@@ -431,11 +423,17 @@ $("#plusCCD span").on("click", function () {
     if (countplusCCD % 2 == 0) {
         $("#plusCCD span").css("filter", "brightness(100%)");
         $("#screenUser").css("filter", "grayscale(0)");
+        $("#screenUser1").css("filter", "grayscale(0)");
+        $("#screenUser2").css("filter", "grayscale(0)");
+        $("#screenUser12").css("filter", "grayscale(0)");
     }
     else {
         $("#plusCCD span").css("filter", "brightness(150%)");
         $("#minusCCD span").css("filter", "brightness(100%)");
         $("#screenUser").css("filter", "grayscale(0)");
+        $("#screenUser1").css("filter", "grayscale(0)");
+        $("#screenUser2").css("filter", "grayscale(0)");
+        $("#screenUser12").css("filter", "grayscale(0)");
         countminusCCD = 0;
     }
 
@@ -446,11 +444,17 @@ $("#minusCCD span").on("click", function () {
     if (countminusCCD % 2 == 0) {
         $("#minusCCD span").css("filter", "brightness(100%)");
         $("#screenUser").css("filter", "grayscale(0)");
+        $("#screenUser1").css("filter", "grayscale(0)");
+        $("#screenUser2").css("filter", "grayscale(0)");
+        $("#screenUser12").css("filter", "grayscale(0)");
     }
     else {
         $("#minusCCD span").css("filter", "brightness(150%)");
         $("#plusCCD span").css("filter", "brightness(100%)");
         $("#screenUser").css("filter", "grayscale(1)");
+        $("#screenUser1").css("filter", "grayscale(1)");
+        $("#screenUser2").css("filter", "grayscale(1)");
+        $("#screenUser12").css("filter", "grayscale(1)");
         countplusCCD = 0;
     }
 
@@ -459,24 +463,6 @@ $("#minusCCD span").on("click", function () {
 
 var zoomFocus = 1;
 //ZOOM  
-$(".span-btn").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
-            INDEX--;
-            return;
-        }
-
-        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
-    }
-
-});
-
 $("#plusZOOM span").on("click", function () {
     zoomFocus = zoomFocus + 0.05;
     $("#plusZOOM span").css("filter", "brightness(150%)");
@@ -506,19 +492,18 @@ $("#coneLeft").on("click", function () {
     if (MODE == "F3") {
         INDEX++;
         console.log(INDEX);
-        if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
+        if ($(this).data("name") == _FireProcess[5] && INDEX == 6) {
             INDEX--;
             return;
         }
 
-        if ($(this).data("name") != _FireProcess[4] || INDEX != 4) {
+        if ($(this).data("name") != _FireProcess[5] || INDEX != 5) {
             INDEX--;
             alert("Thao tác sai. Vui lòng thử lại!");
             return;
         }
     }
     countConeLeft++;
-    console.log(countConeLeft);
     if (countConeLeft % 2 != 0) {
         $(this).css("margin", "16px 0 0 63px");
         $(this).css("height", "54px");
@@ -554,11 +539,10 @@ $("#btnWhite").on("click", function () {
 });
 
 //Khai hoả
-
 var countBullet = 0;
 $("#btnFirered").on("click", function () {
+    if(count__btnFire % 2 == 1){
     countBullet++;
-    console.log(countBullet);
     $(this).css("margin-top", "30px");
     $(this).css("margin-left", "27px");
     $(".vetdan").removeClass('d-none');
@@ -579,22 +563,30 @@ $("#btnFirered").on("click", function () {
     var screenX = +screenX_percent.split('%')[0];
     // vị trí Y k có %
     var screenY = +screenY_percent.split('%')[0];
-    
-    if(screenX <=52 && screenX >=49 && screenY>=67 && screenY <=71){
-        if(countBullet == 1){
-            alert("trúng nè 1");
-        }
-        else if(countBullet == 2){
-            alert("trúng nè 2");
-        }
-        else if(countBullet == 3){
-            alert("trúng nè 3");
-        }
-        else if(countBullet == 4){
-            alert("trúng nè 4 + cháy phi phai");
-        }
+
+    if (((screenX <= 45 && screenX >= 43 && screenY >= 67 && screenY <= 71) ||(screenX <= 46 && screenX >= 46 && screenY >= 69 && screenY <= 70)) && countBullet == 4) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").removeClass('d-none');
+        $("#screenUser1").addClass('fired');
+        $("#screenUser2").addClass('d-none');
+        $("#screenUser12").addClass('d-none');
     }
 
+    if ((screenX==42 && screenY==10 || screenX == 41 && screenY == 10 || screenX ==41 && screenY == 9) && countBullet == 4) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").addClass('d-none');
+        $("#screenUser2").removeClass('d-none');
+        $("#screenUser2").addClass('fired');
+        $("#screenUser12").addClass('d-none');
+    }
+
+    if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").addClass('d-none');
+        $("#screenUser2").addClass('d-none');
+        $("#screenUser12").removeClass('d-none');
+    }
+}
 });
 
 //A S W D
@@ -662,6 +654,20 @@ $("#up-LJ").on("click", function () {
 var countConeRight = 0;
 $("#coneRight").on("click", function () {
     countConeRight++;
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") == _FireProcess[4] && INDEX == 5) {
+            INDEX--;
+            return;
+        }
+
+        if ($(this).data("name") != _FireProcess[4] || INDEX != 4) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
     if (countConeRight % 2 != 0) {
         kdConeRight = 1;
         $(this).css("margin", "138px 0 0 63px");
@@ -852,7 +858,8 @@ document.addEventListener('keydown', function (event) {
         }
     }
 
-    if (event.code == 'KeyF') {
+    if (event.code == 'KeyF' && count__btnFire % 2 == 1) {
+        countBullet++;
         $("#btnFirered").css("margin-top", "30px");
         $("#btnFirered").css("margin-left", "27px");
         $(".vetdan").removeClass('d-none');
@@ -864,25 +871,56 @@ document.addEventListener('keydown', function (event) {
             $("#btnFirered").css("margin-top", "26px");
             $("#btnFirered").css("margin-left", "30px");
         }, 200);
+
+        // vị trí X có %
+    var screenX_percent = $("#screenUser").css("background-position-x");
+    // vị trí Y có %
+    var screenY_percent = $("#screenUser").css("background-position-y");
+    // vị trí X k có %
+    var screenX = +screenX_percent.split('%')[0];
+    // vị trí Y k có %
+    var screenY = +screenY_percent.split('%')[0];
+
+    if (((screenX <= 45 && screenX >= 43 && screenY >= 67 && screenY <= 71) ||(screenX <= 46 && screenX >= 46 && screenY >= 69 && screenY <= 70)) && countBullet == 4) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").removeClass('d-none');
+        $("#screenUser1").addClass('fired');
+        $("#screenUser2").addClass('d-none');
+        $("#screenUser12").addClass('d-none');
+    }
+
+    if ((screenX==42 && screenY==10 || screenX == 41 && screenY == 10 || screenX ==41 && screenY == 9) && countBullet == 4) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").addClass('d-none');
+        $("#screenUser2").removeClass('d-none');
+        $("#screenUser2").addClass('fired');
+        $("#screenUser12").addClass('d-none');
+    }
+
+    if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
+        $("#screenUser").addClass('d-none');
+        $("#screenUser1").addClass('d-none');
+        $("#screenUser2").addClass('d-none');
+        $("#screenUser12").removeClass('d-none');
+    }
     }
 
     if (event.code == 'Space') {
         if (MODE == "F3") {
             INDEX++;
             console.log(INDEX);
-            if ($("#coneLeft").data("name") == _FireProcess[4] && INDEX == 5) {
+            if ($("#coneLeft").data("name") == _FireProcess[5] && INDEX == 6) {
                 INDEX--;
                 return;
             }
 
-            if ($("#coneLeft").data("name") != _FireProcess[4] || INDEX != 4) {
+            if ($("#coneLeft").data("name") != _FireProcess[5] || INDEX != 5) {
                 INDEX--;
                 alert("Thao tác sai. Vui lòng thử lại!");
                 return;
             }
         }
         countConeLeft++;
-        console.log(countConeLeft);
         if (countConeLeft % 2 != 0) {
             $("#coneLeft").css("margin", "16px 0 0 63px");
             $("#coneLeft").css("height", "54px");
@@ -903,7 +941,7 @@ document.addEventListener('keydown', function (event) {
     }
 
     if (event.code == 'KeyR') {
-        if ((countStab % 2 != 0 && countConeLeft % 2 !=0)) {
+        if ((countStab % 2 != 0 && countConeLeft % 2 != 0)) {
             $("#btnWhite").css("margin-top", "103px");
             $("#btnWhite").css("margin-left", "18px");
             $("#coneLeft").css("margin-top", "18px");
@@ -915,7 +953,7 @@ document.addEventListener('keydown', function (event) {
                 $("#coneLeft").css("margin-left", "63px");
             }, 200);
         }
-        else if ((countStab % 2 != 0 && countConeLeft % 2 ==0)) {
+        else if ((countStab % 2 != 0 && countConeLeft % 2 == 0)) {
             $("#btnWhite").css("margin-top", "103px");
             $("#btnWhite").css("margin-left", "18px");
             $("#coneLeft").css("margin-top", "14px");
@@ -932,6 +970,20 @@ document.addEventListener('keydown', function (event) {
 
     if (event.code == 'KeyL') {
         kdConeRight++;
+        if (MODE == "F3") {
+            INDEX++;
+            console.log(INDEX);
+            if ($("#coneRight").data("name") == _FireProcess[4] && INDEX == 5) {
+                INDEX--;
+                return;
+            }
+    
+            if ($("#coneRight").data("name") != _FireProcess[4] || INDEX != 4) {
+                INDEX--;
+                alert("Thao tác sai. Vui lòng thử lại!");
+                return;
+            }
+        }
         if (kdConeRight % 2 != 0) {
             countConeRight = 1;
             $("#coneRight").css("margin", "138px 0 0 63px");
@@ -954,6 +1006,7 @@ document.addEventListener('keydown', function (event) {
 $(document).keydown(function (e) {
     if (countConeRight % 2 != 0 || kdConeRight % 2 != 0) {
         if (e.which == 37) {
+            countBullet = 0;
             xScreen--;
             if (xScreen < 0) {
                 xScreen++;
@@ -968,6 +1021,7 @@ $(document).keydown(function (e) {
             return false;
         }
         if (e.which == 38) {
+            countBullet = 0;
             yScreen--;
             if (yScreen < 0) {
                 yScreen++;
@@ -981,6 +1035,7 @@ $(document).keydown(function (e) {
             return false;
         }
         if (e.which == 39) {
+            countBullet = 0;
             xScreen++;
             if (xScreen > 100) {
                 xScreen--;
@@ -994,6 +1049,7 @@ $(document).keydown(function (e) {
             return false;
         }
         if (e.which == 40) {
+            countBullet = 0;
             yScreen++;
             if (yScreen > 100) {
                 yScreen--;
