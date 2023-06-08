@@ -564,7 +564,7 @@ $("#btnFirered").on("click", function () {
     // vị trí Y k có %
     var screenY = +screenY_percent.split('%')[0];
 
-    if (((screenX <= 45 && screenX >= 43 && screenY >= 67 && screenY <= 71) ||(screenX <= 46 && screenX >= 46 && screenY >= 69 && screenY <= 70)) && countBullet == 4) {
+    if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) ||(screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
         $("#screenUser").addClass('d-none');
         $("#screenUser1").removeClass('d-none');
         $("#screenUser1").addClass('fired');
@@ -572,7 +572,7 @@ $("#btnFirered").on("click", function () {
         $("#screenUser12").addClass('d-none');
     }
 
-    if ((screenX==42 && screenY==10 || screenX == 41 && screenY == 10 || screenX ==41 && screenY == 9) && countBullet == 4) {
+    if ((screenX=49 && screenY==24 || screenX == 50 && screenY == 24 || screenX ==51 && screenY == 24|| screenX == 49 && screenY == 23) && countBullet == 4) {
         $("#screenUser").addClass('d-none');
         $("#screenUser1").addClass('d-none');
         $("#screenUser2").removeClass('d-none');
@@ -881,7 +881,7 @@ document.addEventListener('keydown', function (event) {
     // vị trí Y k có %
     var screenY = +screenY_percent.split('%')[0];
 
-    if (((screenX <= 45 && screenX >= 43 && screenY >= 67 && screenY <= 71) ||(screenX <= 46 && screenX >= 46 && screenY >= 69 && screenY <= 70)) && countBullet == 4) {
+    if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) ||(screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
         $("#screenUser").addClass('d-none');
         $("#screenUser1").removeClass('d-none');
         $("#screenUser1").addClass('fired');
@@ -889,7 +889,7 @@ document.addEventListener('keydown', function (event) {
         $("#screenUser12").addClass('d-none');
     }
 
-    if ((screenX==42 && screenY==10 || screenX == 41 && screenY == 10 || screenX ==41 && screenY == 9) && countBullet == 4) {
+    if ((screenX=49 && screenY==24 || screenX == 50 && screenY == 24 || screenX ==51 && screenY == 24|| screenX == 49 && screenY == 23) && countBullet == 4) {
         $("#screenUser").addClass('d-none');
         $("#screenUser1").addClass('d-none');
         $("#screenUser2").removeClass('d-none');
