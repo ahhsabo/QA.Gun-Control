@@ -25,30 +25,67 @@
       </div>
       <div style="width:720px;height:625px;">
         <div style="width: 697px;height:440px;position: relative; overflow: hidden;">
-          <div class="screenUser" id="screenUser" style="background-image:url('img/image-enemy.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          <div class="screenUser" id="screenUser"
+            style="background-image:url('img/image-enemy.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
           </div>
-          <div class="screenUser d-none" id="screenUser1" style="background-image:url('img/image-enemy1.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          <div class="screenUser d-none" id="screenUser1"
+            style="background-image:url('img/image-enemy1.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
           </div>
-          <div class="screenUser d-none" id="screenUser2" style="background-image:url('img/image-enemy2.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          <div class="screenUser d-none" id="screenUser2"
+            style="background-image:url('img/image-enemy2.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
           </div>
-          <div class="screenUser d-none" id="screenUser12" style="background-image:url('img/image-enemy12.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          <div class="screenUser d-none" id="screenUser12"
+            style="background-image:url('img/image-enemy12.jpg');background-repeat: no-repeat;filter:blur(1px); width: 705px; height: 440px;position: relative;background-position: 50% 50%;position: relative; z-index: 1; overflow: hidden;">
+          </div>
+
+          <div class="imgScreen" style="position: relative; z-index: 9;">
+            <img src="img/screen-bg3.png" style="position: absolute;margin-top: -440px;width: 705px;">
+          </div>
+          <!-- focusEnemy -->
+          <div class="focusEnemy" style="position: absolute; z-index: 10;margin-top: -695px;">
+            <div class="CrossHair">
+              <img src="img/CrossHair.png" style="width: 70px;height: 70px;">
+            </div>
+            <div class="noCrossHair d-none">
+              <img src="img/noCrossHair.png" style="width: 70px;height: 70px;">
+            </div>
+            <div class="vetdan d-none">
+              <img src="img/tialua.png" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
+            </div>
+          </div>
+          <div class="numBullet-box">
+            <div class="numBullet numBullet1 d-none">
+              <img src="img/bullet1.png">
+            </div>
+            <div class="numBullet numBullet2">
+              <img src="img/bullet2.png">
+            </div>
+            <div class="numBullet numBullet3 d-none">
+              <img src="img/bullet3.png">
+            </div>
           </div>
           
-            <div class="imgScreen" style="position: relative; z-index: 9;">
-              <img src="img/screen-bg3.png"  style="position: absolute;margin-top: -440px;width: 705px;">
-            </div>
-            <div class="focusEnemy" style="position: absolute; z-index: 10;margin-top: -695px;">
-              <div class="CrossHair">
-               <img src="img/CrossHair.png" style="width: 70px;height: 70px;">
-              </div>
-              <div class="noCrossHair d-none">
-                <img src="img/noCrossHair.png" style="width: 70px;height: 70px;">
-              </div>
-              <div class="vetdan d-none">
-                <img src="img/tialua.png" style="width: 150px;height: 150px;margin-top: -100px;margin-left: -40px;">
-              </div>
+          <span id="measureWhiteBtn" style="position: absolute;
+              width: 10px;
+              height: 20px;
+              margin-left: 275px;
+              margin-top: -828px;
+              z-index: 99;
+              color: white;
+              font-size: 8px;"></span>
 
-            </div>
+          <div class="directAngle">
+            <img src="img/direction-angle.png" style="width:35px;">
+          </div>
+
+          <span id="directAngleNum" style="position: absolute;
+            width: 10px;
+            height: 20px;
+            margin-left: 506px;
+            margin-top: -827px;
+            z-index: 99;
+            color: #1CFFD9;
+            font-size: 8px;">90</span>
         </div>
       </div>
 
@@ -87,14 +124,53 @@
 
 
     <div class="simulation col-12">
+
       <!-- LEFT JOYSTICK -->
       <div class="left-joystick__behind">
+
+
+        <div class="remoteSide" style="background-image: url('img/remote-side.png'); width:132px; height: 158px;">
+            <div class="row" style="
+            width: 118px;
+            margin-left: 6px;padding-top: 5px;">
+              <div id="btn-MOVE-test" class="btn col-6">
+                <div style="margin-bottom:30px;">
+                  <img class="red-btn" src="img/red-bar.png">
+                  <div class="on-off__btn on-off__MOVE-test">
+                    <img src="img/on-off-btn.png" data-name="MOV" data-toggle="tooltip" data-placement="top"
+                      title="MOVE">
+                  </div>
+                </div>
+                <span id="span-MOVE-test" class="span-btn led1"
+                  style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
+                <h5>MOVE</h5>
+              </div>
+              <div id="btn-FIRE-test" class="btn col-6">
+                <div style="margin-bottom:30px;">
+                  <img class="red-btn" src="img/red-bar.png">
+                  <div class="on-off__btn on-off__FIRE-test">
+                    <img src="img/on-off-btn.png" data-name="btnFire" data-toggle="tooltip" data-placement="top"
+                      title="FIRE">
+                  </div>
+                </div>
+                <span id="span-FIRE-test" class="span-btn led2"
+                  style="border:1px solid black;border-radius: 50%;width: 50px;height:50px;background-color: gray;font-size: 0%;">.</span>
+                <h5>FIRE</h5>
+              </div>
+            </div>
+          </div>
+
+
+
+
         <div style="background-image: url('img/LJ-behind.png');height: 414px;width:304px;">
-          <div >
-            <img src="img/btn-white-hori.png" style="margin: 105px 0 0 16px;" id="btnWhite" data-name="btnWhite" data-toggle="tooltip" data-placement="top" title="Đo cự li đến mục tiêu">
+          <div>
+            <img src="img/btn-white-hori.png" style="margin: 105px 0 0 16px;" id="btnWhite" data-name="btnWhite"
+              data-toggle="tooltip" data-placement="top" title="Đo cự li đến mục tiêu">
           </div>
           <div>
-            <img src="img/btn-hold.png" id="coneLeft" style="margin: 12px 0 0 43px;height: 54px;width: 63px;" data-name="coneLeft">
+            <img src="img/btn-hold.png" id="coneLeft" style="margin: 12px 0 0 43px;height: 54px;width: 63px;"
+              data-name="coneLeft">
           </div>
         </div>
       </div>
@@ -118,7 +194,6 @@
           <img id="btnFirered" src="img/btn-fire-red.png" data-toggle="tooltip" data-placement="top" title="Khai hỏa"
             style="margin-left: 30px;">
         </div>
-
       </div>
 
       <!-- BẢNG ĐIỀU KHIỂN -->
@@ -248,15 +323,14 @@
                   </div>
                 </div>
 
-
                 <span class="plus-minus__btn">
                   <h5>-</h5>
                 </span>
                 <h5>FOC</h5>
               </div>
               <div class="switch switch-center col-4">
-                <img id="autofocus-btn" class="led" src="img/autofocus-btn.png" data-name="AutoFocus" data-toggle="tooltip"
-                  data-placement="top" title="Tự động khóa mục tiêu"
+                <img id="autofocus-btn" class="led" src="img/autofocus-btn.png" data-name="AutoFocus"
+                  data-toggle="tooltip" data-placement="top" title="Tự động khóa mục tiêu"
                   style="padding: 0 30px;margin-top: 43px;margin-bottom: 25px;">
 
                 <div class="switch-zoom" id="switchCCD"
@@ -346,7 +420,8 @@
       <div class="right-joystick__behind">
         <div style="background-image: url('img/RJ-behind.png');height: 414px;width:304px;">
           <div>
-            <img src="img/btn-hold.png" id="coneRight" style="margin: 134px 0 0 43px;height: 54px;width: 63px;" data-name="coneRight" data-toggle="tooltip" data-placement="top" title="Côn cần điều khiển phải">
+            <img src="img/btn-hold.png" id="coneRight" style="margin: 134px 0 0 43px;height: 54px;width: 63px;"
+              data-name="coneRight" data-toggle="tooltip" data-placement="top" title="Côn cần điều khiển phải">
           </div>
         </div>
       </div>

@@ -89,6 +89,25 @@ ul li {
     justify-content: center;
 }
 
+.numBullet-box {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    margin-left: 193px;
+    margin-top: -815px;
+    z-index: 99;
+}
+
+.directAngle {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    margin-left: 492px;
+    margin-top: -838px;
+    z-index: 99;
+    rotate: 90deg;
+}
+
 .modeBtn {
     width: 900px;
     display: flex;
@@ -112,6 +131,10 @@ ul li {
     background-color: lightgray;
 }
 
+.remoteSide .col-6{
+padding:0 4px;
+width: 10px;
+}
 
 .imgScreen {
     width: 700px;
@@ -141,12 +164,15 @@ ul li {
     align-items: flex-end;
     margin-top: -185px;
 }
-.btn-l{
-    padding:0 4px;
+
+.btn-l {
+    padding: 0 4px;
 }
-.btn-r{
-    padding:0 4px;
+
+.btn-r {
+    padding: 0 4px;
 }
+
 .btn-left img {
     margin-bottom: 20px;
     opacity: 0.9;

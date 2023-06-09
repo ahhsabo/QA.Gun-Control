@@ -9,9 +9,11 @@
 // 8. Bật công tắc CHRG (nạp đạn)
 // 9. Bấm khai hỏa
 //                        0        1      2         3          4            5        6          7         
-const _FireProcess = ["modeAct", "LRF", "MOV", "modeFire","coneRight", "coneLeft", "btnFire", "CHRG",];
+const _FireProcess = ["modeAct", "LRF", "MOV", "modeFire", "coneRight", "coneLeft", "btnFire", "CHRG",];
 var INDEX = -1;
 var MODE = "F2";
+var directAngleX = 90;
+var angleNum = document.getElementById("directAngleNum");
 var sound = new Audio('img/gun12.7mm.mp3');
 //TRỢ GIÚP
 var countF1 = 0;
@@ -269,14 +271,23 @@ $("#center-btn h5").on("click", function () {
 });
 $("#SNLG").on("click", function () {
     $("#fire-mode__btn").css("rotate", "-45deg");
+    $(".numBullet1").removeClass('d-none');
+    $(".numBullet2").addClass('d-none');
+    $(".numBullet3").addClass('d-none');
 });
 
 $("#CONT").on("click", function () {
     $("#fire-mode__btn").css("rotate", "45deg");
+    $(".numBullet3").removeClass('d-none');
+    $(".numBullet1").addClass('d-none');
+    $(".numBullet2").addClass('d-none');
 });
 
 $("#BRST").on("click", function () {
     $("#fire-mode__btn").css("rotate", "0deg");
+    $(".numBullet2").removeClass('d-none');
+    $(".numBullet1").addClass('d-none');
+    $(".numBullet3").addClass('d-none');
 });
 
 
@@ -327,6 +338,39 @@ $(".on-off__OVER img").on("click", function () {
     }
 });
 
+//REMOTE SIDE
+//MOVE-TEST
+var countMOVEtest = 0;
+$(".on-off__MOVE-test img").on("click", function () {
+    countMOVEtest++;
+    if (countMOVEtest % 2 == 0) {
+        $(this).css("rotate", "0deg");
+        $("#span-MOVE-test").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
+    }
+    else {
+        $(this).css("rotate", "180deg");
+        $("#span-MOVE-test").css("background-color", "#0DFF0B");
+        $(".on-off__btn").addClass("active");
+    }
+});
+
+//FIRE-TEST btnFire
+var count__btnFiretest = 0;
+$(".on-off__FIRE-test img").on("click", function () {
+    count__btnFiretest++;
+    if (count__btnFiretest % 2 == 0) {
+        $(this).css("rotate", "0deg");
+        $("#span-FIRE-test").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
+    }
+    else {
+        $(this).css("rotate", "180deg");
+        $("#span-FIRE-test").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
+    }
+});
+
 //MOVE
 var countMOVE = 0;
 $(".on-off__MOVE img").on("click", function () {
@@ -350,6 +394,12 @@ $(".on-off__MOVE img").on("click", function () {
         $(this).css("rotate", "180deg");
         $("#span-MOVE").css("background-color", "#0DFF0B");
         $(".on-off__btn").addClass("active");
+        // let myVar = setInterval(setColor, 500);
+ 
+        // function setColor() {
+        //   var x = document.getElementById("span-MOVE");
+        //   x.style.backgroundColor = x.style.backgroundColor == "gray" ? "lawngreen" : "gray";
+        // }
     }
 });
 
@@ -367,17 +417,31 @@ $(".on-off__FIRE img").on("click", function () {
     }
 
     count__btnFire++;
-    if (count__btnFire % 2 == 0) {
-        $(this).css("rotate", "0deg");
+    if (count__btnFire % 2 != 0) {
+        $(".on-off__FIRE").css("rotate", "180deg");
+        $("#span-FIRE").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
+        // var myVar = setInterval(setColor, 500);
+        // function setColor() {
+        //   var x = document.getElementById("span-FIRE");
+        //   x.style.backgroundColor = x.style.backgroundColor == "gray" ? "orangered" : "gray";
+        // }
+    }
+
+    // else if (count__btnFire % 2 != 0 && countFiretest % 2 != 0 ){
+    //     $(".on-off__FIRE").css("rotate", "180deg");
+    //     $("#span-FIRE").css("background-color", "#FF562F");
+    //     $(".on-off__btn").addClass("active");
+    // }
+
+    else {
+        $(".on-off__FIRE").css("rotate", "0deg");
         $("#span-FIRE").css("background-color", "gray");
         $(".on-off__btn").removeClass("active");
     }
-    else {
-        $(this).css("rotate", "180deg");
-        $("#span-FIRE").css("background-color", "#FF562F");
-        $(".on-off__btn").addClass("active");
-    }
 });
+
+
 
 //CHRG
 var countCHRG = 0;
@@ -522,9 +586,80 @@ $("#coneLeft").on("click", function () {
     }
 });
 
+//Khai hoả
+var countBullet = 0;
+$("#btnFirered").on("click", function () {
+    if (count__btnFire % 2 == 1) {
+        countBullet++;
+        $(this).css("margin-top", "30px");
+        $(this).css("margin-left", "27px");
+        $(".vetdan").removeClass('d-none');
+        sound.play();
+        setTimeout(function () {
+            $("#btnFirered").css("margin-top", "26px");
+            $("#btnFirered").css("margin-left", "30px");
+        }, 200);
+        setTimeout(function () {
+            $(".vetdan").addClass('d-none');
+        }, 150);
+        // vị trí X có %
+        var screenX_percent = $("#screenUser").css("background-position-x");
+        // vị trí Y có %
+        var screenY_percent = $("#screenUser").css("background-position-y");
+        // vị trí X k có %
+        var screenX = +screenX_percent.split('%')[0];
+        // vị trí Y k có %
+        var screenY = +screenY_percent.split('%')[0];
+
+        if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) || (screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").removeClass('d-none');
+            $("#screenUser1").addClass('fired');
+            $("#screenUser2").addClass('d-none');
+            $("#screenUser12").addClass('d-none');
+        }
+
+        if ((screenX = 49 && screenY == 24 || screenX == 50 && screenY == 24 || screenX == 51 && screenY == 24 || screenX == 49 && screenY == 23) && countBullet == 4) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").addClass('d-none');
+            $("#screenUser2").removeClass('d-none');
+            $("#screenUser2").addClass('fired');
+            $("#screenUser12").addClass('d-none');
+        }
+
+        if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").addClass('d-none');
+            $("#screenUser2").addClass('d-none');
+            $("#screenUser12").removeClass('d-none');
+        }
+    }
+});
+
+
 //ButtonWhite
+var measureWhitebtn = document.getElementById("measureWhiteBtn");
 $("#btnWhite").on("click", function () {
     if ((countStab % 2 != 0)) {
+        // vị trí X có %
+        var screenX_percent = $("#screenUser").css("background-position-x");
+        // vị trí Y có %
+        var screenY_percent = $("#screenUser").css("background-position-y");
+        // vị trí X k có %
+        var screenX = +screenX_percent.split('%')[0];
+        // vị trí Y k có %
+        var screenY = +screenY_percent.split('%')[0];
+        if ((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) || (screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) {
+            measureWhitebtn.innerHTML = "1800";
+            $("#measureWhiteBtn").removeClass('d-none');
+        }
+        else if ((screenX = 49 && screenY == 24 || screenX == 50 && screenY == 24 || screenX == 51 && screenY == 24 || screenX == 49 && screenY == 23)) {
+            measureWhitebtn.innerHTML = "2000";
+            $("#measureWhiteBtn").removeClass('d-none');
+        }
+        else {
+            $("#measureWhiteBtn").addClass('d-none');
+        }
         $(this).css("margin-top", "103px");
         $(this).css("margin-left", "18px");
         $("#coneLeft").css("margin-top", "14px");
@@ -535,59 +670,10 @@ $("#btnWhite").on("click", function () {
             $("#coneLeft").css("margin-top", "12px");
             $("#coneLeft").css("margin-left", "43px");
         }, 200);
+
     }
 });
 
-//Khai hoả
-var countBullet = 0;
-$("#btnFirered").on("click", function () {
-    if(count__btnFire % 2 == 1){
-    countBullet++;
-    $(this).css("margin-top", "30px");
-    $(this).css("margin-left", "27px");
-    $(".vetdan").removeClass('d-none');
-    sound.play();
-    setTimeout(function () {
-        $("#btnFirered").css("margin-top", "26px");
-        $("#btnFirered").css("margin-left", "30px");
-    }, 200);
-    setTimeout(function () {
-        $(".vetdan").addClass('d-none');
-    }, 150);
-
-    // vị trí X có %
-    var screenX_percent = $("#screenUser").css("background-position-x");
-    // vị trí Y có %
-    var screenY_percent = $("#screenUser").css("background-position-y");
-    // vị trí X k có %
-    var screenX = +screenX_percent.split('%')[0];
-    // vị trí Y k có %
-    var screenY = +screenY_percent.split('%')[0];
-
-    if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) ||(screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").removeClass('d-none');
-        $("#screenUser1").addClass('fired');
-        $("#screenUser2").addClass('d-none');
-        $("#screenUser12").addClass('d-none');
-    }
-
-    if ((screenX=49 && screenY==24 || screenX == 50 && screenY == 24 || screenX ==51 && screenY == 24|| screenX == 49 && screenY == 23) && countBullet == 4) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").addClass('d-none');
-        $("#screenUser2").removeClass('d-none');
-        $("#screenUser2").addClass('fired');
-        $("#screenUser12").addClass('d-none');
-    }
-
-    if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").addClass('d-none');
-        $("#screenUser2").addClass('d-none');
-        $("#screenUser12").removeClass('d-none');
-    }
-}
-});
 
 //A S W D
 $("#left-LJ").on("click", function () {
@@ -693,6 +779,17 @@ $("#left-RJ").on("click", function () {
         }
         $("#left-RJ").css("background", "radial-gradient(black, transparent)");
         $(".screenUser").css("background-position-x", xScreen + "%");
+        if (directAngleX <= 140 && directAngleX >= 40) {
+            directAngleX--;
+            $(".directAngle").css("rotate", directAngleX + "deg");
+            angleNum.innerHTML = directAngleX;
+            if (directAngleX <= 99 && directAngleX >= 40) {
+                $("#directAngleNum").css("margin-left", "506px");
+            }
+            else {
+                $("#directAngleNum").css("margin-left", "503px");
+            }
+        }
         setTimeout(function () {
             $("#left-RJ").css("background", "white");
         }, 200);
@@ -725,6 +822,17 @@ $("#right-RJ").on("click", function () {
         }
         $("#right-RJ").css("background", "radial-gradient(black, transparent)");
         $(".screenUser").css("background-position-x", xScreen + "%");
+        if (directAngleX <= 140 && directAngleX >= 40) {
+            directAngleX++;
+            $(".directAngle").css("rotate", directAngleX + "deg");
+            angleNum.innerHTML = directAngleX;
+            if (directAngleX <= 99 && directAngleX >= 40) {
+                $("#directAngleNum").css("margin-left", "506px");
+            }
+            else {
+                $("#directAngleNum").css("margin-left", "503px");
+            }
+        }
         setTimeout(function () {
             $("#right-RJ").css("background", "white");
         }, 200);
@@ -871,38 +979,36 @@ document.addEventListener('keydown', function (event) {
             $("#btnFirered").css("margin-top", "26px");
             $("#btnFirered").css("margin-left", "30px");
         }, 200);
-
         // vị trí X có %
-    var screenX_percent = $("#screenUser").css("background-position-x");
-    // vị trí Y có %
-    var screenY_percent = $("#screenUser").css("background-position-y");
-    // vị trí X k có %
-    var screenX = +screenX_percent.split('%')[0];
-    // vị trí Y k có %
-    var screenY = +screenY_percent.split('%')[0];
+        var screenX_percent = $("#screenUser").css("background-position-x");
+        // vị trí Y có %
+        var screenY_percent = $("#screenUser").css("background-position-y");
+        // vị trí X k có %
+        var screenX = +screenX_percent.split('%')[0];
+        // vị trí Y k có %
+        var screenY = +screenY_percent.split('%')[0];
+        if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) || (screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").removeClass('d-none');
+            $("#screenUser1").addClass('fired');
+            $("#screenUser2").addClass('d-none');
+            $("#screenUser12").addClass('d-none');
+        }
 
-    if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) ||(screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").removeClass('d-none');
-        $("#screenUser1").addClass('fired');
-        $("#screenUser2").addClass('d-none');
-        $("#screenUser12").addClass('d-none');
-    }
+        if ((screenX = 49 && screenY == 24 || screenX == 50 && screenY == 24 || screenX == 51 && screenY == 24 || screenX == 49 && screenY == 23) && countBullet == 4) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").addClass('d-none');
+            $("#screenUser2").removeClass('d-none');
+            $("#screenUser2").addClass('fired');
+            $("#screenUser12").addClass('d-none');
+        }
 
-    if ((screenX=49 && screenY==24 || screenX == 50 && screenY == 24 || screenX ==51 && screenY == 24|| screenX == 49 && screenY == 23) && countBullet == 4) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").addClass('d-none');
-        $("#screenUser2").removeClass('d-none');
-        $("#screenUser2").addClass('fired');
-        $("#screenUser12").addClass('d-none');
-    }
-
-    if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
-        $("#screenUser").addClass('d-none');
-        $("#screenUser1").addClass('d-none');
-        $("#screenUser2").addClass('d-none');
-        $("#screenUser12").removeClass('d-none');
-    }
+        if ($("#screenUser2").hasClass('fired') && $("#screenUser1").hasClass('fired')) {
+            $("#screenUser").addClass('d-none');
+            $("#screenUser1").addClass('d-none');
+            $("#screenUser2").addClass('d-none');
+            $("#screenUser12").removeClass('d-none');
+        }
     }
 
     if (event.code == 'Space') {
@@ -941,7 +1047,26 @@ document.addEventListener('keydown', function (event) {
     }
 
     if (event.code == 'KeyR') {
-        if ((countStab % 2 != 0 && countConeLeft % 2 != 0)) {
+        if ((countStab % 2 != 0)) {
+            // vị trí X có %
+            var screenX_percent = $("#screenUser").css("background-position-x");
+            // vị trí Y có %
+            var screenY_percent = $("#screenUser").css("background-position-y");
+            // vị trí X k có %
+            var screenX = +screenX_percent.split('%')[0];
+            // vị trí Y k có %
+            var screenY = +screenY_percent.split('%')[0];
+            if ((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) || (screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) {
+                measureWhitebtn.innerHTML = "1800";
+                $("#measureWhiteBtn").removeClass('d-none');
+            }
+            else if ((screenX = 49 && screenY == 24 || screenX == 50 && screenY == 24 || screenX == 51 && screenY == 24 || screenX == 49 && screenY == 23)) {
+                measureWhitebtn.innerHTML = "2000";
+                $("#measureWhiteBtn").removeClass('d-none');
+            }
+            else {
+                $("#measureWhiteBtn").addClass('d-none');
+            }
             $("#btnWhite").css("margin-top", "103px");
             $("#btnWhite").css("margin-left", "18px");
             $("#coneLeft").css("margin-top", "18px");
@@ -977,7 +1102,7 @@ document.addEventListener('keydown', function (event) {
                 INDEX--;
                 return;
             }
-    
+
             if ($("#coneRight").data("name") != _FireProcess[4] || INDEX != 4) {
                 INDEX--;
                 alert("Thao tác sai. Vui lòng thử lại!");
@@ -1014,6 +1139,17 @@ $(document).keydown(function (e) {
             }
             $("#left-RJ").css("background", "radial-gradient(black, transparent)");
             $(".screenUser").css("background-position-x", xScreen + "%");
+            if (directAngleX <= 140 && directAngleX >= 40) {
+                directAngleX--;
+                $(".directAngle").css("rotate", directAngleX + "deg");
+                angleNum.innerHTML = directAngleX;
+                if (directAngleX <= 99 && directAngleX >= 40) {
+                    $("#directAngleNum").css("margin-left", "506px");
+                }
+                else {
+                    $("#directAngleNum").css("margin-left", "503px");
+                }
+            }
             setTimeout(function () {
                 $("#left-RJ").css("background", "white");
 
@@ -1043,6 +1179,17 @@ $(document).keydown(function (e) {
             }
             $("#right-RJ").css("background", "radial-gradient(black, transparent)");
             $(".screenUser").css("background-position-x", xScreen + "%");
+            if (directAngleX <= 140 && directAngleX >= 40) {
+                directAngleX++;
+                $(".directAngle").css("rotate", directAngleX + "deg");
+                angleNum.innerHTML = directAngleX;
+                if (directAngleX <= 99 && directAngleX >= 40) {
+                    $("#directAngleNum").css("margin-left", "506px");
+                }
+                else {
+                    $("#directAngleNum").css("margin-left", "503px");
+                }
+            }
             setTimeout(function () {
                 $("#right-RJ").css("background", "white");
             }, 200);
