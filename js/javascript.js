@@ -113,6 +113,20 @@ $(".on-off__LEDTEST img").on("click", function () {
         else {
             $("#span-FIRE").css("background-color", "#FF562F");
         }
+        //MOVE-test
+        if (countMOVEtest % 2 == 0) {
+            $("#span-MOVE-test").css("background-color", "gray");
+        }
+        else {
+            $("#span-MOVE-test").css("background-color", "#0DFF0B");
+        }
+        //FIRE-test
+        if (count__btnFiretest % 2 == 0) {
+            $("#span-FIRE-test").css("background-color", "gray");
+        }
+        else {
+            $("#span-FIRE-test").css("background-color", "#FF562F");
+        }
         //AUTOFOCUS
         if (count__AutoFocus % 2 != 0) {
             $("#autofocus-btn").css("filter", "brightness(200%)");
@@ -338,38 +352,152 @@ $(".on-off__OVER img").on("click", function () {
     }
 });
 
+function setColor() {
+    var x = document.getElementById("span-FIRE");
+    x.style.backgroundColor = x.style.backgroundColor == "gray" ? "orangered" : "gray";
+  }
+
+  function setColorMove() {
+    var x = document.getElementById("span-MOVE");
+    x.style.backgroundColor = x.style.backgroundColor == "gray" ? "lawngreen" : "gray";
+  }
 //REMOTE SIDE
 //MOVE-TEST
 var countMOVEtest = 0;
 $(".on-off__MOVE-test img").on("click", function () {
     countMOVEtest++;
-    if (countMOVEtest % 2 == 0) {
-        $(this).css("rotate", "0deg");
+    console.log(countMOVEtest,countMOVE);
+    $(".on-off__MOVE img").on("click", function () {
+        countMOVE;
+    });
+
+    if (countMOVE % 2 != 0 && countMOVEtest % 2 == 0 ) {
+        $(".on-off__MOVE-test").css("rotate", "0deg");
         $("#span-MOVE-test").css("background-color", "gray");
-        $(".on-off__btn").removeClass("active");
+        $(".on-off__btn").addClass("active");
+        myVarMove = setInterval(setColorMove, 500);
     }
-    else {
-        $(this).css("rotate", "180deg");
+
+    else if (countMOVE % 2 != 0 && countMOVEtest % 2 != 0 ){
+        $(".on-off__MOVE-test").css("rotate", "180deg");
+        $("#span-MOVE-test").css("background-color", "#0DFF0B");
+        $("#span-MOVE").css("background-color", "#0DFF0B");
+        $(".on-off__btn").addClass("active");
+        clearInterval(myVarMove);
+    }
+
+    else if (countMOVE % 2 == 0 && countMOVEtest % 2 != 0 ){
+        $(".on-off__MOVE-test").css("rotate", "180deg");
         $("#span-MOVE-test").css("background-color", "#0DFF0B");
         $(".on-off__btn").addClass("active");
+        clearInterval(myVarMove);
     }
+
+    else { //=0 =0
+        $(".on-off__MOVE-test").css("rotate", "0deg");
+        $("#span-MOVE-test").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
+        clearInterval(myVarMove);
+    }
+
 });
 
+
+var myVar;
+var myVarMove;
 //FIRE-TEST btnFire
 var count__btnFiretest = 0;
 $(".on-off__FIRE-test img").on("click", function () {
     count__btnFiretest++;
-    if (count__btnFiretest % 2 == 0) {
-        $(this).css("rotate", "0deg");
+    console.log(count__btnFiretest,count__btnFire);
+    $(".on-off__FIRE img").on("click", function () {
+        count__btnFire;
+    });
+
+    if (count__btnFire % 2 != 0 && count__btnFiretest % 2 == 0 ) {
+        $(".on-off__FIRE-test").css("rotate", "0deg");
         $("#span-FIRE-test").css("background-color", "gray");
-        $(".on-off__btn").removeClass("active");
+        $(".on-off__btn").addClass("active");
+        myVar = setInterval(setColor, 500);
     }
-    else {
-        $(this).css("rotate", "180deg");
+
+    else if (count__btnFire % 2 != 0 && count__btnFiretest % 2 != 0 ){
+        $(".on-off__FIRE-test").css("rotate", "180deg");
+        $("#span-FIRE-test").css("background-color", "#FF562F");
+        $("#span-FIRE").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
+        clearInterval(myVar);
+    }
+
+    else if (count__btnFire % 2 == 0 && count__btnFiretest % 2 != 0 ){
+        $(".on-off__FIRE-test").css("rotate", "180deg");
         $("#span-FIRE-test").css("background-color", "#FF562F");
         $(".on-off__btn").addClass("active");
+        clearInterval(myVar);
+    }
+
+    else { //=0 =0
+        $(".on-off__FIRE-test").css("rotate", "0deg");
+        $("#span-FIRE-test").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
+        clearInterval(myVar);
+    }
+
+});
+
+//FIRE btnFire
+var count__btnFire = 0;
+$(".on-off__FIRE img").on("click", function () {
+    if (MODE == "F3") {
+        INDEX++;
+        console.log(INDEX);
+        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
+            INDEX--;
+            alert("Thao tác sai. Vui lòng thử lại!");
+            return;
+        }
+    }
+    
+    count__btnFire++;
+    console.log(count__btnFiretest,count__btnFire);
+    $(".on-off__FIRE-test img").on("click", function () {
+        count__btnFiretest;
+        
+    });
+
+
+    if (count__btnFire % 2 != 0 && count__btnFiretest % 2 == 0 ) {
+        $(".on-off__FIRE").css("rotate", "180deg");
+        $("#span-FIRE").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
+        myVar = setInterval(setColor, 500);
+
+    }
+
+    else if (count__btnFire % 2 != 0 && count__btnFiretest % 2 != 0 ){
+        $(".on-off__FIRE").css("rotate", "180deg");
+        $("#span-FIRE").css("background-color", "#FF562F");
+        $(".on-off__btn").addClass("active");
+        clearInterval(myVar);
+    }
+
+    else if (count__btnFire % 2 == 0 && count__btnFiretest % 2 != 0 ){
+        $(".on-off__FIRE").css("rotate", "0deg");
+        $("#span-FIRE").css("background-color", "gray");
+        $(".on-off__btn").addClass("active");
+        clearInterval(myVar);
+    }
+
+    else { //=0 =0
+        $(".on-off__FIRE").css("rotate", "0deg");
+        $("#span-FIRE").css("background-color", "gray");
+        $(".on-off__btn").removeClass("active");
+        clearInterval(myVar);
     }
 });
+
+
+
 
 //MOVE
 var countMOVE = 0;
@@ -385,61 +513,47 @@ $(".on-off__MOVE img").on("click", function () {
     }
 
     countMOVE++;
-    if (countMOVE % 2 == 0) {
-        $(this).css("rotate", "0deg");
-        $("#span-MOVE").css("background-color", "gray");
-        $(".on-off__btn").removeClass("active");
-    }
-    else {
-        $(this).css("rotate", "180deg");
+    $(".on-off__MOVE-test img").on("click", function () {
+        countMOVEtest;
+        
+    });
+
+
+    if (countMOVE % 2 != 0 && countMOVEtest % 2 == 0 ) {
+        $(".on-off__MOVE").css("rotate", "180deg");
         $("#span-MOVE").css("background-color", "#0DFF0B");
         $(".on-off__btn").addClass("active");
-        // let myVar = setInterval(setColor, 500);
- 
-        // function setColor() {
-        //   var x = document.getElementById("span-MOVE");
-        //   x.style.backgroundColor = x.style.backgroundColor == "gray" ? "lawngreen" : "gray";
-        // }
-    }
-});
+        myVarMove = setInterval(setColorMove, 500);
 
-//FIRE btnFire
-var count__btnFire = 0;
-$(".on-off__FIRE img").on("click", function () {
-    if (MODE == "F3") {
-        INDEX++;
-        console.log(INDEX);
-        if ($(this).data("name") != _FireProcess[6] || INDEX != 6) {
-            INDEX--;
-            alert("Thao tác sai. Vui lòng thử lại!");
-            return;
-        }
     }
 
-    count__btnFire++;
-    if (count__btnFire % 2 != 0) {
-        $(".on-off__FIRE").css("rotate", "180deg");
-        $("#span-FIRE").css("background-color", "#FF562F");
+    else if (countMOVE % 2 != 0 && countMOVEtest % 2 != 0 ){
+        $(".on-off__MOVE").css("rotate", "180deg");
+        $("#span-MOVE").css("background-color", "#0DFF0B");
         $(".on-off__btn").addClass("active");
-        // var myVar = setInterval(setColor, 500);
-        // function setColor() {
-        //   var x = document.getElementById("span-FIRE");
-        //   x.style.backgroundColor = x.style.backgroundColor == "gray" ? "orangered" : "gray";
-        // }
+        clearInterval(myVarMove);
     }
 
-    // else if (count__btnFire % 2 != 0 && countFiretest % 2 != 0 ){
-    //     $(".on-off__FIRE").css("rotate", "180deg");
-    //     $("#span-FIRE").css("background-color", "#FF562F");
-    //     $(".on-off__btn").addClass("active");
-    // }
+    else if (countMOVE % 2 == 0 && countMOVEtest % 2 != 0 ){
+        $(".on-off__MOVE").css("rotate", "0deg");
+        $("#span-MOVE").css("background-color", "gray");
+        $(".on-off__btn").addClass("active");
+        clearInterval(myVarMove);
+    }
 
-    else {
-        $(".on-off__FIRE").css("rotate", "0deg");
-        $("#span-FIRE").css("background-color", "gray");
+    else { //=0 =0
+        $(".on-off__MOVE").css("rotate", "0deg");
+        $("#span-MOVE").css("background-color", "gray");
         $(".on-off__btn").removeClass("active");
+        clearInterval(myVarMove);
     }
 });
+
+
+
+
+
+
 
 
 
