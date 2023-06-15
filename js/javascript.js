@@ -582,13 +582,15 @@ $(".on-off__CHRG img").on("click", function () {
             return;
         }
     }
-
+    
     countCHRG++;
     if (countCHRG % 2 == 0) {
         $(this).css("rotate", "0deg");
     }
     else {
         $(this).css("rotate", "180deg");
+        numberDAN = 500;
+        numBullett500.innerHTML = numberDAN;
     }
 });
 
