@@ -14,7 +14,9 @@ var INDEX = -1;
 var MODE = "F2";
 var directAngleX = 90;
 var angleNum = document.getElementById("directAngleNum");
-var sound = new Audio('img/gun12.7mm.mp3');
+var soundSNLG = new Audio('img/bulletSNLG.mp3');
+var soundBRST = new Audio('img/bulletBRST.mp3');
+var soundCONT = new Audio('img/bulletCONT.mp3');
 //TRỢ GIÚP
 var countF1 = 0;
 function myFunctionF1() {
@@ -164,14 +166,17 @@ $(".btn-left img").on("click", function () {
     }
 });
 
+var modeSDS = document.getElementById("modeSDS");
 //Stab
 var countStab = 0;
 $("#stab").on("click", function () {
     countStab++;
     if (countStab % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
+        modeSDS.innerHTML = "";
     }
     else {
+        modeSDS.innerHTML = "STAB";
         $(this).css("filter", "brightness(200%)");
         $("#desig").css("filter", "brightness(100%)");
         $("#serv").css("filter", "brightness(100%)");
@@ -181,12 +186,15 @@ $("#stab").on("click", function () {
 });
 //Desig
 var countDesig = 0;
+
 $("#desig").on("click", function () {
     countDesig++;
     if (countDesig % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
+        modeSDS.innerHTML = "";
     }
     else {
+        modeSDS.innerHTML = "DESIGN";
         $(this).css("filter", "brightness(200%)");
         $("#stab").css("filter", "brightness(100%)");
         $("#serv").css("filter", "brightness(100%)");
@@ -200,8 +208,10 @@ $("#serv").on("click", function () {
     countServ++;
     if (countServ % 2 == 0) {
         $(this).css("filter", "brightness(100%)");
+        modeSDS.innerHTML = "";
     }
     else {
+        modeSDS.innerHTML = "SERV";
         $(this).css("filter", "brightness(200%)");
         $("#desig").css("filter", "brightness(100%)");
         $("#stab").css("filter", "brightness(100%)");
@@ -288,6 +298,9 @@ $("#SNLG").on("click", function () {
     $(".numBullet1").removeClass('d-none');
     $(".numBullet2").addClass('d-none');
     $(".numBullet3").addClass('d-none');
+    $("#fire-mode__btn").addClass('SNLG');
+    $("#fire-mode__btn").removeClass('CONT');
+    $("#fire-mode__btn").removeClass('BRST');
 });
 
 $("#CONT").on("click", function () {
@@ -295,6 +308,9 @@ $("#CONT").on("click", function () {
     $(".numBullet3").removeClass('d-none');
     $(".numBullet1").addClass('d-none');
     $(".numBullet2").addClass('d-none');
+    $("#fire-mode__btn").addClass('CONT');
+    $("#fire-mode__btn").removeClass('SNLG');
+    $("#fire-mode__btn").removeClass('BRST');
 });
 
 $("#BRST").on("click", function () {
@@ -302,6 +318,9 @@ $("#BRST").on("click", function () {
     $(".numBullet2").removeClass('d-none');
     $(".numBullet1").addClass('d-none');
     $(".numBullet3").addClass('d-none');
+    $("#fire-mode__btn").addClass('BRST');
+    $("#fire-mode__btn").removeClass('CONT');
+    $("#fire-mode__btn").removeClass('SNLG');
 });
 
 
@@ -436,7 +455,7 @@ $(".on-off__FIRE-test img").on("click", function () {
         clearInterval(myVar);
     }
 
-    else { //=0 =0
+    else { 
         $(".on-off__FIRE-test").css("rotate", "0deg");
         $("#span-FIRE-test").css("background-color", "gray");
         $(".on-off__btn").removeClass("active");
@@ -488,7 +507,7 @@ $(".on-off__FIRE img").on("click", function () {
         clearInterval(myVar);
     }
 
-    else { //=0 =0
+    else { 
         $(".on-off__FIRE").css("rotate", "0deg");
         $("#span-FIRE").css("background-color", "gray");
         $(".on-off__btn").removeClass("active");
@@ -511,13 +530,11 @@ $(".on-off__MOVE img").on("click", function () {
             return;
         }
     }
-
     countMOVE++;
     $(".on-off__MOVE-test img").on("click", function () {
         countMOVEtest;
         
     });
-
 
     if (countMOVE % 2 != 0 && countMOVEtest % 2 == 0 ) {
         $(".on-off__MOVE").css("rotate", "180deg");
@@ -541,17 +558,13 @@ $(".on-off__MOVE img").on("click", function () {
         clearInterval(myVarMove);
     }
 
-    else { //=0 =0
+    else {
         $(".on-off__MOVE").css("rotate", "0deg");
         $("#span-MOVE").css("background-color", "gray");
         $(".on-off__btn").removeClass("active");
         clearInterval(myVarMove);
     }
 });
-
-
-
-
 
 
 
@@ -700,15 +713,17 @@ $("#coneLeft").on("click", function () {
     }
 });
 
-//Khai hoả
+//Khai hỏa
+var numBullett500 = document.getElementById("numberBullet500");
+var numberDAN = 500;
 var countBullet = 0;
 $("#btnFirered").on("click", function () {
-    if (count__btnFire % 2 == 1) {
+    if (count__btnFire % 2 == 1 && count__btnFiretest % 2 == 1) {
         countBullet++;
         $(this).css("margin-top", "30px");
         $(this).css("margin-left", "27px");
         $(".vetdan").removeClass('d-none');
-        sound.play();
+        
         setTimeout(function () {
             $("#btnFirered").css("margin-top", "26px");
             $("#btnFirered").css("margin-left", "30px");
@@ -724,6 +739,21 @@ $("#btnFirered").on("click", function () {
         var screenX = +screenX_percent.split('%')[0];
         // vị trí Y k có %
         var screenY = +screenY_percent.split('%')[0];
+
+        if( $("#fire-mode__btn").hasClass('SNLG') && numberDAN>=0){
+            numberDAN -= 1;
+            soundSNLG.play();
+        }
+        if( $("#fire-mode__btn").hasClass('BRST')&& numberDAN>=0){
+            numberDAN -= 5;
+            soundBRST.play();
+        }
+        if( $("#fire-mode__btn").hasClass('CONT')&& numberDAN>=0){
+            numberDAN -= 20;
+            soundCONT.play();
+        }
+        numBullett500.innerHTML = numberDAN;
+
 
         if (((screenX <= 51 && screenX >= 49 && screenY >= 69 && screenY <= 71) || (screenX <= 50 && screenX >= 49 && screenY >= 68 && screenY <= 69)) && countBullet == 4) {
             $("#screenUser").addClass('d-none');
